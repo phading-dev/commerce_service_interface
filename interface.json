@@ -1,0 +1,57 @@
+[{
+  "name": "ListPaymentMethodsRequestBody",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "ListPaymentMethodsResponse",
+  "message": {
+    "fields": [{
+      "name": "paymentMethods",
+      "type": "PaymentMethodMasked",
+      "import": "./payment_method_masked",
+      "isArray": true
+    }]
+  }
+}, {
+  "name": "ListPaymentMethods",
+  "service": {
+    "path": "/ListPaymentMethods",
+    "body": "ListPaymentMethodsRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "ListPaymentMethodsResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "CreateStripeSessionToAddPaymentMethodRequestBody",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "CreateStripeSessionToAddPaymentMethodResponse",
+  "message": {
+    "fields": [{
+      "name": "redirectUrl",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "CreateStripeSessionToAddPaymentMethod",
+  "service": {
+    "path": "/CreateStripeSessionToAddPaymentMethod",
+    "body": "CreateStripeSessionToAddPaymentMethodRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "CreateStripeSessionToAddPaymentMethodResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}]

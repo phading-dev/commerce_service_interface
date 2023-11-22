@@ -1,0 +1,29 @@
+[{
+  "name": "CardMasked",
+  "message": {
+    "fields": [{
+      "name": "brand",
+      "type": "string"
+    }, {
+      "name": "lastFourDigits",
+      "type": "string"
+    }, {
+      "name": "expMonth",
+      "type": "number"
+    }, {
+      "name": "expYear",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "PaymentMethodMasked",
+  "message": {
+    "fields": [{
+      "name": "id",
+      "type": "string"
+    }, {
+      "name": "card",
+      "type": "CardMasked"
+    }]
+  }
+}]
