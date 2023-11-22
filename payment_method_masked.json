@@ -1,9 +1,38 @@
 [{
+  "name": "CardBrand",
+  "enum": {
+    "values": [{
+      "name": "AMEX",
+      "value": 1
+    }, {
+      "name": "DINERS",
+      "value": 2
+    }, {
+      "name": "DISCOVER",
+      "value": 3
+    }, {
+      "name": "EFTPOS_AU",
+      "value": 4
+    }, {
+      "name": "JCB",
+      "value": 5
+    }, {
+      "name": "MASTERCARD",
+      "value": 6
+    }, {
+      "name": "UNIONPAY",
+      "value": 7
+    }, {
+      "name": "VISA",
+      "value": 8
+    }]
+  }
+}, {
   "name": "CardMasked",
   "message": {
     "fields": [{
       "name": "brand",
-      "type": "string"
+      "type": "CardBrand"
     }, {
       "name": "lastFourDigits",
       "type": "string"
