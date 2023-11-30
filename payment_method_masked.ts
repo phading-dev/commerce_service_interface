@@ -4,11 +4,10 @@ export enum CardBrand {
   AMEX = 1,
   DINERS = 2,
   DISCOVER = 3,
-  EFTPOS_AU = 4,
-  JCB = 5,
-  MASTERCARD = 6,
-  UNIONPAY = 7,
-  VISA = 8,
+  JCB = 4,
+  MASTERCARD = 5,
+  UNIONPAY = 6,
+  VISA = 7,
 }
 
 export let CARD_BRAND: EnumDescriptor<CardBrand> = {
@@ -27,24 +26,20 @@ export let CARD_BRAND: EnumDescriptor<CardBrand> = {
       value: 3,
     },
     {
-      name: 'EFTPOS_AU',
+      name: 'JCB',
       value: 4,
     },
     {
-      name: 'JCB',
+      name: 'MASTERCARD',
       value: 5,
     },
     {
-      name: 'MASTERCARD',
+      name: 'UNIONPAY',
       value: 6,
     },
     {
-      name: 'UNIONPAY',
-      value: 7,
-    },
-    {
       name: 'VISA',
-      value: 8,
+      value: 7,
     },
   ]
 }

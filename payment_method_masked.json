@@ -11,20 +11,17 @@
       "name": "DISCOVER",
       "value": 3
     }, {
-      "name": "EFTPOS_AU",
+      "name": "JCB",
       "value": 4
     }, {
-      "name": "JCB",
+      "name": "MASTERCARD",
       "value": 5
     }, {
-      "name": "MASTERCARD",
+      "name": "UNIONPAY",
       "value": 6
     }, {
-      "name": "UNIONPAY",
-      "value": 7
-    }, {
       "name": "VISA",
-      "value": 8
+      "value": 7
     }]
   }
 }, {
