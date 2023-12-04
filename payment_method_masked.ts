@@ -1,6 +1,7 @@
 import { EnumDescriptor, MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 
 export enum CardBrand {
+  UNKNOWN = 0,
   AMEX = 1,
   DINERS = 2,
   DISCOVER = 3,
@@ -13,6 +14,10 @@ export enum CardBrand {
 export let CARD_BRAND: EnumDescriptor<CardBrand> = {
   name: 'CardBrand',
   values: [
+    {
+      name: 'UNKNOWN',
+      value: 0,
+    },
     {
       name: 'AMEX',
       value: 1,

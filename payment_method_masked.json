@@ -2,6 +2,9 @@
   "name": "CardBrand",
   "enum": {
     "values": [{
+      "name": "UNKNOWN",
+      "value": 0
+    }, {
       "name": "AMEX",
       "value": 1
     }, {
