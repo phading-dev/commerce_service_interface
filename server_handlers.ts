@@ -1,5 +1,5 @@
 import { ServiceHandlerInterface } from '@selfage/service_descriptor/service_handler_interface';
-import { LIST_PAYMENT_METHODS, ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse } from './interface';
+import { LIST_PAYMENT_METHODS, ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, UPDATE_PAYMENT_METHODS, UpdatePaymentMethodsRequestBody, UpdatePaymentMethodsResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse } from './interface';
 import { WebClientSession } from '@phading/user_session_service_interface/web_client_session';
 
 export abstract class ListPaymentMethodsHandlerInterface implements ServiceHandlerInterface {
@@ -9,6 +9,15 @@ export abstract class ListPaymentMethodsHandlerInterface implements ServiceHandl
     body: ListPaymentMethodsRequestBody,
     auth: WebClientSession,
   ): Promise<ListPaymentMethodsResponse>;
+}
+
+export abstract class UpdatePaymentMethodsHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = UPDATE_PAYMENT_METHODS;
+  public abstract handle(
+    requestId: string,
+    body: UpdatePaymentMethodsRequestBody,
+    auth: WebClientSession,
+  ): Promise<UpdatePaymentMethodsResponse>;
 }
 
 export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface implements ServiceHandlerInterface {

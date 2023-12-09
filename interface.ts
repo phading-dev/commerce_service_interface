@@ -2,6 +2,7 @@ import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
 import { ServiceDescriptor } from '@selfage/service_descriptor';
 import { WEB_CLIENT_SESSION } from '@phading/user_session_service_interface/web_client_session';
+import { PaymentMethodUpdates, PAYMENT_METHOD_UPDATES } from './payment_method_updates';
 
 export interface ListPaymentMethodsRequestBody {
 }
@@ -39,6 +40,44 @@ export let LIST_PAYMENT_METHODS: ServiceDescriptor = {
   },
   response: {
     messageType: LIST_PAYMENT_METHODS_RESPONSE,
+  },
+}
+
+export interface UpdatePaymentMethodsRequestBody {
+  paymentMethodUpdates?: PaymentMethodUpdates,
+}
+
+export let UPDATE_PAYMENT_METHODS_REQUEST_BODY: MessageDescriptor<UpdatePaymentMethodsRequestBody> = {
+  name: 'UpdatePaymentMethodsRequestBody',
+  fields: [
+    {
+      name: 'paymentMethodUpdates',
+      messageType: PAYMENT_METHOD_UPDATES,
+    },
+  ]
+};
+
+export interface UpdatePaymentMethodsResponse {
+}
+
+export let UPDATE_PAYMENT_METHODS_RESPONSE: MessageDescriptor<UpdatePaymentMethodsResponse> = {
+  name: 'UpdatePaymentMethodsResponse',
+  fields: [
+  ]
+};
+
+export let UPDATE_PAYMENT_METHODS: ServiceDescriptor = {
+  name: "UpdatePaymentMethods",
+  path: "/UpdatePaymentMethods",
+  body: {
+    messageType: UPDATE_PAYMENT_METHODS_REQUEST_BODY,
+  },
+  auth: {
+    key: "auth",
+    type: WEB_CLIENT_SESSION
+  },
+  response: {
+    messageType: UPDATE_PAYMENT_METHODS_RESPONSE,
   },
 }
 

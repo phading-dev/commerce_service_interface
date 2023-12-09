@@ -1,0 +1,29 @@
+[{
+  "name": "CardUpdates",
+  "message": {
+    "fields": [{
+      "name": "expMonth",
+      "type": "number"
+    }, {
+      "name": "expYear",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "PaymentMethodUpdates",
+  "message": {
+    "fields": [{
+      "name": "id",
+      "type": "string"
+    }, {
+      "name": "isPrimary",
+      "type": "boolean"
+    }, {
+      "name": "isBackup",
+      "type": "boolean"
+    }, {
+      "name": "card",
+      "type": "CardUpdates"
+    }]
+  }
+}]

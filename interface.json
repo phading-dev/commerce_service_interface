@@ -28,6 +28,34 @@
     "outputHandler": "./server_handlers"
   }
 }, {
+  "name": "UpdatePaymentMethodsRequestBody",
+  "message": {
+    "fields": [{
+      "name": "paymentMethodUpdates",
+      "type": "PaymentMethodUpdates",
+      "import": "./payment_method_updates"
+    }]
+  }
+}, {
+  "name": "UpdatePaymentMethodsResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "UpdatePaymentMethods",
+  "service": {
+    "path": "/UpdatePaymentMethods",
+    "body": "UpdatePaymentMethodsRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "UpdatePaymentMethodsResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
   "name": "CreateStripeSessionToAddPaymentMethodRequestBody",
   "message": {
     "fields": []
