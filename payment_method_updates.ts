@@ -1,4 +1,5 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { PaymentMethodPriority, PAYMENT_METHOD_PRIORITY } from './payment_method_priority';
 
 export interface CardUpdates {
   expMonth?: number,
@@ -21,8 +22,7 @@ export let CARD_UPDATES: MessageDescriptor<CardUpdates> = {
 
 export interface PaymentMethodUpdates {
   id?: string,
-  isPrimary?: boolean,
-  isBackup?: boolean,
+  priority?: PaymentMethodPriority,
   card?: CardUpdates,
 }
 
@@ -34,12 +34,8 @@ export let PAYMENT_METHOD_UPDATES: MessageDescriptor<PaymentMethodUpdates> = {
       primitiveType: PrimitiveType.STRING,
     },
     {
-      name: 'isPrimary',
-      primitiveType: PrimitiveType.BOOLEAN,
-    },
-    {
-      name: 'isBackup',
-      primitiveType: PrimitiveType.BOOLEAN,
+      name: 'priority',
+      enumType: PAYMENT_METHOD_PRIORITY,
     },
     {
       name: 'card',

@@ -16,11 +16,9 @@
       "name": "id",
       "type": "string"
     }, {
-      "name": "isPrimary",
-      "type": "boolean"
-    }, {
-      "name": "isBackup",
-      "type": "boolean"
+      "name": "priority",
+      "type": "PaymentMethodPriority",
+      "import": "./payment_method_priority"
     }, {
       "name": "card",
       "type": "CardUpdates"
