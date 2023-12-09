@@ -51,6 +51,12 @@
       "name": "id",
       "type": "string"
     }, {
+      "name": "isPrimary",
+      "type": "boolean"
+    }, {
+      "name": "isBackup",
+      "type": "boolean"
+    }, {
       "name": "card",
       "type": "CardMasked"
     }]

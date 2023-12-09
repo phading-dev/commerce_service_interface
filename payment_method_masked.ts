@@ -80,6 +80,8 @@ export let CARD_MASKED: MessageDescriptor<CardMasked> = {
 
 export interface PaymentMethodMasked {
   id?: string,
+  isPrimary?: boolean,
+  isBackup?: boolean,
   card?: CardMasked,
 }
 
@@ -89,6 +91,14 @@ export let PAYMENT_METHOD_MASKED: MessageDescriptor<PaymentMethodMasked> = {
     {
       name: 'id',
       primitiveType: PrimitiveType.STRING,
+    },
+    {
+      name: 'isPrimary',
+      primitiveType: PrimitiveType.BOOLEAN,
+    },
+    {
+      name: 'isBackup',
+      primitiveType: PrimitiveType.BOOLEAN,
     },
     {
       name: 'card',
