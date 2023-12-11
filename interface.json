@@ -58,7 +58,10 @@
 }, {
   "name": "CreateStripeSessionToAddPaymentMethodRequestBody",
   "message": {
-    "fields": []
+    "fields": [{
+      "name": "backUrl",
+      "type": "string"
+    }]
   }
 }, {
   "name": "CreateStripeSessionToAddPaymentMethodResponse",

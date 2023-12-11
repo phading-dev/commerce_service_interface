@@ -82,11 +82,16 @@ export let UPDATE_PAYMENT_METHODS: ServiceDescriptor = {
 }
 
 export interface CreateStripeSessionToAddPaymentMethodRequestBody {
+  backUrl?: string,
 }
 
 export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<CreateStripeSessionToAddPaymentMethodRequestBody> = {
   name: 'CreateStripeSessionToAddPaymentMethodRequestBody',
   fields: [
+    {
+      name: 'backUrl',
+      primitiveType: PrimitiveType.STRING,
+    },
   ]
 };
 
