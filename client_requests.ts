@@ -1,5 +1,5 @@
 import { WebServiceClientInterface } from '@selfage/service_descriptor/web_service_client_interface';
-import { ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, LIST_PAYMENT_METHODS, UpdatePaymentMethodsRequestBody, UpdatePaymentMethodsResponse, UPDATE_PAYMENT_METHODS, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD } from './interface';
+import { ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, LIST_PAYMENT_METHODS, UpdatePaymentMethodRequestBody, UpdatePaymentMethodResponse, UPDATE_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD } from './interface';
 
 export function listPaymentMethods(
   client: WebServiceClientInterface,
@@ -11,12 +11,12 @@ export function listPaymentMethods(
   });
 }
 
-export function updatePaymentMethods(
+export function updatePaymentMethod(
   client: WebServiceClientInterface,
-  body: UpdatePaymentMethodsRequestBody,
-): Promise<UpdatePaymentMethodsResponse> {
+  body: UpdatePaymentMethodRequestBody,
+): Promise<UpdatePaymentMethodResponse> {
   return client.send({
-    descriptor: UPDATE_PAYMENT_METHODS,
+    descriptor: UPDATE_PAYMENT_METHOD,
     body,
   });
 }

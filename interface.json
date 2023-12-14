@@ -28,7 +28,7 @@
     "outputHandler": "./server_handlers"
   }
 }, {
-  "name": "UpdatePaymentMethodsRequestBody",
+  "name": "UpdatePaymentMethodRequestBody",
   "message": {
     "fields": [{
       "name": "paymentMethodUpdates",
@@ -37,21 +37,21 @@
     }]
   }
 }, {
-  "name": "UpdatePaymentMethodsResponse",
+  "name": "UpdatePaymentMethodResponse",
   "message": {
     "fields": []
   }
 }, {
-  "name": "UpdatePaymentMethods",
+  "name": "UpdatePaymentMethod",
   "service": {
-    "path": "/UpdatePaymentMethods",
-    "body": "UpdatePaymentMethodsRequestBody",
+    "path": "/UpdatePaymentMethod",
+    "body": "UpdatePaymentMethodRequestBody",
     "auth": {
       "key": "auth",
       "type": "WebClientSession",
       "import": "@phading/user_session_service_interface/web_client_session"
     },
-    "response": "UpdatePaymentMethodsResponse",
+    "response": "UpdatePaymentMethodResponse",
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }

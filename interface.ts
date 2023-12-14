@@ -43,12 +43,12 @@ export let LIST_PAYMENT_METHODS: ServiceDescriptor = {
   },
 }
 
-export interface UpdatePaymentMethodsRequestBody {
+export interface UpdatePaymentMethodRequestBody {
   paymentMethodUpdates?: PaymentMethodUpdates,
 }
 
-export let UPDATE_PAYMENT_METHODS_REQUEST_BODY: MessageDescriptor<UpdatePaymentMethodsRequestBody> = {
-  name: 'UpdatePaymentMethodsRequestBody',
+export let UPDATE_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<UpdatePaymentMethodRequestBody> = {
+  name: 'UpdatePaymentMethodRequestBody',
   fields: [
     {
       name: 'paymentMethodUpdates',
@@ -57,27 +57,27 @@ export let UPDATE_PAYMENT_METHODS_REQUEST_BODY: MessageDescriptor<UpdatePaymentM
   ]
 };
 
-export interface UpdatePaymentMethodsResponse {
+export interface UpdatePaymentMethodResponse {
 }
 
-export let UPDATE_PAYMENT_METHODS_RESPONSE: MessageDescriptor<UpdatePaymentMethodsResponse> = {
-  name: 'UpdatePaymentMethodsResponse',
+export let UPDATE_PAYMENT_METHOD_RESPONSE: MessageDescriptor<UpdatePaymentMethodResponse> = {
+  name: 'UpdatePaymentMethodResponse',
   fields: [
   ]
 };
 
-export let UPDATE_PAYMENT_METHODS: ServiceDescriptor = {
-  name: "UpdatePaymentMethods",
-  path: "/UpdatePaymentMethods",
+export let UPDATE_PAYMENT_METHOD: ServiceDescriptor = {
+  name: "UpdatePaymentMethod",
+  path: "/UpdatePaymentMethod",
   body: {
-    messageType: UPDATE_PAYMENT_METHODS_REQUEST_BODY,
+    messageType: UPDATE_PAYMENT_METHOD_REQUEST_BODY,
   },
   auth: {
     key: "auth",
     type: WEB_CLIENT_SESSION
   },
   response: {
-    messageType: UPDATE_PAYMENT_METHODS_RESPONSE,
+    messageType: UPDATE_PAYMENT_METHOD_RESPONSE,
   },
 }
 
