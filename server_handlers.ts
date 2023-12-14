@@ -1,5 +1,5 @@
 import { ServiceHandlerInterface } from '@selfage/service_descriptor/service_handler_interface';
-import { LIST_PAYMENT_METHODS, ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, UPDATE_PAYMENT_METHOD, UpdatePaymentMethodRequestBody, UpdatePaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse } from './interface';
+import { LIST_PAYMENT_METHODS, ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, UPDATE_PAYMENT_METHOD, UpdatePaymentMethodRequestBody, UpdatePaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, DELETE_PAYMENT_METHOD, DeletePaymentMethodRequestBody, DeletePaymentMethodResponse } from './interface';
 import { WebClientSession } from '@phading/user_session_service_interface/web_client_session';
 
 export abstract class ListPaymentMethodsHandlerInterface implements ServiceHandlerInterface {
@@ -27,4 +27,13 @@ export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface impl
     body: CreateStripeSessionToAddPaymentMethodRequestBody,
     auth: WebClientSession,
   ): Promise<CreateStripeSessionToAddPaymentMethodResponse>;
+}
+
+export abstract class DeletePaymentMethodHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = DELETE_PAYMENT_METHOD;
+  public abstract handle(
+    requestId: string,
+    body: DeletePaymentMethodRequestBody,
+    auth: WebClientSession,
+  ): Promise<DeletePaymentMethodResponse>;
 }

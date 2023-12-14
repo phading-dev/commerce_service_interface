@@ -85,4 +85,31 @@
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }
+}, {
+  "name": "DeletePaymentMethodRequestBody",
+  "message": {
+    "fields": [{
+      "name": "id",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "DeletePaymentMethodResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "DeletePaymentMethod",
+  "service": {
+    "path": "/DeletePaymentMethod",
+    "body": "DeletePaymentMethodRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "DeletePaymentMethodResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
 }]

@@ -123,3 +123,41 @@ export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: ServiceDescriptor = {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_RESPONSE,
   },
 }
+
+export interface DeletePaymentMethodRequestBody {
+  id?: string,
+}
+
+export let DELETE_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<DeletePaymentMethodRequestBody> = {
+  name: 'DeletePaymentMethodRequestBody',
+  fields: [
+    {
+      name: 'id',
+      primitiveType: PrimitiveType.STRING,
+    },
+  ]
+};
+
+export interface DeletePaymentMethodResponse {
+}
+
+export let DELETE_PAYMENT_METHOD_RESPONSE: MessageDescriptor<DeletePaymentMethodResponse> = {
+  name: 'DeletePaymentMethodResponse',
+  fields: [
+  ]
+};
+
+export let DELETE_PAYMENT_METHOD: ServiceDescriptor = {
+  name: "DeletePaymentMethod",
+  path: "/DeletePaymentMethod",
+  body: {
+    messageType: DELETE_PAYMENT_METHOD_REQUEST_BODY,
+  },
+  auth: {
+    key: "auth",
+    type: WEB_CLIENT_SESSION
+  },
+  response: {
+    messageType: DELETE_PAYMENT_METHOD_RESPONSE,
+  },
+}
