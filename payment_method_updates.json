@@ -13,7 +13,7 @@
   "name": "PaymentMethodUpdates",
   "message": {
     "fields": [{
-      "name": "id",
+      "name": "paymentMethodId",
       "type": "string"
     }, {
       "name": "priority",

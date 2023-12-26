@@ -80,7 +80,7 @@ export let CARD_MASKED: MessageDescriptor<CardMasked> = {
 };
 
 export interface PaymentMethodMasked {
-  id?: string,
+  paymentMethodId?: string,
   priority?: PaymentMethodPriority,
   card?: CardMasked,
 }
@@ -89,7 +89,7 @@ export let PAYMENT_METHOD_MASKED: MessageDescriptor<PaymentMethodMasked> = {
   name: 'PaymentMethodMasked',
   fields: [
     {
-      name: 'id',
+      name: 'paymentMethodId',
       primitiveType: PrimitiveType.STRING,
     },
     {

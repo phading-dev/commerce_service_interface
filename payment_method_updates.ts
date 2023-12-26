@@ -21,7 +21,7 @@ export let CARD_UPDATES: MessageDescriptor<CardUpdates> = {
 };
 
 export interface PaymentMethodUpdates {
-  id?: string,
+  paymentMethodId?: string,
   priority?: PaymentMethodPriority,
   card?: CardUpdates,
 }
@@ -30,7 +30,7 @@ export let PAYMENT_METHOD_UPDATES: MessageDescriptor<PaymentMethodUpdates> = {
   name: 'PaymentMethodUpdates',
   fields: [
     {
-      name: 'id',
+      name: 'paymentMethodId',
       primitiveType: PrimitiveType.STRING,
     },
     {
