@@ -125,14 +125,14 @@ export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: ServiceDescriptor = {
 }
 
 export interface DeletePaymentMethodRequestBody {
-  id?: string,
+  paymentMethodId?: string,
 }
 
 export let DELETE_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<DeletePaymentMethodRequestBody> = {
   name: 'DeletePaymentMethodRequestBody',
   fields: [
     {
-      name: 'id',
+      name: 'paymentMethodId',
       primitiveType: PrimitiveType.STRING,
     },
   ]

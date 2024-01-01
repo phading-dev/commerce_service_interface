@@ -89,7 +89,7 @@
   "name": "DeletePaymentMethodRequestBody",
   "message": {
     "fields": [{
-      "name": "id",
+      "name": "paymentMethodId",
       "type": "string"
     }]
   }
