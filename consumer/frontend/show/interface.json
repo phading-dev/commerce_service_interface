@@ -13,7 +13,8 @@
     "fields": [{
       "name": "readings",
       "type": "MeterReadingPerSeason",
-      "import": "./meter_reading"
+      "import": "./meter_reading",
+      "isArray": true
     }]
   }
 }, {
@@ -45,7 +46,8 @@
     "fields": [{
       "name": "readings",
       "type": "MeterReadingPerDay",
-      "import": "./meter_reading"
+      "import": "./meter_reading",
+      "isArray": true
     }]
   }
 }, {
@@ -81,7 +83,8 @@
     "fields": [{
       "name": "readings",
       "type": "MeterReadingPerDay",
-      "import": "./meter_reading"
+      "import": "./meter_reading",
+      "isArray": true
     }]
   }
 }, {
