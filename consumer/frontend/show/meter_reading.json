@@ -1,0 +1,88 @@
+[{
+  "name": "SeasonSummary",
+  "message": {
+    "fields": [{
+      "name": "seasonId",
+      "type": "string"
+    }, {
+      "name": "name",
+      "type": "string"
+    }, {
+      "name": "coverImagePath",
+      "type": "string"
+    }]
+  }
+}, {
+  "name": "MeterReadingPerSeason",
+  "message": {
+    "fields": [{
+      "name": "season",
+      "type": "SeasonSummary"
+    }, {
+      "name": "watchTime",
+      "type": "number",
+      "comment": "In seconds"
+    }, {
+      "name": "charges",
+      "type": "number",
+      "comment": "Money in milli."
+    }]
+  }
+}, {
+  "name": "Date",
+  "message": {
+    "fields": [{
+      "name": "day",
+      "type": "number"
+    }, {
+      "name": "month",
+      "type": "number"
+    }, {
+      "name": "year",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "MeterReadingPerDay",
+  "message": {
+    "fields": [{
+      "name": "date",
+      "type": "Date"
+    }, {
+      "name": "watchTime",
+      "type": "number",
+      "comment": "In seconds"
+    }, {
+      "name": "charges",
+      "type": "number",
+      "comment": "Money in milli."
+    }]
+  }
+}, {
+  "name": "DateMonth",
+  "message": {
+    "fields": [{
+      "name": "month",
+      "type": "number"
+    }, {
+      "name": "year",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "MeterReadingPerMonth",
+  "message": {
+    "fields": [{
+      "name": "month",
+      "type": "DateMonth"
+    }, {
+      "name": "watchTime",
+      "type": "number",
+      "comment": "In seconds"
+    }, {
+      "name": "charges",
+      "type": "number",
+      "comment": "Money in milli."
+    }]
+  }
+}]

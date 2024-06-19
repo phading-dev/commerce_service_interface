@@ -1,7 +1,7 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
 import { ServiceDescriptor } from '@selfage/service_descriptor';
-import { WEB_CLIENT_SESSION } from '@phading/user_session_service_interface/web_client_session';
+import { CLIENT_SESSION } from '@phading/user_session_service_interface/client_session';
 import { PaymentMethodUpdates, PAYMENT_METHOD_UPDATES } from './payment_method_updates';
 
 export interface ListPaymentMethodsRequestBody {
@@ -36,7 +36,7 @@ export let LIST_PAYMENT_METHODS: ServiceDescriptor = {
   },
   auth: {
     key: "auth",
-    type: WEB_CLIENT_SESSION
+    type: CLIENT_SESSION
   },
   response: {
     messageType: LIST_PAYMENT_METHODS_RESPONSE,
@@ -74,7 +74,7 @@ export let UPDATE_PAYMENT_METHOD: ServiceDescriptor = {
   },
   auth: {
     key: "auth",
-    type: WEB_CLIENT_SESSION
+    type: CLIENT_SESSION
   },
   response: {
     messageType: UPDATE_PAYMENT_METHOD_RESPONSE,
@@ -117,7 +117,7 @@ export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: ServiceDescriptor = {
   },
   auth: {
     key: "auth",
-    type: WEB_CLIENT_SESSION
+    type: CLIENT_SESSION
   },
   response: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_RESPONSE,
@@ -155,7 +155,7 @@ export let DELETE_PAYMENT_METHOD: ServiceDescriptor = {
   },
   auth: {
     key: "auth",
-    type: WEB_CLIENT_SESSION
+    type: CLIENT_SESSION
   },
   response: {
     messageType: DELETE_PAYMENT_METHOD_RESPONSE,

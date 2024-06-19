@@ -20,8 +20,8 @@
     "body": "ListPaymentMethodsRequestBody",
     "auth": {
       "key": "auth",
-      "type": "WebClientSession",
-      "import": "@phading/user_session_service_interface/web_client_session"
+      "type": "ClientSession",
+      "import": "@phading/user_session_service_interface/client_session"
     },
     "response": "ListPaymentMethodsResponse",
     "outputWebClient": "./client_requests",
@@ -48,8 +48,8 @@
     "body": "UpdatePaymentMethodRequestBody",
     "auth": {
       "key": "auth",
-      "type": "WebClientSession",
-      "import": "@phading/user_session_service_interface/web_client_session"
+      "type": "ClientSession",
+      "import": "@phading/user_session_service_interface/client_session"
     },
     "response": "UpdatePaymentMethodResponse",
     "outputWebClient": "./client_requests",
@@ -78,8 +78,8 @@
     "body": "CreateStripeSessionToAddPaymentMethodRequestBody",
     "auth": {
       "key": "auth",
-      "type": "WebClientSession",
-      "import": "@phading/user_session_service_interface/web_client_session"
+      "type": "ClientSession",
+      "import": "@phading/user_session_service_interface/client_session"
     },
     "response": "CreateStripeSessionToAddPaymentMethodResponse",
     "outputWebClient": "./client_requests",
@@ -105,8 +105,8 @@
     "body": "DeletePaymentMethodRequestBody",
     "auth": {
       "key": "auth",
-      "type": "WebClientSession",
-      "import": "@phading/user_session_service_interface/web_client_session"
+      "type": "ClientSession",
+      "import": "@phading/user_session_service_interface/client_session"
     },
     "response": "DeletePaymentMethodResponse",
     "outputWebClient": "./client_requests",
