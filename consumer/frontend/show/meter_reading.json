@@ -19,9 +19,8 @@
       "name": "season",
       "type": "SeasonSummary"
     }, {
-      "name": "watchTime",
-      "type": "number",
-      "comment": "In seconds"
+      "name": "watchTimeMs",
+      "type": "number"
     }, {
       "name": "charges",
       "type": "number",
@@ -49,9 +48,8 @@
       "name": "date",
       "type": "Date"
     }, {
-      "name": "watchTime",
-      "type": "number",
-      "comment": "In seconds"
+      "name": "watchTimeMs",
+      "type": "number"
     }, {
       "name": "charges",
       "type": "number",
@@ -76,9 +74,8 @@
       "name": "month",
       "type": "DateMonth"
     }, {
-      "name": "watchTime",
-      "type": "number",
-      "comment": "In seconds"
+      "name": "watchTimeMs",
+      "type": "number"
     }, {
       "name": "charges",
       "type": "number",
