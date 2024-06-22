@@ -1,4 +1,31 @@
 [{
+  "name": "GetPricingRequestBody",
+  "message": {
+    "fields": [{
+      "name": "grade",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "GetPricingResponse",
+  "message": {
+    "fields": [{
+      "name": "money",
+      "type": "Money",
+      "import": "../../../money",
+      "comment": "USD. Per hour rate."
+    }]
+  }
+}, {
+  "name": "GetPricing",
+  "service": {
+    "path": "/GetPricing",
+    "body": "GetPricingRequestBody",
+    "response": "GetPricingResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
   "name": "ListMeterReadingsForDayRequestBody",
   "message": {
     "fields": [{

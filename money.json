@@ -1,0 +1,14 @@
+[{
+  "name": "Money",
+  "message": {
+    "fields": [{
+      "name": "integer",
+      "type": "number",
+      "comment": "Integer portion."
+    }, {
+      "name": "nano",
+      "type": "number",
+      "comment": "Fractional portion in nano."
+    }]
+  }
+}]

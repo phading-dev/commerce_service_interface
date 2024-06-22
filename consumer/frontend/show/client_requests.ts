@@ -1,5 +1,19 @@
 import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
-import { ListMeterReadingsForDayRequestBody, ListMeterReadingsForDayResponse, LIST_METER_READINGS_FOR_DAY, ListMeterReadingsForMonthRequestBody, ListMeterReadingsForMonthResponse, LIST_METER_READINGS_FOR_MONTH, ListMeterReadingsForMonthPeriodRequestBody, ListMeterReadingsForMonthPeriodResponse, LIST_METER_READINGS_FOR_MONTH_PERIOD } from './interface';
+import { GetPricingRequestBody, GetPricingResponse, GET_PRICING, ListMeterReadingsForDayRequestBody, ListMeterReadingsForDayResponse, LIST_METER_READINGS_FOR_DAY, ListMeterReadingsForMonthRequestBody, ListMeterReadingsForMonthResponse, LIST_METER_READINGS_FOR_MONTH, ListMeterReadingsForMonthPeriodRequestBody, ListMeterReadingsForMonthPeriodResponse, LIST_METER_READINGS_FOR_MONTH_PERIOD } from './interface';
+
+export function getPricing(
+  client: WebServiceClientInterface,
+  body: GetPricingRequestBody,
+  options?: WebServiceClientOptions,
+): Promise<GetPricingResponse> {
+  return client.send(
+    {
+      descriptor: GET_PRICING,
+      body,
+    },
+    options,
+  );
+}
 
 export function listMeterReadingsForDay(
   client: WebServiceClientInterface,
