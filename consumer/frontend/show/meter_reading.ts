@@ -1,4 +1,5 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { Money, MONEY } from '../../../money';
 
 export interface SeasonSummary {
   seasonId?: string,
@@ -27,8 +28,7 @@ export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
 export interface MeterReadingPerSeason {
   season?: SeasonSummary,
   watchTimeMs?: number,
-/* Money in milli. */
-  charges?: number,
+  charges?: Money,
 }
 
 export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = {
@@ -44,7 +44,7 @@ export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = 
     },
     {
       name: 'charges',
-      primitiveType: PrimitiveType.NUMBER,
+      messageType: MONEY,
     },
   ]
 };
@@ -76,8 +76,7 @@ export let DATE: MessageDescriptor<Date> = {
 export interface MeterReadingPerDay {
   date?: Date,
   watchTimeMs?: number,
-/* Money in milli. */
-  charges?: number,
+  charges?: Money,
 }
 
 export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
@@ -93,7 +92,7 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
     },
     {
       name: 'charges',
-      primitiveType: PrimitiveType.NUMBER,
+      messageType: MONEY,
     },
   ]
 };
@@ -120,8 +119,7 @@ export let DATE_MONTH: MessageDescriptor<DateMonth> = {
 export interface MeterReadingPerMonth {
   month?: DateMonth,
   watchTimeMs?: number,
-/* Money in milli. */
-  charges?: number,
+  charges?: Money,
 }
 
 export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
@@ -137,7 +135,7 @@ export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
     },
     {
       name: 'charges',
-      primitiveType: PrimitiveType.NUMBER,
+      messageType: MONEY,
     },
   ]
 };

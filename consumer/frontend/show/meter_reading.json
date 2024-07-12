@@ -23,8 +23,8 @@
       "type": "number"
     }, {
       "name": "charges",
-      "type": "number",
-      "comment": "Money in milli."
+      "type": "Money",
+      "import": "../../../money"
     }]
   }
 }, {
@@ -52,8 +52,8 @@
       "type": "number"
     }, {
       "name": "charges",
-      "type": "number",
-      "comment": "Money in milli."
+      "type": "Money",
+      "import": "../../../money"
     }]
   }
 }, {
@@ -78,8 +78,8 @@
       "type": "number"
     }, {
       "name": "charges",
-      "type": "number",
-      "comment": "Money in milli."
+      "type": "Money",
+      "import": "../../../money"
     }]
   }
 }]
