@@ -90,6 +90,7 @@ export let LIST_METER_READINGS_PER_SEASON: ServiceDescriptor = {
 
 export interface ListMeterReadingsPerDayRequestBody {
   startDate?: DateMonth,
+/* Inclusive. */
   endDate?: DateMonth,
 }
 
@@ -139,6 +140,7 @@ export let LIST_METER_READINGS_PER_DAY: ServiceDescriptor = {
 
 export interface ListMeterReadingsPerMonthRequestBody {
   startMonth?: DateMonth,
+/* Inclusive. */
   endMonth?: DateMonth,
 }
 
