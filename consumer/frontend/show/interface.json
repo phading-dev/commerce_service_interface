@@ -26,16 +26,16 @@
     "outputHandler": "./server_handlers"
   }
 }, {
-  "name": "ListMeterReadingsForDayRequestBody",
+  "name": "ListMeterReadingsPerSeasonRequestBody",
   "message": {
     "fields": [{
-      "name": "day",
+      "name": "date",
       "type": "Date",
       "import": "./meter_reading"
     }]
   }
 }, {
-  "name": "ListMeterReadingsForDayResponse",
+  "name": "ListMeterReadingsPerSeasonResponse",
   "message": {
     "fields": [{
       "name": "readings",
@@ -45,30 +45,34 @@
     }]
   }
 }, {
-  "name": "ListMeterReadingsForDay",
+  "name": "ListMeterReadingsPerSeason",
   "service": {
-    "path": "/ListMeterReadingsForDay",
-    "body": "ListMeterReadingsForDayRequestBody",
+    "path": "/ListMeterReadingsPerSeason",
+    "body": "ListMeterReadingsPerSeasonRequestBody",
     "auth": {
       "key": "auth",
       "type": "ClientSession",
       "import": "@phading/user_session_service_interface/client_session"
     },
-    "response": "ListMeterReadingsForDayResponse",
+    "response": "ListMeterReadingsPerSeasonResponse",
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }
 }, {
-  "name": "ListMeterReadingsForMonthRequestBody",
+  "name": "ListMeterReadingsPerDayRequestBody",
   "message": {
     "fields": [{
-      "name": "month",
+      "name": "startDate",
+      "type": "DateMonth",
+      "import": "./meter_reading"
+    }, {
+      "name": "endDate",
       "type": "DateMonth",
       "import": "./meter_reading"
     }]
   }
 }, {
-  "name": "ListMeterReadingsForMonthResponse",
+  "name": "ListMeterReadingsPerDayResponse",
   "message": {
     "fields": [{
       "name": "readings",
@@ -78,21 +82,21 @@
     }]
   }
 }, {
-  "name": "ListMeterReadingsForMonth",
+  "name": "ListMeterReadingsPerDay",
   "service": {
-    "path": "/ListMeterReadingsForMonth",
-    "body": "ListMeterReadingsForMonthRequestBody",
+    "path": "/ListMeterReadingsPerDay",
+    "body": "ListMeterReadingsPerDayRequestBody",
     "auth": {
       "key": "auth",
       "type": "ClientSession",
       "import": "@phading/user_session_service_interface/client_session"
     },
-    "response": "ListMeterReadingsForMonthResponse",
+    "response": "ListMeterReadingsPerDayResponse",
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }
 }, {
-  "name": "ListMeterReadingsForMonthPeriodRequestBody",
+  "name": "ListMeterReadingsPerMonthRequestBody",
   "message": {
     "fields": [{
       "name": "startMonth",
@@ -105,26 +109,26 @@
     }]
   }
 }, {
-  "name": "ListMeterReadingsForMonthPeriodResponse",
+  "name": "ListMeterReadingsPerMonthResponse",
   "message": {
     "fields": [{
       "name": "readings",
-      "type": "MeterReadingPerDay",
+      "type": "MeterReadingPerMonth",
       "import": "./meter_reading",
       "isArray": true
     }]
   }
 }, {
-  "name": "ListMeterReadingsForMonthPeriod",
+  "name": "ListMeterReadingsPerMonth",
   "service": {
-    "path": "/ListMeterReadingsForMonthPeriod",
-    "body": "ListMeterReadingsForMonthPeriodRequestBody",
+    "path": "/ListMeterReadingsPerMonth",
+    "body": "ListMeterReadingsPerMonthRequestBody",
     "auth": {
       "key": "auth",
       "type": "ClientSession",
       "import": "@phading/user_session_service_interface/client_session"
     },
-    "response": "ListMeterReadingsForMonthPeriodResponse",
+    "response": "ListMeterReadingsPerMonthResponse",
     "outputWebClient": "./client_requests",
     "outputHandler": "./server_handlers"
   }

@@ -1,7 +1,7 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { Money, MONEY } from '../../../money';
 import { ServiceDescriptor } from '@selfage/service_descriptor';
-import { Date, DATE, MeterReadingPerSeason, METER_READING_PER_SEASON, DateMonth, DATE_MONTH, MeterReadingPerDay, METER_READING_PER_DAY } from './meter_reading';
+import { Date, DATE, MeterReadingPerSeason, METER_READING_PER_SEASON, DateMonth, DATE_MONTH, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
 import { CLIENT_SESSION } from '@phading/user_session_service_interface/client_session';
 
 export interface GetPricingRequestBody {
@@ -44,26 +44,26 @@ export let GET_PRICING: ServiceDescriptor = {
   },
 }
 
-export interface ListMeterReadingsForDayRequestBody {
-  day?: Date,
+export interface ListMeterReadingsPerSeasonRequestBody {
+  date?: Date,
 }
 
-export let LIST_METER_READINGS_FOR_DAY_REQUEST_BODY: MessageDescriptor<ListMeterReadingsForDayRequestBody> = {
-  name: 'ListMeterReadingsForDayRequestBody',
+export let LIST_METER_READINGS_PER_SEASON_REQUEST_BODY: MessageDescriptor<ListMeterReadingsPerSeasonRequestBody> = {
+  name: 'ListMeterReadingsPerSeasonRequestBody',
   fields: [
     {
-      name: 'day',
+      name: 'date',
       messageType: DATE,
     },
   ]
 };
 
-export interface ListMeterReadingsForDayResponse {
+export interface ListMeterReadingsPerSeasonResponse {
   readings?: Array<MeterReadingPerSeason>,
 }
 
-export let LIST_METER_READINGS_FOR_DAY_RESPONSE: MessageDescriptor<ListMeterReadingsForDayResponse> = {
-  name: 'ListMeterReadingsForDayResponse',
+export let LIST_METER_READINGS_PER_SEASON_RESPONSE: MessageDescriptor<ListMeterReadingsPerSeasonResponse> = {
+  name: 'ListMeterReadingsPerSeasonResponse',
   fields: [
     {
       name: 'readings',
@@ -73,41 +73,46 @@ export let LIST_METER_READINGS_FOR_DAY_RESPONSE: MessageDescriptor<ListMeterRead
   ]
 };
 
-export let LIST_METER_READINGS_FOR_DAY: ServiceDescriptor = {
-  name: "ListMeterReadingsForDay",
-  path: "/ListMeterReadingsForDay",
+export let LIST_METER_READINGS_PER_SEASON: ServiceDescriptor = {
+  name: "ListMeterReadingsPerSeason",
+  path: "/ListMeterReadingsPerSeason",
   body: {
-    messageType: LIST_METER_READINGS_FOR_DAY_REQUEST_BODY,
+    messageType: LIST_METER_READINGS_PER_SEASON_REQUEST_BODY,
   },
   auth: {
     key: "auth",
     type: CLIENT_SESSION
   },
   response: {
-    messageType: LIST_METER_READINGS_FOR_DAY_RESPONSE,
+    messageType: LIST_METER_READINGS_PER_SEASON_RESPONSE,
   },
 }
 
-export interface ListMeterReadingsForMonthRequestBody {
-  month?: DateMonth,
+export interface ListMeterReadingsPerDayRequestBody {
+  startDate?: DateMonth,
+  endDate?: DateMonth,
 }
 
-export let LIST_METER_READINGS_FOR_MONTH_REQUEST_BODY: MessageDescriptor<ListMeterReadingsForMonthRequestBody> = {
-  name: 'ListMeterReadingsForMonthRequestBody',
+export let LIST_METER_READINGS_PER_DAY_REQUEST_BODY: MessageDescriptor<ListMeterReadingsPerDayRequestBody> = {
+  name: 'ListMeterReadingsPerDayRequestBody',
   fields: [
     {
-      name: 'month',
+      name: 'startDate',
+      messageType: DATE_MONTH,
+    },
+    {
+      name: 'endDate',
       messageType: DATE_MONTH,
     },
   ]
 };
 
-export interface ListMeterReadingsForMonthResponse {
+export interface ListMeterReadingsPerDayResponse {
   readings?: Array<MeterReadingPerDay>,
 }
 
-export let LIST_METER_READINGS_FOR_MONTH_RESPONSE: MessageDescriptor<ListMeterReadingsForMonthResponse> = {
-  name: 'ListMeterReadingsForMonthResponse',
+export let LIST_METER_READINGS_PER_DAY_RESPONSE: MessageDescriptor<ListMeterReadingsPerDayResponse> = {
+  name: 'ListMeterReadingsPerDayResponse',
   fields: [
     {
       name: 'readings',
@@ -117,28 +122,28 @@ export let LIST_METER_READINGS_FOR_MONTH_RESPONSE: MessageDescriptor<ListMeterRe
   ]
 };
 
-export let LIST_METER_READINGS_FOR_MONTH: ServiceDescriptor = {
-  name: "ListMeterReadingsForMonth",
-  path: "/ListMeterReadingsForMonth",
+export let LIST_METER_READINGS_PER_DAY: ServiceDescriptor = {
+  name: "ListMeterReadingsPerDay",
+  path: "/ListMeterReadingsPerDay",
   body: {
-    messageType: LIST_METER_READINGS_FOR_MONTH_REQUEST_BODY,
+    messageType: LIST_METER_READINGS_PER_DAY_REQUEST_BODY,
   },
   auth: {
     key: "auth",
     type: CLIENT_SESSION
   },
   response: {
-    messageType: LIST_METER_READINGS_FOR_MONTH_RESPONSE,
+    messageType: LIST_METER_READINGS_PER_DAY_RESPONSE,
   },
 }
 
-export interface ListMeterReadingsForMonthPeriodRequestBody {
+export interface ListMeterReadingsPerMonthRequestBody {
   startMonth?: DateMonth,
   endMonth?: DateMonth,
 }
 
-export let LIST_METER_READINGS_FOR_MONTH_PERIOD_REQUEST_BODY: MessageDescriptor<ListMeterReadingsForMonthPeriodRequestBody> = {
-  name: 'ListMeterReadingsForMonthPeriodRequestBody',
+export let LIST_METER_READINGS_PER_MONTH_REQUEST_BODY: MessageDescriptor<ListMeterReadingsPerMonthRequestBody> = {
+  name: 'ListMeterReadingsPerMonthRequestBody',
   fields: [
     {
       name: 'startMonth',
@@ -151,32 +156,32 @@ export let LIST_METER_READINGS_FOR_MONTH_PERIOD_REQUEST_BODY: MessageDescriptor<
   ]
 };
 
-export interface ListMeterReadingsForMonthPeriodResponse {
-  readings?: Array<MeterReadingPerDay>,
+export interface ListMeterReadingsPerMonthResponse {
+  readings?: Array<MeterReadingPerMonth>,
 }
 
-export let LIST_METER_READINGS_FOR_MONTH_PERIOD_RESPONSE: MessageDescriptor<ListMeterReadingsForMonthPeriodResponse> = {
-  name: 'ListMeterReadingsForMonthPeriodResponse',
+export let LIST_METER_READINGS_PER_MONTH_RESPONSE: MessageDescriptor<ListMeterReadingsPerMonthResponse> = {
+  name: 'ListMeterReadingsPerMonthResponse',
   fields: [
     {
       name: 'readings',
-      messageType: METER_READING_PER_DAY,
+      messageType: METER_READING_PER_MONTH,
       isArray: true,
     },
   ]
 };
 
-export let LIST_METER_READINGS_FOR_MONTH_PERIOD: ServiceDescriptor = {
-  name: "ListMeterReadingsForMonthPeriod",
-  path: "/ListMeterReadingsForMonthPeriod",
+export let LIST_METER_READINGS_PER_MONTH: ServiceDescriptor = {
+  name: "ListMeterReadingsPerMonth",
+  path: "/ListMeterReadingsPerMonth",
   body: {
-    messageType: LIST_METER_READINGS_FOR_MONTH_PERIOD_REQUEST_BODY,
+    messageType: LIST_METER_READINGS_PER_MONTH_REQUEST_BODY,
   },
   auth: {
     key: "auth",
     type: CLIENT_SESSION
   },
   response: {
-    messageType: LIST_METER_READINGS_FOR_MONTH_PERIOD_RESPONSE,
+    messageType: LIST_METER_READINGS_PER_MONTH_RESPONSE,
   },
 }

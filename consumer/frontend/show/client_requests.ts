@@ -1,5 +1,5 @@
 import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
-import { GetPricingRequestBody, GetPricingResponse, GET_PRICING, ListMeterReadingsForDayRequestBody, ListMeterReadingsForDayResponse, LIST_METER_READINGS_FOR_DAY, ListMeterReadingsForMonthRequestBody, ListMeterReadingsForMonthResponse, LIST_METER_READINGS_FOR_MONTH, ListMeterReadingsForMonthPeriodRequestBody, ListMeterReadingsForMonthPeriodResponse, LIST_METER_READINGS_FOR_MONTH_PERIOD } from './interface';
+import { GetPricingRequestBody, GetPricingResponse, GET_PRICING, ListMeterReadingsPerSeasonRequestBody, ListMeterReadingsPerSeasonResponse, LIST_METER_READINGS_PER_SEASON, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse, LIST_METER_READINGS_PER_MONTH } from './interface';
 
 export function getPricing(
   client: WebServiceClientInterface,
@@ -15,42 +15,42 @@ export function getPricing(
   );
 }
 
-export function listMeterReadingsForDay(
+export function listMeterReadingsPerSeason(
   client: WebServiceClientInterface,
-  body: ListMeterReadingsForDayRequestBody,
+  body: ListMeterReadingsPerSeasonRequestBody,
   options?: WebServiceClientOptions,
-): Promise<ListMeterReadingsForDayResponse> {
+): Promise<ListMeterReadingsPerSeasonResponse> {
   return client.send(
     {
-      descriptor: LIST_METER_READINGS_FOR_DAY,
+      descriptor: LIST_METER_READINGS_PER_SEASON,
       body,
     },
     options,
   );
 }
 
-export function listMeterReadingsForMonth(
+export function listMeterReadingsPerDay(
   client: WebServiceClientInterface,
-  body: ListMeterReadingsForMonthRequestBody,
+  body: ListMeterReadingsPerDayRequestBody,
   options?: WebServiceClientOptions,
-): Promise<ListMeterReadingsForMonthResponse> {
+): Promise<ListMeterReadingsPerDayResponse> {
   return client.send(
     {
-      descriptor: LIST_METER_READINGS_FOR_MONTH,
+      descriptor: LIST_METER_READINGS_PER_DAY,
       body,
     },
     options,
   );
 }
 
-export function listMeterReadingsForMonthPeriod(
+export function listMeterReadingsPerMonth(
   client: WebServiceClientInterface,
-  body: ListMeterReadingsForMonthPeriodRequestBody,
+  body: ListMeterReadingsPerMonthRequestBody,
   options?: WebServiceClientOptions,
-): Promise<ListMeterReadingsForMonthPeriodResponse> {
+): Promise<ListMeterReadingsPerMonthResponse> {
   return client.send(
     {
-      descriptor: LIST_METER_READINGS_FOR_MONTH_PERIOD,
+      descriptor: LIST_METER_READINGS_PER_MONTH,
       body,
     },
     options,

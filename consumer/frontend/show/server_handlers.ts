@@ -1,5 +1,5 @@
 import { ServiceHandlerInterface } from '@selfage/service_descriptor/service_handler_interface';
-import { GET_PRICING, GetPricingRequestBody, GetPricingResponse, LIST_METER_READINGS_FOR_DAY, ListMeterReadingsForDayRequestBody, ListMeterReadingsForDayResponse, LIST_METER_READINGS_FOR_MONTH, ListMeterReadingsForMonthRequestBody, ListMeterReadingsForMonthResponse, LIST_METER_READINGS_FOR_MONTH_PERIOD, ListMeterReadingsForMonthPeriodRequestBody, ListMeterReadingsForMonthPeriodResponse } from './interface';
+import { GET_PRICING, GetPricingRequestBody, GetPricingResponse, LIST_METER_READINGS_PER_SEASON, ListMeterReadingsPerSeasonRequestBody, ListMeterReadingsPerSeasonResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse } from './interface';
 import { ClientSession } from '@phading/user_session_service_interface/client_session';
 
 export abstract class GetPricingHandlerInterface implements ServiceHandlerInterface {
@@ -10,29 +10,29 @@ export abstract class GetPricingHandlerInterface implements ServiceHandlerInterf
   ): Promise<GetPricingResponse>;
 }
 
-export abstract class ListMeterReadingsForDayHandlerInterface implements ServiceHandlerInterface {
-  public descriptor = LIST_METER_READINGS_FOR_DAY;
+export abstract class ListMeterReadingsPerSeasonHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = LIST_METER_READINGS_PER_SEASON;
   public abstract handle(
     loggingPrefix: string,
-    body: ListMeterReadingsForDayRequestBody,
+    body: ListMeterReadingsPerSeasonRequestBody,
     auth: ClientSession,
-  ): Promise<ListMeterReadingsForDayResponse>;
+  ): Promise<ListMeterReadingsPerSeasonResponse>;
 }
 
-export abstract class ListMeterReadingsForMonthHandlerInterface implements ServiceHandlerInterface {
-  public descriptor = LIST_METER_READINGS_FOR_MONTH;
+export abstract class ListMeterReadingsPerDayHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = LIST_METER_READINGS_PER_DAY;
   public abstract handle(
     loggingPrefix: string,
-    body: ListMeterReadingsForMonthRequestBody,
+    body: ListMeterReadingsPerDayRequestBody,
     auth: ClientSession,
-  ): Promise<ListMeterReadingsForMonthResponse>;
+  ): Promise<ListMeterReadingsPerDayResponse>;
 }
 
-export abstract class ListMeterReadingsForMonthPeriodHandlerInterface implements ServiceHandlerInterface {
-  public descriptor = LIST_METER_READINGS_FOR_MONTH_PERIOD;
+export abstract class ListMeterReadingsPerMonthHandlerInterface implements ServiceHandlerInterface {
+  public descriptor = LIST_METER_READINGS_PER_MONTH;
   public abstract handle(
     loggingPrefix: string,
-    body: ListMeterReadingsForMonthPeriodRequestBody,
+    body: ListMeterReadingsPerMonthRequestBody,
     auth: ClientSession,
-  ): Promise<ListMeterReadingsForMonthPeriodResponse>;
+  ): Promise<ListMeterReadingsPerMonthResponse>;
 }
