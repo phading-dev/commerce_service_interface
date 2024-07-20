@@ -63,11 +63,11 @@
   "message": {
     "fields": [{
       "name": "startDate",
-      "type": "DateMonth",
+      "type": "Date",
       "import": "./meter_reading"
     }, {
       "name": "endDate",
-      "type": "DateMonth",
+      "type": "Date",
       "import": "./meter_reading",
       "comment": "Inclusive."
     }]

@@ -1,7 +1,7 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { Money, MONEY } from '../../../money';
 import { ServiceDescriptor } from '@selfage/service_descriptor';
-import { Date, DATE, MeterReadingPerSeason, METER_READING_PER_SEASON, DateMonth, DATE_MONTH, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
+import { Date, DATE, MeterReadingPerSeason, METER_READING_PER_SEASON, MeterReadingPerDay, METER_READING_PER_DAY, DateMonth, DATE_MONTH, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
 import { CLIENT_SESSION } from '@phading/user_session_service_interface/client_session';
 
 export interface GetPricingRequestBody {
@@ -89,9 +89,9 @@ export let LIST_METER_READINGS_PER_SEASON: ServiceDescriptor = {
 }
 
 export interface ListMeterReadingsPerDayRequestBody {
-  startDate?: DateMonth,
+  startDate?: Date,
 /* Inclusive. */
-  endDate?: DateMonth,
+  endDate?: Date,
 }
 
 export let LIST_METER_READINGS_PER_DAY_REQUEST_BODY: MessageDescriptor<ListMeterReadingsPerDayRequestBody> = {
@@ -99,11 +99,11 @@ export let LIST_METER_READINGS_PER_DAY_REQUEST_BODY: MessageDescriptor<ListMeter
   fields: [
     {
       name: 'startDate',
-      messageType: DATE_MONTH,
+      messageType: DATE,
     },
     {
       name: 'endDate',
-      messageType: DATE_MONTH,
+      messageType: DATE,
     },
   ]
 };
