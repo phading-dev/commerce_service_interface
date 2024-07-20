@@ -4,7 +4,6 @@ import { Money, MONEY } from '../../../money';
 export interface SeasonSummary {
   seasonId?: string,
   name?: string,
-  coverImagePath?: string,
 }
 
 export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
@@ -16,10 +15,6 @@ export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
     },
     {
       name: 'name',
-      primitiveType: PrimitiveType.STRING,
-    },
-    {
-      name: 'coverImagePath',
       primitiveType: PrimitiveType.STRING,
     },
   ]

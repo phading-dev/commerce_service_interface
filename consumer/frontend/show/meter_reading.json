@@ -7,9 +7,6 @@
     }, {
       "name": "name",
       "type": "string"
-    }, {
-      "name": "coverImagePath",
-      "type": "string"
     }]
   }
 }, {
