@@ -1,22 +1,21 @@
-import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 
 export interface Money {
-/* Integer portion. */
+  /* Integer portion. */
   integer?: number,
-/* Fractional portion in nano. */
+  /* Fractional portion in nano. */
   nano?: number,
 }
 
 export let MONEY: MessageDescriptor<Money> = {
   name: 'Money',
-  fields: [
-    {
-      name: 'integer',
-      primitiveType: PrimitiveType.NUMBER,
-    },
-    {
-      name: 'nano',
-      primitiveType: PrimitiveType.NUMBER,
-    },
-  ]
+  fields: [{
+    name: 'integer',
+    index: 1,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'nano',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
 };

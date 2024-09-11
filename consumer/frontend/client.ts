@@ -1,10 +1,10 @@
-import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
 import { ListPaymentMethodsRequestBody, ListPaymentMethodsResponse, LIST_PAYMENT_METHODS, UpdatePaymentMethodRequestBody, UpdatePaymentMethodResponse, UPDATE_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, DeletePaymentMethodRequestBody, DeletePaymentMethodResponse, DELETE_PAYMENT_METHOD } from './interface';
+import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function listPaymentMethods(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: ListPaymentMethodsRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<ListPaymentMethodsResponse> {
   return client.send(
     {
@@ -16,9 +16,9 @@ export function listPaymentMethods(
 }
 
 export function updatePaymentMethod(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: UpdatePaymentMethodRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<UpdatePaymentMethodResponse> {
   return client.send(
     {
@@ -30,9 +30,9 @@ export function updatePaymentMethod(
 }
 
 export function createStripeSessionToAddPaymentMethod(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: CreateStripeSessionToAddPaymentMethodRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<CreateStripeSessionToAddPaymentMethodResponse> {
   return client.send(
     {
@@ -44,9 +44,9 @@ export function createStripeSessionToAddPaymentMethod(
 }
 
 export function deletePaymentMethod(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: DeletePaymentMethodRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<DeletePaymentMethodResponse> {
   return client.send(
     {

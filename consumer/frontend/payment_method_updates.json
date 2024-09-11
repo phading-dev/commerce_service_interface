@@ -1,27 +1,32 @@
 [{
-  "name": "CardUpdates",
   "message": {
+    "name": "CardUpdates",
     "fields": [{
       "name": "expMonth",
-      "type": "number"
+      "type": "number",
+      "index": 1
     }, {
       "name": "expYear",
-      "type": "number"
+      "type": "number",
+      "index": 2
     }]
   }
 }, {
-  "name": "PaymentMethodUpdates",
   "message": {
+    "name": "PaymentMethodUpdates",
     "fields": [{
       "name": "paymentMethodId",
-      "type": "string"
+      "type": "string",
+      "index": 1
     }, {
       "name": "priority",
       "type": "PaymentMethodPriority",
-      "import": "./payment_method_priority"
+      "import": "./consumer/frontend/payment_method_priority",
+      "index": 2
     }, {
       "name": "card",
-      "type": "CardUpdates"
+      "type": "CardUpdates",
+      "index": 3
     }]
   }
 }]

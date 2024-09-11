@@ -1,115 +1,111 @@
 [{
-  "name": "ListPaymentMethodsRequestBody",
   "message": {
+    "name": "ListPaymentMethodsRequestBody",
     "fields": []
   }
 }, {
-  "name": "ListPaymentMethodsResponse",
   "message": {
+    "name": "ListPaymentMethodsResponse",
     "fields": [{
       "name": "paymentMethods",
       "type": "PaymentMethodMasked",
-      "import": "./payment_method_masked",
-      "isArray": true
+      "import": "./consumer/frontend/payment_method_masked",
+      "isArray": true,
+      "index": 1
     }]
   }
 }, {
-  "name": "ListPaymentMethods",
-  "service": {
-    "path": "/ListPaymentMethods",
-    "body": "ListPaymentMethodsRequestBody",
-    "auth": {
-      "key": "auth",
-      "type": "ClientSession",
-      "import": "@phading/user_session_service_interface/client_session"
-    },
-    "response": "ListPaymentMethodsResponse",
-    "outputWebClient": "./client_requests",
-    "outputHandler": "./server_handlers"
-  }
-}, {
-  "name": "UpdatePaymentMethodRequestBody",
   "message": {
+    "name": "UpdatePaymentMethodRequestBody",
     "fields": [{
       "name": "paymentMethodUpdates",
       "type": "PaymentMethodUpdates",
-      "import": "./payment_method_updates"
+      "import": "./consumer/frontend/payment_method_updates",
+      "index": 1
     }]
   }
 }, {
-  "name": "UpdatePaymentMethodResponse",
   "message": {
+    "name": "UpdatePaymentMethodResponse",
     "fields": []
   }
 }, {
-  "name": "UpdatePaymentMethod",
-  "service": {
-    "path": "/UpdatePaymentMethod",
-    "body": "UpdatePaymentMethodRequestBody",
-    "auth": {
-      "key": "auth",
-      "type": "ClientSession",
-      "import": "@phading/user_session_service_interface/client_session"
-    },
-    "response": "UpdatePaymentMethodResponse",
-    "outputWebClient": "./client_requests",
-    "outputHandler": "./server_handlers"
-  }
-}, {
-  "name": "CreateStripeSessionToAddPaymentMethodRequestBody",
   "message": {
+    "name": "CreateStripeSessionToAddPaymentMethodRequestBody",
     "fields": [{
       "name": "backUrl",
-      "type": "string"
+      "type": "string",
+      "index": 1
     }]
   }
 }, {
-  "name": "CreateStripeSessionToAddPaymentMethodResponse",
   "message": {
+    "name": "CreateStripeSessionToAddPaymentMethodResponse",
     "fields": [{
       "name": "redirectUrl",
-      "type": "string"
+      "type": "string",
+      "index": 1
     }]
   }
 }, {
-  "name": "CreateStripeSessionToAddPaymentMethod",
-  "service": {
-    "path": "/CreateStripeSessionToAddPaymentMethod",
-    "body": "CreateStripeSessionToAddPaymentMethodRequestBody",
-    "auth": {
-      "key": "auth",
-      "type": "ClientSession",
-      "import": "@phading/user_session_service_interface/client_session"
-    },
-    "response": "CreateStripeSessionToAddPaymentMethodResponse",
-    "outputWebClient": "./client_requests",
-    "outputHandler": "./server_handlers"
-  }
-}, {
-  "name": "DeletePaymentMethodRequestBody",
   "message": {
+    "name": "DeletePaymentMethodRequestBody",
     "fields": [{
       "name": "paymentMethodId",
-      "type": "string"
+      "type": "string",
+      "index": 1
     }]
   }
 }, {
-  "name": "DeletePaymentMethodResponse",
   "message": {
+    "name": "DeletePaymentMethodResponse",
     "fields": []
   }
 }, {
-  "name": "DeletePaymentMethod",
-  "service": {
-    "path": "/DeletePaymentMethod",
-    "body": "DeletePaymentMethodRequestBody",
-    "auth": {
-      "key": "auth",
-      "type": "ClientSession",
-      "import": "@phading/user_session_service_interface/client_session"
-    },
-    "response": "DeletePaymentMethodResponse",
-    "outputWebClient": "./client_requests",
-    "outputHandler": "./server_handlers"
+  "webService": {
+    "name": "CommerceConsumerFrontendService",
+    "remoteCalls": [{
+      "name": "ListPaymentMethods",
+      "path": "/ListPaymentMethods",
+      "body": "ListPaymentMethodsRequestBody",
+      "auth": {
+        "key": "auth",
+        "type": "ClientSession",
+        "import": "@phading/user_session_service_interface/client_session"
+      },
+      "response": "ListPaymentMethodsResponse"
+    }, {
+      "name": "UpdatePaymentMethod",
+      "path": "/UpdatePaymentMethod",
+      "body": "UpdatePaymentMethodRequestBody",
+      "auth": {
+        "key": "auth",
+        "type": "ClientSession",
+        "import": "@phading/user_session_service_interface/client_session"
+      },
+      "response": "UpdatePaymentMethodResponse"
+    }, {
+      "name": "CreateStripeSessionToAddPaymentMethod",
+      "path": "/CreateStripeSessionToAddPaymentMethod",
+      "body": "CreateStripeSessionToAddPaymentMethodRequestBody",
+      "auth": {
+        "key": "auth",
+        "type": "ClientSession",
+        "import": "@phading/user_session_service_interface/client_session"
+      },
+      "response": "CreateStripeSessionToAddPaymentMethodResponse"
+    }, {
+      "name": "DeletePaymentMethod",
+      "path": "/DeletePaymentMethod",
+      "body": "DeletePaymentMethodRequestBody",
+      "auth": {
+        "key": "auth",
+        "type": "ClientSession",
+        "import": "@phading/user_session_service_interface/client_session"
+      },
+      "response": "DeletePaymentMethodResponse"
+    }],
+    "outputClient": "./consumer/frontend/client",
+    "outputHandler": "./consumer/frontend/handler"
   }
 }]

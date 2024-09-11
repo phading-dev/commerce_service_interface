@@ -1,6 +1,6 @@
 [{
-  "name": "PaymentMethodPriority",
   "enum": {
+    "name": "PaymentMethodPriority",
     "values": [{
       "name": "UNKNOWN",
       "value": 0

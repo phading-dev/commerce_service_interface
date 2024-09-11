@@ -1,8 +1,8 @@
-import { ServiceHandlerInterface } from '@selfage/service_descriptor/service_handler_interface';
-import { GET_PRICING, GetPricingRequestBody, GetPricingResponse, LIST_METER_READINGS_PER_SEASON, ListMeterReadingsPerSeasonRequestBody, ListMeterReadingsPerSeasonResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse } from './interface';
+import { GetPricingRequestBody, GET_PRICING, GetPricingResponse, ListMeterReadingsPerSeasonRequestBody, LIST_METER_READINGS_PER_SEASON, ListMeterReadingsPerSeasonResponse, ListMeterReadingsPerDayRequestBody, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayResponse, ListMeterReadingsPerMonthRequestBody, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthResponse } from './interface';
+import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 import { ClientSession } from '@phading/user_session_service_interface/client_session';
 
-export abstract class GetPricingHandlerInterface implements ServiceHandlerInterface {
+export abstract class GetPricingHandlerInterface implements WebHandlerInterface {
   public descriptor = GET_PRICING;
   public abstract handle(
     loggingPrefix: string,
@@ -10,7 +10,7 @@ export abstract class GetPricingHandlerInterface implements ServiceHandlerInterf
   ): Promise<GetPricingResponse>;
 }
 
-export abstract class ListMeterReadingsPerSeasonHandlerInterface implements ServiceHandlerInterface {
+export abstract class ListMeterReadingsPerSeasonHandlerInterface implements WebHandlerInterface {
   public descriptor = LIST_METER_READINGS_PER_SEASON;
   public abstract handle(
     loggingPrefix: string,
@@ -19,7 +19,7 @@ export abstract class ListMeterReadingsPerSeasonHandlerInterface implements Serv
   ): Promise<ListMeterReadingsPerSeasonResponse>;
 }
 
-export abstract class ListMeterReadingsPerDayHandlerInterface implements ServiceHandlerInterface {
+export abstract class ListMeterReadingsPerDayHandlerInterface implements WebHandlerInterface {
   public descriptor = LIST_METER_READINGS_PER_DAY;
   public abstract handle(
     loggingPrefix: string,
@@ -28,7 +28,7 @@ export abstract class ListMeterReadingsPerDayHandlerInterface implements Service
   ): Promise<ListMeterReadingsPerDayResponse>;
 }
 
-export abstract class ListMeterReadingsPerMonthHandlerInterface implements ServiceHandlerInterface {
+export abstract class ListMeterReadingsPerMonthHandlerInterface implements WebHandlerInterface {
   public descriptor = LIST_METER_READINGS_PER_MONTH;
   public abstract handle(
     loggingPrefix: string,

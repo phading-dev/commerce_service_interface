@@ -1,10 +1,10 @@
-import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
 import { GetPricingRequestBody, GetPricingResponse, GET_PRICING, ListMeterReadingsPerSeasonRequestBody, ListMeterReadingsPerSeasonResponse, LIST_METER_READINGS_PER_SEASON, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse, LIST_METER_READINGS_PER_MONTH } from './interface';
+import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function getPricing(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: GetPricingRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<GetPricingResponse> {
   return client.send(
     {
@@ -16,9 +16,9 @@ export function getPricing(
 }
 
 export function listMeterReadingsPerSeason(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: ListMeterReadingsPerSeasonRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<ListMeterReadingsPerSeasonResponse> {
   return client.send(
     {
@@ -30,9 +30,9 @@ export function listMeterReadingsPerSeason(
 }
 
 export function listMeterReadingsPerDay(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: ListMeterReadingsPerDayRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<ListMeterReadingsPerDayResponse> {
   return client.send(
     {
@@ -44,9 +44,9 @@ export function listMeterReadingsPerDay(
 }
 
 export function listMeterReadingsPerMonth(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: ListMeterReadingsPerMonthRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<ListMeterReadingsPerMonthResponse> {
   return client.send(
     {

@@ -1,4 +1,4 @@
-import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { PaymentMethodPriority, PAYMENT_METHOD_PRIORITY } from './payment_method_priority';
 
 export interface CardUpdates {
@@ -8,16 +8,15 @@ export interface CardUpdates {
 
 export let CARD_UPDATES: MessageDescriptor<CardUpdates> = {
   name: 'CardUpdates',
-  fields: [
-    {
-      name: 'expMonth',
-      primitiveType: PrimitiveType.NUMBER,
-    },
-    {
-      name: 'expYear',
-      primitiveType: PrimitiveType.NUMBER,
-    },
-  ]
+  fields: [{
+    name: 'expMonth',
+    index: 1,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'expYear',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
 };
 
 export interface PaymentMethodUpdates {
@@ -28,18 +27,17 @@ export interface PaymentMethodUpdates {
 
 export let PAYMENT_METHOD_UPDATES: MessageDescriptor<PaymentMethodUpdates> = {
   name: 'PaymentMethodUpdates',
-  fields: [
-    {
-      name: 'paymentMethodId',
-      primitiveType: PrimitiveType.STRING,
-    },
-    {
-      name: 'priority',
-      enumType: PAYMENT_METHOD_PRIORITY,
-    },
-    {
-      name: 'card',
-      messageType: CARD_UPDATES,
-    },
-  ]
+  fields: [{
+    name: 'paymentMethodId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'priority',
+    index: 2,
+    enumType: PAYMENT_METHOD_PRIORITY,
+  }, {
+    name: 'card',
+    index: 3,
+    messageType: CARD_UPDATES,
+  }],
 };
