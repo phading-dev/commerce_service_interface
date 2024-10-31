@@ -8,7 +8,7 @@
       - name: quantity
         type: number
         index: 2
-      - name: money
+      - name: subTotal
         type: Money
         import: "@phading/price/money"
         index: 3

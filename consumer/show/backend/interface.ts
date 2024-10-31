@@ -6,7 +6,7 @@ import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 export interface StatementItem {
   price?: Price,
   quantity?: number,
-  money?: Money,
+  subTotal?: Money,
 }
 
 export let STATEMENT_ITEM: MessageDescriptor<StatementItem> = {
@@ -20,7 +20,7 @@ export let STATEMENT_ITEM: MessageDescriptor<StatementItem> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'money',
+    name: 'subTotal',
     index: 3,
     messageType: MONEY,
   }],
