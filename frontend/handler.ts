@@ -1,5 +1,4 @@
 import { ListPaymentMethodsRequestBody, LIST_PAYMENT_METHODS, ListPaymentMethodsResponse, UpdatePaymentMethodRequestBody, UPDATE_PAYMENT_METHOD, UpdatePaymentMethodResponse, CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, DeletePaymentMethodRequestBody, DELETE_PAYMENT_METHOD, DeletePaymentMethodResponse } from './interface';
-import { ClientSession } from '@phading/user_session_service_interface/client_session';
 import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
 export abstract class ListPaymentMethodsHandlerInterface implements WebHandlerInterface {
@@ -7,7 +6,7 @@ export abstract class ListPaymentMethodsHandlerInterface implements WebHandlerIn
   public abstract handle(
     loggingPrefix: string,
     body: ListPaymentMethodsRequestBody,
-    auth: ClientSession,
+    sessionStr: string,
   ): Promise<ListPaymentMethodsResponse>;
 }
 
@@ -16,7 +15,7 @@ export abstract class UpdatePaymentMethodHandlerInterface implements WebHandlerI
   public abstract handle(
     loggingPrefix: string,
     body: UpdatePaymentMethodRequestBody,
-    auth: ClientSession,
+    sessionStr: string,
   ): Promise<UpdatePaymentMethodResponse>;
 }
 
@@ -25,7 +24,7 @@ export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface impl
   public abstract handle(
     loggingPrefix: string,
     body: CreateStripeSessionToAddPaymentMethodRequestBody,
-    auth: ClientSession,
+    sessionStr: string,
   ): Promise<CreateStripeSessionToAddPaymentMethodResponse>;
 }
 
@@ -34,6 +33,6 @@ export abstract class DeletePaymentMethodHandlerInterface implements WebHandlerI
   public abstract handle(
     loggingPrefix: string,
     body: DeletePaymentMethodRequestBody,
-    auth: ClientSession,
+    sessionStr: string,
   ): Promise<DeletePaymentMethodResponse>;
 }

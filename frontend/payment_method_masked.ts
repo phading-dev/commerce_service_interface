@@ -1,8 +1,6 @@
 import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { PaymentMethodPriority, PAYMENT_METHOD_PRIORITY } from './payment_method_priority';
 
 export enum CardBrand {
-  UNKNOWN = 0,
   AMEX = 1,
   DINERS = 2,
   DISCOVER = 3,
@@ -15,9 +13,6 @@ export enum CardBrand {
 export let CARD_BRAND: EnumDescriptor<CardBrand> = {
   name: 'CardBrand',
   values: [{
-    name: 'UNKNOWN',
-    value: 0,
-  }, {
     name: 'AMEX',
     value: 1,
   }, {
@@ -71,7 +66,7 @@ export let CARD_MASKED: MessageDescriptor<CardMasked> = {
 
 export interface PaymentMethodMasked {
   paymentMethodId?: string,
-  priority?: PaymentMethodPriority,
+  isPrimary?: boolean,
   card?: CardMasked,
 }
 
@@ -82,9 +77,9 @@ export let PAYMENT_METHOD_MASKED: MessageDescriptor<PaymentMethodMasked> = {
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'priority',
+    name: 'isPrimary',
     index: 2,
-    enumType: PAYMENT_METHOD_PRIORITY,
+    primitiveType: PrimitiveType.BOOLEAN,
   }, {
     name: 'card',
     index: 3,

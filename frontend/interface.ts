@@ -1,7 +1,6 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
-import { PaymentMethodUpdates, PAYMENT_METHOD_UPDATES } from './payment_method_updates';
-import { CLIENT_SESSION } from '@phading/user_session_service_interface/client_session';
+import { PaymentMethodUpdate, PAYMENT_METHOD_UPDATE } from './payment_method_update';
 import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface ListPaymentMethodsRequestBody {
@@ -27,15 +26,15 @@ export let LIST_PAYMENT_METHODS_RESPONSE: MessageDescriptor<ListPaymentMethodsRe
 };
 
 export interface UpdatePaymentMethodRequestBody {
-  paymentMethodUpdates?: PaymentMethodUpdates,
+  paymentMethodUpdate?: PaymentMethodUpdate,
 }
 
 export let UPDATE_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<UpdatePaymentMethodRequestBody> = {
   name: 'UpdatePaymentMethodRequestBody',
   fields: [{
-    name: 'paymentMethodUpdates',
+    name: 'paymentMethodUpdate',
     index: 1,
-    messageType: PAYMENT_METHOD_UPDATES,
+    messageType: PAYMENT_METHOD_UPDATE,
   }],
 };
 
@@ -100,10 +99,7 @@ export let LIST_PAYMENT_METHODS: WebRemoteCallDescriptor = {
   body: {
     messageType: LIST_PAYMENT_METHODS_REQUEST_BODY,
   },
-  auth: {
-    key: "auth",
-    type: CLIENT_SESSION
-  },
+  sessionKey: "sk",
   response: {
     messageType: LIST_PAYMENT_METHODS_RESPONSE,
   },
@@ -115,10 +111,7 @@ export let UPDATE_PAYMENT_METHOD: WebRemoteCallDescriptor = {
   body: {
     messageType: UPDATE_PAYMENT_METHOD_REQUEST_BODY,
   },
-  auth: {
-    key: "auth",
-    type: CLIENT_SESSION
-  },
+  sessionKey: "sk",
   response: {
     messageType: UPDATE_PAYMENT_METHOD_RESPONSE,
   },
@@ -130,10 +123,7 @@ export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: WebRemoteCallDescriptor 
   body: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_REQUEST_BODY,
   },
-  auth: {
-    key: "auth",
-    type: CLIENT_SESSION
-  },
+  sessionKey: "sk",
   response: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_RESPONSE,
   },
@@ -145,10 +135,7 @@ export let DELETE_PAYMENT_METHOD: WebRemoteCallDescriptor = {
   body: {
     messageType: DELETE_PAYMENT_METHOD_REQUEST_BODY,
   },
-  auth: {
-    key: "auth",
-    type: CLIENT_SESSION
-  },
+  sessionKey: "sk",
   response: {
     messageType: DELETE_PAYMENT_METHOD_RESPONSE,
   },

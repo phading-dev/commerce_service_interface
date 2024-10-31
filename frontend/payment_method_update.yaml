@@ -1,0 +1,21 @@
+- message:
+    name: CardUpdate
+    fields:
+      - name: expMonth
+        type: number
+        index: 1
+      - name: expYear
+        type: number
+        index: 2
+- message:
+    name: PaymentMethodUpdate
+    fields:
+      - name: paymentMethodId
+        type: string
+        index: 1
+      - name: isPrimary
+        type: boolean
+        index: 2
+      - name: card
+        type: CardUpdate
+        index: 3
