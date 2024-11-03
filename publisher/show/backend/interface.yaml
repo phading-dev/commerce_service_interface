@@ -9,7 +9,7 @@
         type: number
         index: 2
 - message:
-    name: GenerateBillingStatementRequestBody
+    name: GenerateEarningsStatementRequestBody
     fields:
       - name: accountId
         type: string
@@ -22,13 +22,13 @@
         isArray: true
         index: 3
 - message:
-    name: GenerateBillingStatementResponse
+    name: GenerateEarningsStatementResponse
 - nodeService:
-    name: CommerceConsumerShowBackendService
+    name: CommercePublisherShowBackendService
     remoteCalls:
-      - name: GenerateBillingStatement
-        path: /GenerateBillingStatement
-        body: GenerateBillingStatementRequestBody
-        response: GenerateBillingStatementResponse        
+      - name: GenerateEarningsStatement
+        path: /GenerateEarningsStatement
+        body: GenerateEarningsStatementRequestBody
+        response: GenerateEarningsStatementResponse        
     outputClient: ./consumer/show/backend/client
     outputHandler: ./consumer/show/backend/handler

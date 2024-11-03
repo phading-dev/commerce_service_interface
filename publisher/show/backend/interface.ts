@@ -20,14 +20,14 @@ export let LINE_ITEM: MessageDescriptor<LineItem> = {
   }],
 };
 
-export interface GenerateBillingStatementRequestBody {
+export interface GenerateEarningsStatementRequestBody {
   accountId?: string,
   month?: string,
   items?: Array<LineItem>,
 }
 
-export let GENERATE_BILLING_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateBillingStatementRequestBody> = {
-  name: 'GenerateBillingStatementRequestBody',
+export let GENERATE_EARNINGS_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateEarningsStatementRequestBody> = {
+  name: 'GenerateEarningsStatementRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
@@ -44,21 +44,21 @@ export let GENERATE_BILLING_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateBi
   }],
 };
 
-export interface GenerateBillingStatementResponse {
+export interface GenerateEarningsStatementResponse {
 }
 
-export let GENERATE_BILLING_STATEMENT_RESPONSE: MessageDescriptor<GenerateBillingStatementResponse> = {
-  name: 'GenerateBillingStatementResponse',
+export let GENERATE_EARNINGS_STATEMENT_RESPONSE: MessageDescriptor<GenerateEarningsStatementResponse> = {
+  name: 'GenerateEarningsStatementResponse',
   fields: [],
 };
 
-export let GENERATE_BILLING_STATEMENT: NodeRemoteCallDescriptor = {
-  name: "GenerateBillingStatement",
-  path: "/GenerateBillingStatement",
+export let GENERATE_EARNINGS_STATEMENT: NodeRemoteCallDescriptor = {
+  name: "GenerateEarningsStatement",
+  path: "/GenerateEarningsStatement",
   body: {
-    messageType: GENERATE_BILLING_STATEMENT_REQUEST_BODY,
+    messageType: GENERATE_EARNINGS_STATEMENT_REQUEST_BODY,
   },
   response: {
-    messageType: GENERATE_BILLING_STATEMENT_RESPONSE,
+    messageType: GENERATE_EARNINGS_STATEMENT_RESPONSE,
   },
 }
