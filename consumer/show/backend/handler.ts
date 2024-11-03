@@ -1,10 +1,10 @@
-import { GenerateEarningsStatementRequestBody, GENERATE_EARNINGS_STATEMENT, GenerateEarningsStatementResponse } from '../../../publisher/show/backend/interface';
+import { GenerateBillingStatementRequestBody, GENERATE_BILLING_STATEMENT, GenerateBillingStatementResponse } from './interface';
 import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
-export abstract class GenerateEarningsStatementHandlerInterface implements NodeHandlerInterface {
-  public descriptor = GENERATE_EARNINGS_STATEMENT;
+export abstract class GenerateBillingStatementHandlerInterface implements NodeHandlerInterface {
+  public descriptor = GENERATE_BILLING_STATEMENT;
   public abstract handle(
     loggingPrefix: string,
-    body: GenerateEarningsStatementRequestBody,
-  ): Promise<GenerateEarningsStatementResponse>;
+    body: GenerateBillingStatementRequestBody,
+  ): Promise<GenerateBillingStatementResponse>;
 }

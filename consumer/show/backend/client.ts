@@ -1,14 +1,14 @@
-import { GenerateEarningsStatementRequestBody, GenerateEarningsStatementResponse, GENERATE_EARNINGS_STATEMENT } from '../../../publisher/show/backend/interface';
+import { GenerateBillingStatementRequestBody, GenerateBillingStatementResponse, GENERATE_BILLING_STATEMENT } from './interface';
 import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
 
-export function generateEarningsStatement(
+export function generateBillingStatement(
   client: NodeClientInterface,
-  body: GenerateEarningsStatementRequestBody,
+  body: GenerateBillingStatementRequestBody,
   options?: NodeClientOptions,
-): Promise<GenerateEarningsStatementResponse> {
+): Promise<GenerateBillingStatementResponse> {
   return client.send(
     {
-      descriptor: GENERATE_EARNINGS_STATEMENT,
+      descriptor: GENERATE_BILLING_STATEMENT,
       body,
     },
     options,

@@ -30,5 +30,5 @@
         path: /GenerateEarningsStatement
         body: GenerateEarningsStatementRequestBody
         response: GenerateEarningsStatementResponse        
-    outputClient: ./consumer/show/backend/client
-    outputHandler: ./consumer/show/backend/handler
+    outputClient: ./publisher/show/backend/client
+    outputHandler: ./publisher/show/backend/handler
