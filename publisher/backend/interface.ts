@@ -1,20 +1,43 @@
-import { ProductType, PRODUCT_TYPE } from '@phading/price/price';
-import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
+import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface LineItem {
-  productType?: ProductType,
-  quantity?: number,
+export enum MeterType {
+  SHOW_WATCH_TIME_SEC = 1,
+  TRANSMITTED_MB = 2,
+  STORAGE_MB_HOUR = 3,
+  UPLOAD_MB = 4,
 }
 
-export let LINE_ITEM: MessageDescriptor<LineItem> = {
-  name: 'LineItem',
-  fields: [{
-    name: 'productType',
-    index: 1,
-    enumType: PRODUCT_TYPE,
+export let METER_TYPE: EnumDescriptor<MeterType> = {
+  name: 'MeterType',
+  values: [{
+    name: 'SHOW_WATCH_TIME_SEC',
+    value: 1,
   }, {
-    name: 'quantity',
+    name: 'TRANSMITTED_MB',
+    value: 2,
+  }, {
+    name: 'STORAGE_MB_HOUR',
+    value: 3,
+  }, {
+    name: 'UPLOAD_MB',
+    value: 4,
+  }]
+}
+
+export interface MeterReading {
+  meterType?: MeterType,
+  reading?: number,
+}
+
+export let METER_READING: MessageDescriptor<MeterReading> = {
+  name: 'MeterReading',
+  fields: [{
+    name: 'meterType',
+    index: 1,
+    enumType: METER_TYPE,
+  }, {
+    name: 'reading',
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }],
@@ -23,7 +46,7 @@ export let LINE_ITEM: MessageDescriptor<LineItem> = {
 export interface GenerateEarningsStatementRequestBody {
   accountId?: string,
   month?: string,
-  items?: Array<LineItem>,
+  readings?: Array<MeterReading>,
 }
 
 export let GENERATE_EARNINGS_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateEarningsStatementRequestBody> = {
@@ -37,9 +60,9 @@ export let GENERATE_EARNINGS_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateE
     index: 2,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'items',
+    name: 'readings',
     index: 3,
-    messageType: LINE_ITEM,
+    messageType: METER_READING,
     isArray: true,
   }],
 };

@@ -1,11 +1,15 @@
+- enum:
+    name: MeterType
+    values:
+      - name: SHOW_WATCH_TIME_SEC
+        value: 1
 - message:
-    name: LineItem
+    name: MeterReading
     fields:
-      - name: productType
-        type: ProductType
-        import: "@phading/price/price"
+      - name: meterType
+        type: MeterType
         index: 1
-      - name: quantity
+      - name: reading
         type: number
         index: 2
 - message:
@@ -17,8 +21,8 @@
       - name: month # ISO string
         type: string
         index: 2
-      - name: items
-        type: LineItem
+      - name: readings
+        type: MeterReading
         isArray: true
         index: 3
 - message:
@@ -30,5 +34,5 @@
         path: /GenerateBillingStatement
         body: GenerateBillingStatementRequestBody
         response: GenerateBillingStatementResponse        
-    outputClient: ./consumer/show/backend/client
-    outputHandler: ./consumer/show/backend/handler
+    outputClient: ./consumer/backend/client
+    outputHandler: ./consumer/backend/handler
