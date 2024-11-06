@@ -5,7 +5,7 @@
     fields:
       - name: paymentMethods
         type: PaymentMethodMasked
-        import: ./frontend/payment_method_masked
+        import: ./frontend/consumer/payment_method_masked
         isArray: true
         index: 1
 - message:
@@ -13,7 +13,7 @@
     fields:
       - name: paymentMethodUpdate
         type: PaymentMethodUpdate
-        import: ./frontend/payment_method_update
+        import: ./frontend/consumer/payment_method_update
         index: 1
 - message:
     name: UpdatePaymentMethodResponse
@@ -60,5 +60,5 @@
         body: DeletePaymentMethodRequestBody
         sessionKey: sk
         response: DeletePaymentMethodResponse
-    outputClient: ./frontend/client
-    outputHandler: ./frontend/handler
+    outputClient: ./frontend/consumer/client
+    outputHandler: ./frontend/consumer/handler

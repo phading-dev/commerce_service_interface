@@ -34,11 +34,11 @@
 - message:
     name: GenerateEarningsStatementResponse
 - nodeService:
-    name: CommercePublisherShowBackendService
+    name: CommercePublisherBackendService
     remoteCalls:
       - name: GenerateEarningsStatement
         path: /GenerateEarningsStatement
         body: GenerateEarningsStatementRequestBody
         response: GenerateEarningsStatementResponse        
-    outputClient: ./publisher/backend/client
-    outputHandler: ./publisher/backend/handler
+    outputClient: ./backend/publisher/client
+    outputHandler: ./backend/publisher/handler

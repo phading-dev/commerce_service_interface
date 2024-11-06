@@ -28,11 +28,11 @@
 - message:
     name: GenerateBillingStatementResponse
 - nodeService:
-    name: CommerceConsumerShowBackendService
+    name: CommerceConsumerBackendService
     remoteCalls:
       - name: GenerateBillingStatement
         path: /GenerateBillingStatement
         body: GenerateBillingStatementRequestBody
         response: GenerateBillingStatementResponse        
-    outputClient: ./consumer/backend/client
-    outputHandler: ./consumer/backend/handler
+    outputClient: ./backend/consumer/client
+    outputHandler: ./backend/consumer/handler
