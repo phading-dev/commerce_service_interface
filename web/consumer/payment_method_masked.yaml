@@ -1,0 +1,44 @@
+- kind: Enum
+  name: CardBrand
+  values:
+    - name: AMEX
+      value: 1
+    - name: DINERS
+      value: 2
+    - name: DISCOVER
+      value: 3
+    - name: JCB
+      value: 4
+    - name: MASTERCARD
+      value: 5
+    - name: UNIONPAY
+      value: 6
+    - name: VISA
+      value: 7
+- kind: Message
+  name: CardMasked
+  fields:
+    - name: brand
+      type: CardBrand
+      index: 1
+    - name: lastFourDigits
+      type: string
+      index: 2
+    - name: expMonth
+      type: number
+      index: 3
+    - name: expYear
+      type: number
+      index: 4
+- kind: Message
+  name: PaymentMethodMasked
+  fields:
+    - name: paymentMethodId
+      type: string
+      index: 1
+    - name: isPrimary
+      type: boolean
+      index: 2
+    - name: card
+      type: CardMasked
+      index: 3

@@ -1,0 +1,44 @@
+- kind: Enum
+  name: MeterType
+  values:
+    - name: SHOW_WATCH_TIME_MIN
+      value: 1
+    - name: NETWORK_TRANSMITTED_MB
+      value: 2
+    - name: STORAGE_MB_HOUR
+      value: 3
+    - name: UPLOADED_MB
+      value: 4
+- kind: Message
+  name: MeterReading
+  fields:
+    - name: meterType
+      type: MeterType
+      index: 1
+    - name: reading
+      type: number
+      index: 2
+- kind: Message
+  name: GenerateEarningsStatementRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: month # ISO string
+      type: string
+      index: 2
+    - name: readings
+      type: MeterReading
+      isArray: true
+      index: 3
+- kind: Message
+  name: GenerateEarningsStatementResponse
+- kind: NodeService
+  name: CommercePublisherNodeService
+  remoteCalls:
+    - name: GenerateEarningsStatement
+      path: /GenerateEarningsStatement
+      body: GenerateEarningsStatementRequestBody
+      response: GenerateEarningsStatementResponse        
+  outputClient: ./node/publisher/client
+  outputHandler: ./node/publisher/handler

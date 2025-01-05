@@ -2,16 +2,16 @@ import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/messa
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export enum MeterType {
-  SHOW_WATCH_TIME_SEC = 1,
+  SHOW_WATCH_TIME_MIN = 1,
   NETWORK_TRANSMITTED_MB = 2,
   STORAGE_MB_HOUR = 3,
-  UPLOAD_MB = 4,
+  UPLOADED_MB = 4,
 }
 
 export let METER_TYPE: EnumDescriptor<MeterType> = {
   name: 'MeterType',
   values: [{
-    name: 'SHOW_WATCH_TIME_SEC',
+    name: 'SHOW_WATCH_TIME_MIN',
     value: 1,
   }, {
     name: 'NETWORK_TRANSMITTED_MB',
@@ -20,7 +20,7 @@ export let METER_TYPE: EnumDescriptor<MeterType> = {
     name: 'STORAGE_MB_HOUR',
     value: 3,
   }, {
-    name: 'UPLOAD_MB',
+    name: 'UPLOADED_MB',
     value: 4,
   }]
 }
