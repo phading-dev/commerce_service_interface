@@ -1,7 +1,7 @@
 - kind: Enum
   name: MeterType
   values:
-    - name: SHOW_WATCH_TIME_MIN
+    - name: SHOW_WATCH_TIME_SEC
       value: 1
     - name: NETWORK_TRANSMITTED_MB
       value: 2
