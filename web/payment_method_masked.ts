@@ -66,7 +66,6 @@ export let CARD_MASKED: MessageDescriptor<CardMasked> = {
 
 export interface PaymentMethodMasked {
   paymentMethodId?: string,
-  isPrimary?: boolean,
   card?: CardMasked,
 }
 
@@ -77,12 +76,8 @@ export let PAYMENT_METHOD_MASKED: MessageDescriptor<PaymentMethodMasked> = {
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'isPrimary',
-    index: 2,
-    primitiveType: PrimitiveType.BOOLEAN,
-  }, {
     name: 'card',
-    index: 3,
+    index: 2,
     messageType: CARD_MASKED,
   }],
 };

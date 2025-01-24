@@ -1,0 +1,21 @@
+- kind: Message
+  name: EventReceivedResponse
+  fields:
+    - name: received
+      type: boolean
+      index: 1
+- kind: WebService
+  name: CommerceWebStripeWebhookService
+  remoteCalls:
+    - name: MarkPaymentDone
+      path: /MarkPaymentDone
+      body: bytes
+      sessionKey: stripe-signature
+      response: EventReceivedResponse
+    - name: MarkPaymentFailed
+      path: /MarkPaymentFailed
+      body: bytes
+      sessionKey: stripe-signature
+      response: EventReceivedResponse
+  outputClient: ./web/stripe_webhook/client
+  outputHandler: ./web/stripe_webhook/handler

@@ -1,0 +1,317 @@
+- kind: Message
+  name: ReportBillingRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: month # ISO string
+      type: string
+      index: 2
+    - name: watchTimeSec
+      type: number
+      index: 3
+    - name: transmittedMb
+      type: number
+      index: 4
+    - name: uploadedMb
+      type: number
+      index: 5
+    - name: storageMbh # MiB x hour
+      type: number
+      index: 6
+- kind: Message
+  name: ReportBillingResponse
+- kind: Message
+  name: ReportEarningsRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: month # ISO string
+      type: string
+      index: 2
+    - name: watchTimeSec
+      type: number
+      index: 3
+- kind: Message
+  name: ReportEarningsResponse
+- kind: Message
+  name: CreateBillingAccountRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: CreateBillingAccountResponse
+- kind: Message
+  name: CreateEarningsAccountRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: CreateEarningsAccountResponse
+- kind: Message
+  name: ProcessStripeCustomerCreatingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessStripeCustomerCreatingTaskResponse
+- kind: Message
+  name: ListStripeCustomerCreatingTasksRequestBody
+- kind: Message
+  name: ListStripeCustomerCreatingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessStripeCustomerCreatingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessPaymentTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: billingId
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessPaymentTaskResponse
+- kind: Message
+  name: ListPaymentTasksRequestBody
+- kind: Message
+  name: ListPaymentTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessPaymentTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessUpdatePaymentMethodNotifyingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: billingId
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessUpdatePaymentMethodNotifyingTaskResponse
+- kind: Message
+  name: ListUpdatePaymentMethodNotifyingTasksRequestBody
+- kind: Message
+  name: ListUpdatePaymentMethodNotifyingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessUpdatePaymentMethodNotifyingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: billingId
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessBillingAccountSuspendingDueToPastDueTaskResponse
+- kind: Message
+  name: ListBillingAccountSuspendingDueToPastDueTasksRequestBody
+- kind: Message
+  name: ListBillingAccountSuspendingDueToPastDueTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessBillingAccountSuspensionNotifyingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: version
+      type: number
+      index: 2
+- kind: Message
+  name: ProcessBillingAccountSuspensionNotifyingTaskResponse
+- kind: Message
+  name: ListBillingAccountSuspensionNotifyingTasksRequestBody
+- kind: Message
+  name: ListBillingAccountSuspensionNotifyingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessBillingAccountSuspensionNotifyingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessBillingAccountStateSyncingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: version
+      type: number
+      index: 2
+- kind: Message
+  name: ProcessBillingAccountStateSyncingTaskResponse
+- kind: Message
+  name: ListBillingAccountStateSyncingTasksRequestBody
+- kind: Message
+  name: ListBillingAccountStateSyncingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessBillingAccountStateSyncingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessStripeConnectedAccountCreatingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessStripeConnectedAccountCreatingTaskResponse
+- kind: Message
+  name: ListStripeConnectedAccountCreatingTasksRequestBody
+- kind: Message
+  name: ListStripeConnectedAccountCreatingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessStripeConnectedAccountCreatingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessSetupStripeConnectedAccountNotifyingTaskResponse
+- kind: Message
+  name: ListSetupStripeConnectedAccountNotifyingTasksRequestBody
+- kind: Message
+  name: ListSetupStripeConnectedAccountNotifyingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessPayoutTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+    - name: earningsId
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessPayoutTaskResponse
+- kind: Message
+  name: ListPayoutTasksRequestBody
+- kind: Message
+  name: ListPayoutTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessPayoutTaskRequestBody
+      isArray: true
+      index: 1
+- kind: NodeService
+  name: CommerceNodeService
+  remoteCalls:
+    - name: ReportBilling
+      path: /ReportBilling
+      body: ReportBillingRequestBody
+      response: ReportBillingResponse
+    - name: ReportEarnings
+      path: /ReportEarnings
+      body: ReportEarningsRequestBody
+      response: ReportEarningsResponse
+    - name: CreateBillingAccount
+      path: /CreateBillingAccount
+      body: CreateBillingAccountRequestBody
+      response: CreateBillingAccountResponse
+    - name: CreateEarningsAccount
+      path: /CreateEarningsAccount
+      body: CreateEarningsAccountRequestBody
+      response: CreateEarningsAccountResponse
+    - name: ProcessStripeCustomerCreatingTask
+      path: /ProcessStripeCustomerCreatingTask
+      body: ProcessStripeCustomerCreatingTaskRequestBody
+      response: ProcessStripeCustomerCreatingTaskResponse
+    - name: ListStripeCustomerCreatingTasks
+      path: /ListStripeCustomerCreatingTasks
+      body: ListStripeCustomerCreatingTasksRequestBody
+      response: ListStripeCustomerCreatingTasksResponse
+    - name: ProcessPaymentTask
+      path: /ProcessPaymentTask
+      body: ProcessPaymentTaskRequestBody
+      response: ProcessPaymentTaskResponse
+    - name: ListPaymentTasks
+      path: /ListPaymentTasks
+      body: ListPaymentTasksRequestBody
+      response: ListPaymentTasksResponse
+    - name: ProcessUpdatePaymentMethodNotifyingTask
+      path: /ProcessUpdatePaymentMethodNotifyingTask
+      body: ProcessUpdatePaymentMethodNotifyingTaskRequestBody
+      response: ProcessUpdatePaymentMethodNotifyingTaskResponse
+    - name: ListUpdatePaymentMethodNotifyingTasks
+      path: /ListUpdatePaymentMethodNotifyingTasks
+      body: ListUpdatePaymentMethodNotifyingTasksRequestBody
+      response: ListUpdatePaymentMethodNotifyingTasksResponse
+    - name: ProcessBillingAccountSuspendingDueToPastDueTask
+      path: /ProcessBillingAccountSuspendingDueToPastDueTask
+      body: ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody
+      response: ProcessBillingAccountSuspendingDueToPastDueTaskResponse
+    - name: ListBillingAccountSuspendingDueToPastDueTasks
+      path: /ListBillingAccountSuspendingDueToPastDueTasks
+      body: ListBillingAccountSuspendingDueToPastDueTasksRequestBody
+      response: ListBillingAccountSuspendingDueToPastDueTasksResponse
+    - name: ProcessBillingAccountSuspensionNotifyingTask
+      path: /ProcessBillingAccountSuspensionNotifyingTask
+      body: ProcessBillingAccountSuspensionNotifyingTaskRequestBody
+      response: ProcessBillingAccountSuspensionNotifyingTaskResponse
+    - name: ListBillingAccountSuspensionNotifyingTasks
+      path: /ListBillingAccountSuspensionNotifyingTasks
+      body: ListBillingAccountSuspensionNotifyingTasksRequestBody
+      response: ListBillingAccountSuspensionNotifyingTasksResponse
+    - name: ProcessBillingAccountStateSyncingTask
+      path: /ProcessBillingAccountStateSyncingTask
+      body: ProcessBillingAccountStateSyncingTaskRequestBody
+      response: ProcessBillingAccountStateSyncingTaskResponse
+    - name: ListBillingAccountStateSyncingTasks
+      path: /ListBillingAccountStateSyncingTasks
+      body: ListBillingAccountStateSyncingTasksRequestBody
+      response: ListBillingAccountStateSyncingTasksResponse
+    - name: ProcessStripeConnectedAccountCreatingTask
+      path: /ProcessStripeConnectedAccountCreatingTask
+      body: ProcessStripeConnectedAccountCreatingTaskRequestBody
+      response: ProcessStripeConnectedAccountCreatingTaskResponse
+    - name: ListStripeConnectedAccountCreatingTasks
+      path: /ListStripeConnectedAccountCreatingTasks
+      body: ListStripeConnectedAccountCreatingTasksRequestBody
+      response: ListStripeConnectedAccountCreatingTasksResponse
+    - name: ProcessSetupStripeConnectedAccountNotifyingTask
+      path: /ProcessSetupStripeConnectedAccountNotifyingTask
+      body: ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody
+      response: ProcessSetupStripeConnectedAccountNotifyingTaskResponse
+    - name: ListSetupStripeConnectedAccountNotifyingTasks
+      path: /ListSetupStripeConnectedAccountNotifyingTasks
+      body: ListSetupStripeConnectedAccountNotifyingTasksRequestBody
+      response: ListSetupStripeConnectedAccountNotifyingTasksResponse
+    - name: ProcessPayoutTask
+      path: /ProcessPayoutTask
+      body: ProcessPayoutTaskRequestBody
+      response: ProcessPayoutTaskResponse
+    - name: ListPayoutTasks
+      path: /ListPayoutTasks
+      body: ListPayoutTasksRequestBody
+      response: ListPayoutTasksResponse
+  outputClient: ./node/client
+  outputHandler: ./node/handler
