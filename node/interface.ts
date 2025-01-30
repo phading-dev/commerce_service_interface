@@ -164,19 +164,14 @@ export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListS
 };
 
 export interface ProcessPaymentTaskRequestBody {
-  accountId?: string,
   billingId?: string,
 }
 
 export let PROCESS_PAYMENT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentTaskRequestBody> = {
   name: 'ProcessPaymentTaskRequestBody',
   fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'billingId',
-    index: 2,
+    index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -212,19 +207,14 @@ export let LIST_PAYMENT_TASKS_RESPONSE: MessageDescriptor<ListPaymentTasksRespon
 };
 
 export interface ProcessUpdatePaymentMethodNotifyingTaskRequestBody {
-  accountId?: string,
   billingId?: string,
 }
 
 export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessUpdatePaymentMethodNotifyingTaskRequestBody> = {
   name: 'ProcessUpdatePaymentMethodNotifyingTaskRequestBody',
   fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'billingId',
-    index: 2,
+    index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -260,19 +250,14 @@ export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_RESPONSE: MessageDescripto
 };
 
 export interface ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody {
-  accountId?: string,
   billingId?: string,
 }
 
 export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody> = {
   name: 'ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody',
   fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'billingId',
-    index: 2,
+    index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -490,19 +475,14 @@ export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_RESPONSE: Message
 };
 
 export interface ProcessPayoutTaskRequestBody {
-  accountId?: string,
   earningsId?: string,
 }
 
 export let PROCESS_PAYOUT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutTaskRequestBody> = {
   name: 'ProcessPayoutTaskRequestBody',
   fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'earningsId',
-    index: 2,
+    index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };

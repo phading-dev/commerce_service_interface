@@ -71,12 +71,9 @@
 - kind: Message
   name: ProcessPaymentTaskRequestBody
   fields:
-    - name: accountId
-      type: string
-      index: 1
     - name: billingId
       type: string
-      index: 2
+      index: 1
 - kind: Message
   name: ProcessPaymentTaskResponse
 - kind: Message
@@ -91,12 +88,9 @@
 - kind: Message
   name: ProcessUpdatePaymentMethodNotifyingTaskRequestBody
   fields:
-    - name: accountId
-      type: string
-      index: 1
     - name: billingId
       type: string
-      index: 2
+      index: 1
 - kind: Message
   name: ProcessUpdatePaymentMethodNotifyingTaskResponse
 - kind: Message
@@ -111,12 +105,9 @@
 - kind: Message
   name: ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody
   fields:
-    - name: accountId
-      type: string
-      index: 1
     - name: billingId
       type: string
-      index: 2
+      index: 1
 - kind: Message
   name: ProcessBillingAccountSuspendingDueToPastDueTaskResponse
 - kind: Message
@@ -205,12 +196,9 @@
 - kind: Message
   name: ProcessPayoutTaskRequestBody
   fields:
-    - name: accountId
-      type: string
-      index: 1
     - name: earningsId
       type: string
-      index: 2
+      index: 1
 - kind: Message
   name: ProcessPayoutTaskResponse
 - kind: Message

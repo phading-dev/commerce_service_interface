@@ -1,0 +1,63 @@
+- kind: Message
+  name: GetConnectedAccountLinkRequestBody
+- kind: Enum
+  name: LinkType
+  values:
+    - name: ONBOARDING
+      value: 1
+    - name: LOGIN
+      value: 2
+- kind: Message
+  name: GetConnectedAccountLinkResponse
+  fields:
+    - name: type
+      type: LinkType
+      index: 1
+    - name: url
+      type: string
+      index: 2
+- kind: Message
+  name: SetConnectedAccountOnboardedRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: SetConnectedAccountOnboardedResponse
+- kind: Message
+  name: ListEarningsRequestBody
+  fields:
+    - name: startMonth # ISO string
+      type: string
+      index: 1
+    - name: endMonth # ISO string. Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListEarningsResponse
+  fields:
+    - name: earnings
+      type: Earnings
+      import: ./web/earnings/statement
+      isArray: true
+      index: 1
+- kind: WebService
+  name: CommerceWebService
+  remoteCalls:
+    - name: GetConnectedAccountLink
+      path: /GetConnectedAccountLink
+      body: GetConnectedAccountLinkRequestBody
+      sessionKey: sk
+      response: GetConnectedAccountLinkResponse
+    - name: SetConnectedAccountOnboarded
+      path: /SetConnectedAccountOnboarded
+      body: SetConnectedAccountOnboardedRequestBody
+      sessionKey: sk
+      response: SetConnectedAccountOnboardedResponse
+    - name: ListEarnings
+      path: /ListEarnings
+      body: ListEarningsRequestBody
+      sessionKey: sk
+      response: ListEarningsResponse
+  outputClient: ./web/earnings/client
+  outputHandler: ./web/earnings/handler
