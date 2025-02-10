@@ -1,30 +1,20 @@
 import { EventReceivedResponse, MARK_PAYMENT_DONE, MARK_PAYMENT_FAILED } from './interface';
-import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
+import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function markPaymentDone(
-  client: WebClientInterface,
+export function newMarkPaymentDoneRequest(
   body: Blob,
-  options?: WebClientOptions,
-): Promise<EventReceivedResponse> {
-  return client.send(
-    {
-      descriptor: MARK_PAYMENT_DONE,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<EventReceivedResponse> {
+  return {
+    descriptor: MARK_PAYMENT_DONE,
+    body,
+  };
 }
 
-export function markPaymentFailed(
-  client: WebClientInterface,
+export function newMarkPaymentFailedRequest(
   body: Blob,
-  options?: WebClientOptions,
-): Promise<EventReceivedResponse> {
-  return client.send(
-    {
-      descriptor: MARK_PAYMENT_FAILED,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<EventReceivedResponse> {
+  return {
+    descriptor: MARK_PAYMENT_FAILED,
+    body,
+  };
 }

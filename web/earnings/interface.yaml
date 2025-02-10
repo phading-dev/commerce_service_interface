@@ -41,23 +41,25 @@
       import: ./web/earnings/statement
       isArray: true
       index: 1
-- kind: WebService
-  name: CommerceWebService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: CommerceWebEarningsRemoteCalls
+  service: CommerceWebService
+  importService: ./service
+  calls:
     - name: GetConnectedAccountLink
       path: /GetConnectedAccountLink
       body: GetConnectedAccountLinkRequestBody
-      sessionKey: sk
+      authKey: a
       response: GetConnectedAccountLinkResponse
     - name: SetConnectedAccountOnboarded
       path: /SetConnectedAccountOnboarded
       body: SetConnectedAccountOnboardedRequestBody
-      sessionKey: sk
+      authKey: a
       response: SetConnectedAccountOnboardedResponse
     - name: ListEarnings
       path: /ListEarnings
       body: ListEarningsRequestBody
-      sessionKey: sk
+      authKey: a
       response: ListEarningsResponse
   outputClient: ./web/earnings/client
   outputHandler: ./web/earnings/handler

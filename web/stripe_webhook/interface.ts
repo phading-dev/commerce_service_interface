@@ -1,5 +1,6 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { PrimitveTypeForBody, WebRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { COMMERCE_WEB_SERVICE } from '../../service';
+import { PrimitveTypeForBody, RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface EventReceivedResponse {
   received?: boolean,
@@ -14,25 +15,27 @@ export let EVENT_RECEIVED_RESPONSE: MessageDescriptor<EventReceivedResponse> = {
   }],
 };
 
-export let MARK_PAYMENT_DONE: WebRemoteCallDescriptor = {
+export let MARK_PAYMENT_DONE: RemoteCallDescriptor = {
   name: "MarkPaymentDone",
+  service: COMMERCE_WEB_SERVICE,
   path: "/MarkPaymentDone",
   body: {
     primitiveType: PrimitveTypeForBody.BYTES,
   },
-  sessionKey: "stripe-signature",
+  authKey: "stripe-signature",
   response: {
     messageType: EVENT_RECEIVED_RESPONSE,
   },
 }
 
-export let MARK_PAYMENT_FAILED: WebRemoteCallDescriptor = {
+export let MARK_PAYMENT_FAILED: RemoteCallDescriptor = {
   name: "MarkPaymentFailed",
+  service: COMMERCE_WEB_SERVICE,
   path: "/MarkPaymentFailed",
   body: {
     primitiveType: PrimitveTypeForBody.BYTES,
   },
-  sessionKey: "stripe-signature",
+  authKey: "stripe-signature",
   response: {
     messageType: EVENT_RECEIVED_RESPONSE,
   },

@@ -1,6 +1,7 @@
 import { MessageDescriptor, EnumDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { Earnings, EARNINGS } from './statement';
-import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { COMMERCE_WEB_SERVICE } from '../../service';
+import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface GetConnectedAccountLinkRequestBody {
 }
@@ -97,37 +98,40 @@ export let LIST_EARNINGS_RESPONSE: MessageDescriptor<ListEarningsResponse> = {
   }],
 };
 
-export let GET_CONNECTED_ACCOUNT_LINK: WebRemoteCallDescriptor = {
+export let GET_CONNECTED_ACCOUNT_LINK: RemoteCallDescriptor = {
   name: "GetConnectedAccountLink",
+  service: COMMERCE_WEB_SERVICE,
   path: "/GetConnectedAccountLink",
   body: {
     messageType: GET_CONNECTED_ACCOUNT_LINK_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: GET_CONNECTED_ACCOUNT_LINK_RESPONSE,
   },
 }
 
-export let SET_CONNECTED_ACCOUNT_ONBOARDED: WebRemoteCallDescriptor = {
+export let SET_CONNECTED_ACCOUNT_ONBOARDED: RemoteCallDescriptor = {
   name: "SetConnectedAccountOnboarded",
+  service: COMMERCE_WEB_SERVICE,
   path: "/SetConnectedAccountOnboarded",
   body: {
     messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE,
   },
 }
 
-export let LIST_EARNINGS: WebRemoteCallDescriptor = {
+export let LIST_EARNINGS: RemoteCallDescriptor = {
   name: "ListEarnings",
+  service: COMMERCE_WEB_SERVICE,
   path: "/ListEarnings",
   body: {
     messageType: LIST_EARNINGS_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_EARNINGS_RESPONSE,
   },

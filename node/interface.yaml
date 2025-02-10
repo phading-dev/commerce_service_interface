@@ -210,9 +210,11 @@
       type: ProcessPayoutTaskRequestBody
       isArray: true
       index: 1
-- kind: NodeService
-  name: CommerceNodeService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: CommerceNodeRemoteCalls
+  service: CommerceNodeService
+  importService: ./service
+  calls:
     - name: ReportBilling
       path: /ReportBilling
       body: ReportBillingRequestBody

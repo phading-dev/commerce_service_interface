@@ -1,44 +1,29 @@
 import { GetConnectedAccountLinkRequestBody, GetConnectedAccountLinkResponse, GET_CONNECTED_ACCOUNT_LINK, SetConnectedAccountOnboardedRequestBody, SetConnectedAccountOnboardedResponse, SET_CONNECTED_ACCOUNT_ONBOARDED, ListEarningsRequestBody, ListEarningsResponse, LIST_EARNINGS } from './interface';
-import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
+import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function getConnectedAccountLink(
-  client: WebClientInterface,
+export function newGetConnectedAccountLinkRequest(
   body: GetConnectedAccountLinkRequestBody,
-  options?: WebClientOptions,
-): Promise<GetConnectedAccountLinkResponse> {
-  return client.send(
-    {
-      descriptor: GET_CONNECTED_ACCOUNT_LINK,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetConnectedAccountLinkResponse> {
+  return {
+    descriptor: GET_CONNECTED_ACCOUNT_LINK,
+    body,
+  };
 }
 
-export function setConnectedAccountOnboarded(
-  client: WebClientInterface,
+export function newSetConnectedAccountOnboardedRequest(
   body: SetConnectedAccountOnboardedRequestBody,
-  options?: WebClientOptions,
-): Promise<SetConnectedAccountOnboardedResponse> {
-  return client.send(
-    {
-      descriptor: SET_CONNECTED_ACCOUNT_ONBOARDED,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<SetConnectedAccountOnboardedResponse> {
+  return {
+    descriptor: SET_CONNECTED_ACCOUNT_ONBOARDED,
+    body,
+  };
 }
 
-export function listEarnings(
-  client: WebClientInterface,
+export function newListEarningsRequest(
   body: ListEarningsRequestBody,
-  options?: WebClientOptions,
-): Promise<ListEarningsResponse> {
-  return client.send(
-    {
-      descriptor: LIST_EARNINGS,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ListEarningsResponse> {
+  return {
+    descriptor: LIST_EARNINGS,
+    body,
+  };
 }

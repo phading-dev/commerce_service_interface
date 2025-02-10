@@ -1,58 +1,38 @@
 import { CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, ReplacePrimaryPaymentMethodRequestBody, ReplacePrimaryPaymentMethodResponse, REPLACE_PRIMARY_PAYMENT_METHOD, GetPrimaryPaymentMethodRequestBody, GetPrimaryPaymentMethodResponse, GET_PRIMARY_PAYMENT_METHOD, ListBillingsRequestBody, ListBillingsResponse, LIST_BILLINGS } from './interface';
-import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
+import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function createStripeSessionToAddPaymentMethod(
-  client: WebClientInterface,
+export function newCreateStripeSessionToAddPaymentMethodRequest(
   body: CreateStripeSessionToAddPaymentMethodRequestBody,
-  options?: WebClientOptions,
-): Promise<CreateStripeSessionToAddPaymentMethodResponse> {
-  return client.send(
-    {
-      descriptor: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<CreateStripeSessionToAddPaymentMethodResponse> {
+  return {
+    descriptor: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD,
+    body,
+  };
 }
 
-export function replacePrimaryPaymentMethod(
-  client: WebClientInterface,
+export function newReplacePrimaryPaymentMethodRequest(
   body: ReplacePrimaryPaymentMethodRequestBody,
-  options?: WebClientOptions,
-): Promise<ReplacePrimaryPaymentMethodResponse> {
-  return client.send(
-    {
-      descriptor: REPLACE_PRIMARY_PAYMENT_METHOD,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ReplacePrimaryPaymentMethodResponse> {
+  return {
+    descriptor: REPLACE_PRIMARY_PAYMENT_METHOD,
+    body,
+  };
 }
 
-export function getPrimaryPaymentMethod(
-  client: WebClientInterface,
+export function newGetPrimaryPaymentMethodRequest(
   body: GetPrimaryPaymentMethodRequestBody,
-  options?: WebClientOptions,
-): Promise<GetPrimaryPaymentMethodResponse> {
-  return client.send(
-    {
-      descriptor: GET_PRIMARY_PAYMENT_METHOD,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetPrimaryPaymentMethodResponse> {
+  return {
+    descriptor: GET_PRIMARY_PAYMENT_METHOD,
+    body,
+  };
 }
 
-export function listBillings(
-  client: WebClientInterface,
+export function newListBillingsRequest(
   body: ListBillingsRequestBody,
-  options?: WebClientOptions,
-): Promise<ListBillingsResponse> {
-  return client.send(
-    {
-      descriptor: LIST_BILLINGS,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ListBillingsResponse> {
+  return {
+    descriptor: LIST_BILLINGS,
+    body,
+  };
 }

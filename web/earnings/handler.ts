@@ -1,29 +1,29 @@
 import { GetConnectedAccountLinkRequestBody, GET_CONNECTED_ACCOUNT_LINK, GetConnectedAccountLinkResponse, SetConnectedAccountOnboardedRequestBody, SET_CONNECTED_ACCOUNT_ONBOARDED, SetConnectedAccountOnboardedResponse, ListEarningsRequestBody, LIST_EARNINGS, ListEarningsResponse } from './interface';
-import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
+import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
-export abstract class GetConnectedAccountLinkHandlerInterface implements WebHandlerInterface {
+export abstract class GetConnectedAccountLinkHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = GET_CONNECTED_ACCOUNT_LINK;
   public abstract handle(
     loggingPrefix: string,
     body: GetConnectedAccountLinkRequestBody,
-    sessionStr: string,
+    authStr: string,
   ): Promise<GetConnectedAccountLinkResponse>;
 }
 
-export abstract class SetConnectedAccountOnboardedHandlerInterface implements WebHandlerInterface {
+export abstract class SetConnectedAccountOnboardedHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = SET_CONNECTED_ACCOUNT_ONBOARDED;
   public abstract handle(
     loggingPrefix: string,
     body: SetConnectedAccountOnboardedRequestBody,
-    sessionStr: string,
+    authStr: string,
   ): Promise<SetConnectedAccountOnboardedResponse>;
 }
 
-export abstract class ListEarningsHandlerInterface implements WebHandlerInterface {
+export abstract class ListEarningsHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_EARNINGS;
   public abstract handle(
     loggingPrefix: string,
     body: ListEarningsRequestBody,
-    sessionStr: string,
+    authStr: string,
   ): Promise<ListEarningsResponse>;
 }

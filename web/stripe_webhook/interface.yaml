@@ -4,18 +4,20 @@
     - name: received
       type: boolean
       index: 1
-- kind: WebService
-  name: CommerceWebStripeWebhookService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: CommerceWebStripeWebhookRemoteCalls
+  service: CommerceWebService
+  importService: ./service
+  calls:
     - name: MarkPaymentDone
       path: /MarkPaymentDone
       body: bytes
-      sessionKey: stripe-signature
+      authKey: stripe-signature
       response: EventReceivedResponse
     - name: MarkPaymentFailed
       path: /MarkPaymentFailed
       body: bytes
-      sessionKey: stripe-signature
+      authKey: stripe-signature
       response: EventReceivedResponse
   outputClient: ./web/stripe_webhook/client
   outputHandler: ./web/stripe_webhook/handler

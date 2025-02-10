@@ -1,21 +1,21 @@
 import { Readable } from 'stream';
 import { MARK_PAYMENT_DONE, EventReceivedResponse, MARK_PAYMENT_FAILED } from './interface';
-import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
+import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
-export abstract class MarkPaymentDoneHandlerInterface implements WebHandlerInterface {
+export abstract class MarkPaymentDoneHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = MARK_PAYMENT_DONE;
   public abstract handle(
     loggingPrefix: string,
     body: Readable,
-    sessionStr: string,
+    authStr: string,
   ): Promise<EventReceivedResponse>;
 }
 
-export abstract class MarkPaymentFailedHandlerInterface implements WebHandlerInterface {
+export abstract class MarkPaymentFailedHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = MARK_PAYMENT_FAILED;
   public abstract handle(
     loggingPrefix: string,
     body: Readable,
-    sessionStr: string,
+    authStr: string,
   ): Promise<EventReceivedResponse>;
 }

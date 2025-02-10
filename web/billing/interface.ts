@@ -1,7 +1,8 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
 import { Billing, BILLING } from './statement';
-import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { COMMERCE_WEB_SERVICE } from '../../service';
+import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface CreateStripeSessionToAddPaymentMethodRequestBody {
 }
@@ -98,49 +99,53 @@ export let LIST_BILLINGS_RESPONSE: MessageDescriptor<ListBillingsResponse> = {
   }],
 };
 
-export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: WebRemoteCallDescriptor = {
+export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "CreateStripeSessionToAddPaymentMethod",
+  service: COMMERCE_WEB_SERVICE,
   path: "/CreateStripeSessionToAddPaymentMethod",
   body: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_RESPONSE,
   },
 }
 
-export let REPLACE_PRIMARY_PAYMENT_METHOD: WebRemoteCallDescriptor = {
+export let REPLACE_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "ReplacePrimaryPaymentMethod",
+  service: COMMERCE_WEB_SERVICE,
   path: "/ReplacePrimaryPaymentMethod",
   body: {
     messageType: REPLACE_PRIMARY_PAYMENT_METHOD_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: REPLACE_PRIMARY_PAYMENT_METHOD_RESPONSE,
   },
 }
 
-export let GET_PRIMARY_PAYMENT_METHOD: WebRemoteCallDescriptor = {
+export let GET_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "GetPrimaryPaymentMethod",
+  service: COMMERCE_WEB_SERVICE,
   path: "/GetPrimaryPaymentMethod",
   body: {
     messageType: GET_PRIMARY_PAYMENT_METHOD_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: GET_PRIMARY_PAYMENT_METHOD_RESPONSE,
   },
 }
 
-export let LIST_BILLINGS: WebRemoteCallDescriptor = {
+export let LIST_BILLINGS: RemoteCallDescriptor = {
   name: "ListBillings",
+  service: COMMERCE_WEB_SERVICE,
   path: "/ListBillings",
   body: {
     messageType: LIST_BILLINGS_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_BILLINGS_RESPONSE,
   },

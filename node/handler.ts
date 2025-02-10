@@ -1,7 +1,7 @@
 import { ReportBillingRequestBody, REPORT_BILLING, ReportBillingResponse, ReportEarningsRequestBody, REPORT_EARNINGS, ReportEarningsResponse, CreateBillingAccountRequestBody, CREATE_BILLING_ACCOUNT, CreateBillingAccountResponse, CreateEarningsAccountRequestBody, CREATE_EARNINGS_ACCOUNT, CreateEarningsAccountResponse, ProcessStripeCustomerCreatingTaskRequestBody, PROCESS_STRIPE_CUSTOMER_CREATING_TASK, ProcessStripeCustomerCreatingTaskResponse, ListStripeCustomerCreatingTasksRequestBody, LIST_STRIPE_CUSTOMER_CREATING_TASKS, ListStripeCustomerCreatingTasksResponse, ProcessPaymentTaskRequestBody, PROCESS_PAYMENT_TASK, ProcessPaymentTaskResponse, ListPaymentTasksRequestBody, LIST_PAYMENT_TASKS, ListPaymentTasksResponse, ProcessUpdatePaymentMethodNotifyingTaskRequestBody, PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK, ProcessUpdatePaymentMethodNotifyingTaskResponse, ListUpdatePaymentMethodNotifyingTasksRequestBody, LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS, ListUpdatePaymentMethodNotifyingTasksResponse, ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody, PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK, ProcessBillingAccountSuspendingDueToPastDueTaskResponse, ListBillingAccountSuspendingDueToPastDueTasksRequestBody, LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS, ListBillingAccountSuspendingDueToPastDueTasksResponse, ProcessBillingAccountSuspensionNotifyingTaskRequestBody, PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK, ProcessBillingAccountSuspensionNotifyingTaskResponse, ListBillingAccountSuspensionNotifyingTasksRequestBody, LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS, ListBillingAccountSuspensionNotifyingTasksResponse, ProcessBillingAccountStateSyncingTaskRequestBody, PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK, ProcessBillingAccountStateSyncingTaskResponse, ListBillingAccountStateSyncingTasksRequestBody, LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS, ListBillingAccountStateSyncingTasksResponse, ProcessStripeConnectedAccountCreatingTaskRequestBody, PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK, ProcessStripeConnectedAccountCreatingTaskResponse, ListStripeConnectedAccountCreatingTasksRequestBody, LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS, ListStripeConnectedAccountCreatingTasksResponse, ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody, PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK, ProcessSetupStripeConnectedAccountNotifyingTaskResponse, ListSetupStripeConnectedAccountNotifyingTasksRequestBody, LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS, ListSetupStripeConnectedAccountNotifyingTasksResponse, ProcessPayoutTaskRequestBody, PROCESS_PAYOUT_TASK, ProcessPayoutTaskResponse, ListPayoutTasksRequestBody, LIST_PAYOUT_TASKS, ListPayoutTasksResponse } from './interface';
-import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
+import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
-export abstract class ReportBillingHandlerInterface implements NodeHandlerInterface {
+export abstract class ReportBillingHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = REPORT_BILLING;
   public abstract handle(
     loggingPrefix: string,
@@ -9,7 +9,7 @@ export abstract class ReportBillingHandlerInterface implements NodeHandlerInterf
   ): Promise<ReportBillingResponse>;
 }
 
-export abstract class ReportEarningsHandlerInterface implements NodeHandlerInterface {
+export abstract class ReportEarningsHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = REPORT_EARNINGS;
   public abstract handle(
     loggingPrefix: string,
@@ -17,7 +17,7 @@ export abstract class ReportEarningsHandlerInterface implements NodeHandlerInter
   ): Promise<ReportEarningsResponse>;
 }
 
-export abstract class CreateBillingAccountHandlerInterface implements NodeHandlerInterface {
+export abstract class CreateBillingAccountHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = CREATE_BILLING_ACCOUNT;
   public abstract handle(
     loggingPrefix: string,
@@ -25,7 +25,7 @@ export abstract class CreateBillingAccountHandlerInterface implements NodeHandle
   ): Promise<CreateBillingAccountResponse>;
 }
 
-export abstract class CreateEarningsAccountHandlerInterface implements NodeHandlerInterface {
+export abstract class CreateEarningsAccountHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = CREATE_EARNINGS_ACCOUNT;
   public abstract handle(
     loggingPrefix: string,
@@ -33,7 +33,7 @@ export abstract class CreateEarningsAccountHandlerInterface implements NodeHandl
   ): Promise<CreateEarningsAccountResponse>;
 }
 
-export abstract class ProcessStripeCustomerCreatingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessStripeCustomerCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_STRIPE_CUSTOMER_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -41,7 +41,7 @@ export abstract class ProcessStripeCustomerCreatingTaskHandlerInterface implemen
   ): Promise<ProcessStripeCustomerCreatingTaskResponse>;
 }
 
-export abstract class ListStripeCustomerCreatingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListStripeCustomerCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_STRIPE_CUSTOMER_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -49,7 +49,7 @@ export abstract class ListStripeCustomerCreatingTasksHandlerInterface implements
   ): Promise<ListStripeCustomerCreatingTasksResponse>;
 }
 
-export abstract class ProcessPaymentTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessPaymentTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_PAYMENT_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -57,7 +57,7 @@ export abstract class ProcessPaymentTaskHandlerInterface implements NodeHandlerI
   ): Promise<ProcessPaymentTaskResponse>;
 }
 
-export abstract class ListPaymentTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListPaymentTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_PAYMENT_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -65,7 +65,7 @@ export abstract class ListPaymentTasksHandlerInterface implements NodeHandlerInt
   ): Promise<ListPaymentTasksResponse>;
 }
 
-export abstract class ProcessUpdatePaymentMethodNotifyingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessUpdatePaymentMethodNotifyingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -73,7 +73,7 @@ export abstract class ProcessUpdatePaymentMethodNotifyingTaskHandlerInterface im
   ): Promise<ProcessUpdatePaymentMethodNotifyingTaskResponse>;
 }
 
-export abstract class ListUpdatePaymentMethodNotifyingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListUpdatePaymentMethodNotifyingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -81,7 +81,7 @@ export abstract class ListUpdatePaymentMethodNotifyingTasksHandlerInterface impl
   ): Promise<ListUpdatePaymentMethodNotifyingTasksResponse>;
 }
 
-export abstract class ProcessBillingAccountSuspendingDueToPastDueTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessBillingAccountSuspendingDueToPastDueTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -89,7 +89,7 @@ export abstract class ProcessBillingAccountSuspendingDueToPastDueTaskHandlerInte
   ): Promise<ProcessBillingAccountSuspendingDueToPastDueTaskResponse>;
 }
 
-export abstract class ListBillingAccountSuspendingDueToPastDueTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListBillingAccountSuspendingDueToPastDueTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -97,7 +97,7 @@ export abstract class ListBillingAccountSuspendingDueToPastDueTasksHandlerInterf
   ): Promise<ListBillingAccountSuspendingDueToPastDueTasksResponse>;
 }
 
-export abstract class ProcessBillingAccountSuspensionNotifyingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessBillingAccountSuspensionNotifyingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -105,7 +105,7 @@ export abstract class ProcessBillingAccountSuspensionNotifyingTaskHandlerInterfa
   ): Promise<ProcessBillingAccountSuspensionNotifyingTaskResponse>;
 }
 
-export abstract class ListBillingAccountSuspensionNotifyingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListBillingAccountSuspensionNotifyingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -113,7 +113,7 @@ export abstract class ListBillingAccountSuspensionNotifyingTasksHandlerInterface
   ): Promise<ListBillingAccountSuspensionNotifyingTasksResponse>;
 }
 
-export abstract class ProcessBillingAccountStateSyncingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessBillingAccountStateSyncingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -121,7 +121,7 @@ export abstract class ProcessBillingAccountStateSyncingTaskHandlerInterface impl
   ): Promise<ProcessBillingAccountStateSyncingTaskResponse>;
 }
 
-export abstract class ListBillingAccountStateSyncingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListBillingAccountStateSyncingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -129,7 +129,7 @@ export abstract class ListBillingAccountStateSyncingTasksHandlerInterface implem
   ): Promise<ListBillingAccountStateSyncingTasksResponse>;
 }
 
-export abstract class ProcessStripeConnectedAccountCreatingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessStripeConnectedAccountCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -137,7 +137,7 @@ export abstract class ProcessStripeConnectedAccountCreatingTaskHandlerInterface 
   ): Promise<ProcessStripeConnectedAccountCreatingTaskResponse>;
 }
 
-export abstract class ListStripeConnectedAccountCreatingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListStripeConnectedAccountCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -145,7 +145,7 @@ export abstract class ListStripeConnectedAccountCreatingTasksHandlerInterface im
   ): Promise<ListStripeConnectedAccountCreatingTasksResponse>;
 }
 
-export abstract class ProcessSetupStripeConnectedAccountNotifyingTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessSetupStripeConnectedAccountNotifyingTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -153,7 +153,7 @@ export abstract class ProcessSetupStripeConnectedAccountNotifyingTaskHandlerInte
   ): Promise<ProcessSetupStripeConnectedAccountNotifyingTaskResponse>;
 }
 
-export abstract class ListSetupStripeConnectedAccountNotifyingTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListSetupStripeConnectedAccountNotifyingTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS;
   public abstract handle(
     loggingPrefix: string,
@@ -161,7 +161,7 @@ export abstract class ListSetupStripeConnectedAccountNotifyingTasksHandlerInterf
   ): Promise<ListSetupStripeConnectedAccountNotifyingTasksResponse>;
 }
 
-export abstract class ProcessPayoutTaskHandlerInterface implements NodeHandlerInterface {
+export abstract class ProcessPayoutTaskHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = PROCESS_PAYOUT_TASK;
   public abstract handle(
     loggingPrefix: string,
@@ -169,7 +169,7 @@ export abstract class ProcessPayoutTaskHandlerInterface implements NodeHandlerIn
   ): Promise<ProcessPayoutTaskResponse>;
 }
 
-export abstract class ListPayoutTasksHandlerInterface implements NodeHandlerInterface {
+export abstract class ListPayoutTasksHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = LIST_PAYOUT_TASKS;
   public abstract handle(
     loggingPrefix: string,

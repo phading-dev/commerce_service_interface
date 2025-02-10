@@ -40,28 +40,30 @@
       import: ./web/billing/statement
       isArray: true
       index: 1
-- kind: WebService
-  name: CommerceWebBillingService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: CommerceWebBillingRemoteCalls
+  service: CommerceWebService
+  importService: ./service
+  calls:
     - name: CreateStripeSessionToAddPaymentMethod
       path: /CreateStripeSessionToAddPaymentMethod
       body: CreateStripeSessionToAddPaymentMethodRequestBody
-      sessionKey: sk
+      authKey: a
       response: CreateStripeSessionToAddPaymentMethodResponse
     - name: ReplacePrimaryPaymentMethod
       path: /ReplacePrimaryPaymentMethod
       body: ReplacePrimaryPaymentMethodRequestBody
-      sessionKey: sk
+      authKey: a
       response: ReplacePrimaryPaymentMethodResponse
     - name: GetPrimaryPaymentMethod
       path: /GetPrimaryPaymentMethod
       body: GetPrimaryPaymentMethodRequestBody
-      sessionKey: sk
+      authKey: a
       response: GetPrimaryPaymentMethodResponse
     - name: ListBillings
       path: /ListBillings
       body: ListBillingsRequestBody
-      sessionKey: sk
+      authKey: a
       response: ListBillingsResponse
   outputClient: ./web/billing/client
   outputHandler: ./web/billing/handler

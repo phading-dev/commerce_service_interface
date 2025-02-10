@@ -1,5 +1,6 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { COMMERCE_NODE_SERVICE } from '../service';
+import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface ReportBillingRequestBody {
   accountId?: string,
@@ -517,8 +518,9 @@ export let LIST_PAYOUT_TASKS_RESPONSE: MessageDescriptor<ListPayoutTasksResponse
   }],
 };
 
-export let REPORT_BILLING: NodeRemoteCallDescriptor = {
+export let REPORT_BILLING: RemoteCallDescriptor = {
   name: "ReportBilling",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ReportBilling",
   body: {
     messageType: REPORT_BILLING_REQUEST_BODY,
@@ -528,8 +530,9 @@ export let REPORT_BILLING: NodeRemoteCallDescriptor = {
   },
 }
 
-export let REPORT_EARNINGS: NodeRemoteCallDescriptor = {
+export let REPORT_EARNINGS: RemoteCallDescriptor = {
   name: "ReportEarnings",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ReportEarnings",
   body: {
     messageType: REPORT_EARNINGS_REQUEST_BODY,
@@ -539,8 +542,9 @@ export let REPORT_EARNINGS: NodeRemoteCallDescriptor = {
   },
 }
 
-export let CREATE_BILLING_ACCOUNT: NodeRemoteCallDescriptor = {
+export let CREATE_BILLING_ACCOUNT: RemoteCallDescriptor = {
   name: "CreateBillingAccount",
+  service: COMMERCE_NODE_SERVICE,
   path: "/CreateBillingAccount",
   body: {
     messageType: CREATE_BILLING_ACCOUNT_REQUEST_BODY,
@@ -550,8 +554,9 @@ export let CREATE_BILLING_ACCOUNT: NodeRemoteCallDescriptor = {
   },
 }
 
-export let CREATE_EARNINGS_ACCOUNT: NodeRemoteCallDescriptor = {
+export let CREATE_EARNINGS_ACCOUNT: RemoteCallDescriptor = {
   name: "CreateEarningsAccount",
+  service: COMMERCE_NODE_SERVICE,
   path: "/CreateEarningsAccount",
   body: {
     messageType: CREATE_EARNINGS_ACCOUNT_REQUEST_BODY,
@@ -561,8 +566,9 @@ export let CREATE_EARNINGS_ACCOUNT: NodeRemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK: RemoteCallDescriptor = {
   name: "ProcessStripeCustomerCreatingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessStripeCustomerCreatingTask",
   body: {
     messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY,
@@ -572,8 +578,9 @@ export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK: NodeRemoteCallDescriptor = {
   },
 }
 
-export let LIST_STRIPE_CUSTOMER_CREATING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_STRIPE_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
   name: "ListStripeCustomerCreatingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListStripeCustomerCreatingTasks",
   body: {
     messageType: LIST_STRIPE_CUSTOMER_CREATING_TASKS_REQUEST_BODY,
@@ -583,8 +590,9 @@ export let LIST_STRIPE_CUSTOMER_CREATING_TASKS: NodeRemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_PAYMENT_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_PAYMENT_TASK: RemoteCallDescriptor = {
   name: "ProcessPaymentTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessPaymentTask",
   body: {
     messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
@@ -594,8 +602,9 @@ export let PROCESS_PAYMENT_TASK: NodeRemoteCallDescriptor = {
   },
 }
 
-export let LIST_PAYMENT_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_PAYMENT_TASKS: RemoteCallDescriptor = {
   name: "ListPaymentTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListPaymentTasks",
   body: {
     messageType: LIST_PAYMENT_TASKS_REQUEST_BODY,
@@ -605,8 +614,9 @@ export let LIST_PAYMENT_TASKS: NodeRemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK: RemoteCallDescriptor = {
   name: "ProcessUpdatePaymentMethodNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessUpdatePaymentMethodNotifyingTask",
   body: {
     messageType: PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_REQUEST_BODY,
@@ -616,8 +626,9 @@ export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK: NodeRemoteCallDescripto
   },
 }
 
-export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS: RemoteCallDescriptor = {
   name: "ListUpdatePaymentMethodNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListUpdatePaymentMethodNotifyingTasks",
   body: {
     messageType: LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_REQUEST_BODY,
@@ -627,8 +638,9 @@ export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS: NodeRemoteCallDescriptor 
   },
 }
 
-export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK: RemoteCallDescriptor = {
   name: "ProcessBillingAccountSuspendingDueToPastDueTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessBillingAccountSuspendingDueToPastDueTask",
   body: {
     messageType: PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY,
@@ -638,8 +650,9 @@ export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK: NodeRemoteCa
   },
 }
 
-export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS: RemoteCallDescriptor = {
   name: "ListBillingAccountSuspendingDueToPastDueTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListBillingAccountSuspendingDueToPastDueTasks",
   body: {
     messageType: LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS_REQUEST_BODY,
@@ -649,8 +662,9 @@ export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS: NodeRemoteCall
   },
 }
 
-export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK: RemoteCallDescriptor = {
   name: "ProcessBillingAccountSuspensionNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessBillingAccountSuspensionNotifyingTask",
   body: {
     messageType: PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY,
@@ -660,8 +674,9 @@ export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK: NodeRemoteCallDesc
   },
 }
 
-export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS: RemoteCallDescriptor = {
   name: "ListBillingAccountSuspensionNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListBillingAccountSuspensionNotifyingTasks",
   body: {
     messageType: LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS_REQUEST_BODY,
@@ -671,8 +686,9 @@ export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS: NodeRemoteCallDescri
   },
 }
 
-export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK: RemoteCallDescriptor = {
   name: "ProcessBillingAccountStateSyncingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessBillingAccountStateSyncingTask",
   body: {
     messageType: PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_REQUEST_BODY,
@@ -682,8 +698,9 @@ export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK: NodeRemoteCallDescriptor 
   },
 }
 
-export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS: RemoteCallDescriptor = {
   name: "ListBillingAccountStateSyncingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListBillingAccountStateSyncingTasks",
   body: {
     messageType: LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS_REQUEST_BODY,
@@ -693,8 +710,9 @@ export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS: NodeRemoteCallDescriptor = 
   },
 }
 
-export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK: RemoteCallDescriptor = {
   name: "ProcessStripeConnectedAccountCreatingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessStripeConnectedAccountCreatingTask",
   body: {
     messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_REQUEST_BODY,
@@ -704,8 +722,9 @@ export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK: NodeRemoteCallDescrip
   },
 }
 
-export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS: RemoteCallDescriptor = {
   name: "ListStripeConnectedAccountCreatingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListStripeConnectedAccountCreatingTasks",
   body: {
     messageType: LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_REQUEST_BODY,
@@ -715,8 +734,9 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS: NodeRemoteCallDescripto
   },
 }
 
-export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK: RemoteCallDescriptor = {
   name: "ProcessSetupStripeConnectedAccountNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessSetupStripeConnectedAccountNotifyingTask",
   body: {
     messageType: PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_REQUEST_BODY,
@@ -726,8 +746,9 @@ export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK: NodeRemoteCall
   },
 }
 
-export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS: RemoteCallDescriptor = {
   name: "ListSetupStripeConnectedAccountNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListSetupStripeConnectedAccountNotifyingTasks",
   body: {
     messageType: LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_REQUEST_BODY,
@@ -737,8 +758,9 @@ export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS: NodeRemoteCallDe
   },
 }
 
-export let PROCESS_PAYOUT_TASK: NodeRemoteCallDescriptor = {
+export let PROCESS_PAYOUT_TASK: RemoteCallDescriptor = {
   name: "ProcessPayoutTask",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ProcessPayoutTask",
   body: {
     messageType: PROCESS_PAYOUT_TASK_REQUEST_BODY,
@@ -748,8 +770,9 @@ export let PROCESS_PAYOUT_TASK: NodeRemoteCallDescriptor = {
   },
 }
 
-export let LIST_PAYOUT_TASKS: NodeRemoteCallDescriptor = {
+export let LIST_PAYOUT_TASKS: RemoteCallDescriptor = {
   name: "ListPayoutTasks",
+  service: COMMERCE_NODE_SERVICE,
   path: "/ListPayoutTasks",
   body: {
     messageType: LIST_PAYOUT_TASKS_REQUEST_BODY,
