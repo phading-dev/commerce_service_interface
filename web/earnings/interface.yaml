@@ -1,4 +1,12 @@
 - kind: Message
+  name: CreateEarningsAccountRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: CreateEarningsAccountResponse
+- kind: Message
   name: GetConnectedAccountLinkRequestBody
 - kind: Enum
   name: LinkType
@@ -46,6 +54,11 @@
   service: CommerceWebService
   importService: ./service
   calls:
+    - name: CreateEarningsAccount
+      path: /CreateEarningsAccount
+      body: CreateEarningsAccountRequestBody
+      authKey: a
+      response: CreateEarningsAccountResponse
     - name: GetConnectedAccountLink
       path: /GetConnectedAccountLink
       body: GetConnectedAccountLinkRequestBody

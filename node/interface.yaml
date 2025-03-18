@@ -44,14 +44,6 @@
 - kind: Message
   name: CreateBillingAccountResponse
 - kind: Message
-  name: CreateEarningsAccountRequestBody
-  fields:
-    - name: accountId
-      type: string
-      index: 1
-- kind: Message
-  name: CreateEarningsAccountResponse
-- kind: Message
   name: ProcessStripeCustomerCreatingTaskRequestBody
   fields:
     - name: accountId
@@ -227,10 +219,6 @@
       path: /CreateBillingAccount
       body: CreateBillingAccountRequestBody
       response: CreateBillingAccountResponse
-    - name: CreateEarningsAccount
-      path: /CreateEarningsAccount
-      body: CreateEarningsAccountRequestBody
-      response: CreateEarningsAccountResponse
     - name: ProcessStripeCustomerCreatingTask
       path: /ProcessStripeCustomerCreatingTask
       body: ProcessStripeCustomerCreatingTaskRequestBody

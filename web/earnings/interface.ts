@@ -1,7 +1,28 @@
-import { MessageDescriptor, EnumDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { PrimitiveType, MessageDescriptor, EnumDescriptor } from '@selfage/message/descriptor';
 import { Earnings, EARNINGS } from './statement';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
+
+export interface CreateEarningsAccountRequestBody {
+  accountId?: string,
+}
+
+export let CREATE_EARNINGS_ACCOUNT_REQUEST_BODY: MessageDescriptor<CreateEarningsAccountRequestBody> = {
+  name: 'CreateEarningsAccountRequestBody',
+  fields: [{
+    name: 'accountId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface CreateEarningsAccountResponse {
+}
+
+export let CREATE_EARNINGS_ACCOUNT_RESPONSE: MessageDescriptor<CreateEarningsAccountResponse> = {
+  name: 'CreateEarningsAccountResponse',
+  fields: [],
+};
 
 export interface GetConnectedAccountLinkRequestBody {
 }
@@ -97,6 +118,19 @@ export let LIST_EARNINGS_RESPONSE: MessageDescriptor<ListEarningsResponse> = {
     isArray: true,
   }],
 };
+
+export let CREATE_EARNINGS_ACCOUNT: RemoteCallDescriptor = {
+  name: "CreateEarningsAccount",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/CreateEarningsAccount",
+  body: {
+    messageType: CREATE_EARNINGS_ACCOUNT_REQUEST_BODY,
+  },
+  authKey: "a",
+  response: {
+    messageType: CREATE_EARNINGS_ACCOUNT_RESPONSE,
+  },
+}
 
 export let GET_CONNECTED_ACCOUNT_LINK: RemoteCallDescriptor = {
   name: "GetConnectedAccountLink",

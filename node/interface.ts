@@ -100,27 +100,6 @@ export let CREATE_BILLING_ACCOUNT_RESPONSE: MessageDescriptor<CreateBillingAccou
   fields: [],
 };
 
-export interface CreateEarningsAccountRequestBody {
-  accountId?: string,
-}
-
-export let CREATE_EARNINGS_ACCOUNT_REQUEST_BODY: MessageDescriptor<CreateEarningsAccountRequestBody> = {
-  name: 'CreateEarningsAccountRequestBody',
-  fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
-export interface CreateEarningsAccountResponse {
-}
-
-export let CREATE_EARNINGS_ACCOUNT_RESPONSE: MessageDescriptor<CreateEarningsAccountResponse> = {
-  name: 'CreateEarningsAccountResponse',
-  fields: [],
-};
-
 export interface ProcessStripeCustomerCreatingTaskRequestBody {
   accountId?: string,
 }
@@ -551,18 +530,6 @@ export let CREATE_BILLING_ACCOUNT: RemoteCallDescriptor = {
   },
   response: {
     messageType: CREATE_BILLING_ACCOUNT_RESPONSE,
-  },
-}
-
-export let CREATE_EARNINGS_ACCOUNT: RemoteCallDescriptor = {
-  name: "CreateEarningsAccount",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/CreateEarningsAccount",
-  body: {
-    messageType: CREATE_EARNINGS_ACCOUNT_REQUEST_BODY,
-  },
-  response: {
-    messageType: CREATE_EARNINGS_ACCOUNT_RESPONSE,
   },
 }
 
