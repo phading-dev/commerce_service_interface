@@ -1,18 +1,36 @@
+import { ProductID, PRODUCT_I_D } from '@phading/price/price';
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
+import { AmountType, AMOUNT_TYPE } from '@phading/price/amount_type';
 import { COMMERCE_NODE_SERVICE } from '../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface ReportBillingRequestBody {
-  accountId?: string,
-  month?: string,
-  watchTimeSec?: number,
-  transmittedMb?: number,
-  uploadedMb?: number,
-  storageMbh?: number,
+export interface LineItem {
+  productID?: ProductID,
+  quantity?: number,
 }
 
-export let REPORT_BILLING_REQUEST_BODY: MessageDescriptor<ReportBillingRequestBody> = {
-  name: 'ReportBillingRequestBody',
+export let LINE_ITEM: MessageDescriptor<LineItem> = {
+  name: 'LineItem',
+  fields: [{
+    name: 'productID',
+    index: 1,
+    enumType: PRODUCT_I_D,
+  }, {
+    name: 'quantity',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface GenerateTransactionStatementRequestBody {
+  accountId?: string,
+  month?: string,
+  positiveAmountType?: AmountType,
+  lineItems?: Array<LineItem>,
+}
+
+export let GENERATE_TRANSACTION_STATEMENT_REQUEST_BODY: MessageDescriptor<GenerateTransactionStatementRequestBody> = {
+  name: 'GenerateTransactionStatementRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
@@ -22,69 +40,31 @@ export let REPORT_BILLING_REQUEST_BODY: MessageDescriptor<ReportBillingRequestBo
     index: 2,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'watchTimeSec',
+    name: 'positiveAmountType',
     index: 3,
-    primitiveType: PrimitiveType.NUMBER,
+    enumType: AMOUNT_TYPE,
   }, {
-    name: 'transmittedMb',
+    name: 'lineItems',
     index: 4,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
-    name: 'uploadedMb',
-    index: 5,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
-    name: 'storageMbh',
-    index: 6,
-    primitiveType: PrimitiveType.NUMBER,
+    messageType: LINE_ITEM,
+    isArray: true,
   }],
 };
 
-export interface ReportBillingResponse {
+export interface GenerateTransactionStatementResponse {
 }
 
-export let REPORT_BILLING_RESPONSE: MessageDescriptor<ReportBillingResponse> = {
-  name: 'ReportBillingResponse',
+export let GENERATE_TRANSACTION_STATEMENT_RESPONSE: MessageDescriptor<GenerateTransactionStatementResponse> = {
+  name: 'GenerateTransactionStatementResponse',
   fields: [],
 };
 
-export interface ReportEarningsRequestBody {
-  accountId?: string,
-  month?: string,
-  watchTimeSec?: number,
-}
-
-export let REPORT_EARNINGS_REQUEST_BODY: MessageDescriptor<ReportEarningsRequestBody> = {
-  name: 'ReportEarningsRequestBody',
-  fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'month',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'watchTimeSec',
-    index: 3,
-    primitiveType: PrimitiveType.NUMBER,
-  }],
-};
-
-export interface ReportEarningsResponse {
-}
-
-export let REPORT_EARNINGS_RESPONSE: MessageDescriptor<ReportEarningsResponse> = {
-  name: 'ReportEarningsResponse',
-  fields: [],
-};
-
-export interface CreateBillingAccountRequestBody {
+export interface CreateBillingProfileRequestBody {
   accountId?: string,
 }
 
-export let CREATE_BILLING_ACCOUNT_REQUEST_BODY: MessageDescriptor<CreateBillingAccountRequestBody> = {
-  name: 'CreateBillingAccountRequestBody',
+export let CREATE_BILLING_PROFILE_REQUEST_BODY: MessageDescriptor<CreateBillingProfileRequestBody> = {
+  name: 'CreateBillingProfileRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
@@ -92,20 +72,20 @@ export let CREATE_BILLING_ACCOUNT_REQUEST_BODY: MessageDescriptor<CreateBillingA
   }],
 };
 
-export interface CreateBillingAccountResponse {
+export interface CreateBillingProfileResponse {
 }
 
-export let CREATE_BILLING_ACCOUNT_RESPONSE: MessageDescriptor<CreateBillingAccountResponse> = {
-  name: 'CreateBillingAccountResponse',
+export let CREATE_BILLING_PROFILE_RESPONSE: MessageDescriptor<CreateBillingProfileResponse> = {
+  name: 'CreateBillingProfileResponse',
   fields: [],
 };
 
-export interface ProcessStripeCustomerCreatingTaskRequestBody {
+export interface CreateEarningsProfileRequestBody {
   accountId?: string,
 }
 
-export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeCustomerCreatingTaskRequestBody> = {
-  name: 'ProcessStripeCustomerCreatingTaskRequestBody',
+export let CREATE_EARNINGS_PROFILE_REQUEST_BODY: MessageDescriptor<CreateEarningsProfileRequestBody> = {
+  name: 'CreateEarningsProfileRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
@@ -113,257 +93,53 @@ export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor
   }],
 };
 
-export interface ProcessStripeCustomerCreatingTaskResponse {
+export interface CreateEarningsProfileResponse {
 }
 
-export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripeCustomerCreatingTaskResponse> = {
-  name: 'ProcessStripeCustomerCreatingTaskResponse',
+export let CREATE_EARNINGS_PROFILE_RESPONSE: MessageDescriptor<CreateEarningsProfileResponse> = {
+  name: 'CreateEarningsProfileResponse',
   fields: [],
 };
 
-export interface ListStripeCustomerCreatingTasksRequestBody {
-}
-
-export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripeCustomerCreatingTasksRequestBody> = {
-  name: 'ListStripeCustomerCreatingTasksRequestBody',
-  fields: [],
-};
-
-export interface ListStripeCustomerCreatingTasksResponse {
-  tasks?: Array<ProcessStripeCustomerCreatingTaskRequestBody>,
-}
-
-export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripeCustomerCreatingTasksResponse> = {
-  name: 'ListStripeCustomerCreatingTasksResponse',
-  fields: [{
-    name: 'tasks',
-    index: 1,
-    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY,
-    isArray: true,
-  }],
-};
-
-export interface ProcessPaymentTaskRequestBody {
-  billingId?: string,
-}
-
-export let PROCESS_PAYMENT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentTaskRequestBody> = {
-  name: 'ProcessPaymentTaskRequestBody',
-  fields: [{
-    name: 'billingId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
-export interface ProcessPaymentTaskResponse {
-}
-
-export let PROCESS_PAYMENT_TASK_RESPONSE: MessageDescriptor<ProcessPaymentTaskResponse> = {
-  name: 'ProcessPaymentTaskResponse',
-  fields: [],
-};
-
-export interface ListPaymentTasksRequestBody {
-}
-
-export let LIST_PAYMENT_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentTasksRequestBody> = {
-  name: 'ListPaymentTasksRequestBody',
-  fields: [],
-};
-
-export interface ListPaymentTasksResponse {
-  tasks?: Array<ProcessPaymentTaskRequestBody>,
-}
-
-export let LIST_PAYMENT_TASKS_RESPONSE: MessageDescriptor<ListPaymentTasksResponse> = {
-  name: 'ListPaymentTasksResponse',
-  fields: [{
-    name: 'tasks',
-    index: 1,
-    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
-    isArray: true,
-  }],
-};
-
-export interface ProcessUpdatePaymentMethodNotifyingTaskRequestBody {
-  billingId?: string,
-}
-
-export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessUpdatePaymentMethodNotifyingTaskRequestBody> = {
-  name: 'ProcessUpdatePaymentMethodNotifyingTaskRequestBody',
-  fields: [{
-    name: 'billingId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
-export interface ProcessUpdatePaymentMethodNotifyingTaskResponse {
-}
-
-export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessUpdatePaymentMethodNotifyingTaskResponse> = {
-  name: 'ProcessUpdatePaymentMethodNotifyingTaskResponse',
-  fields: [],
-};
-
-export interface ListUpdatePaymentMethodNotifyingTasksRequestBody {
-}
-
-export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListUpdatePaymentMethodNotifyingTasksRequestBody> = {
-  name: 'ListUpdatePaymentMethodNotifyingTasksRequestBody',
-  fields: [],
-};
-
-export interface ListUpdatePaymentMethodNotifyingTasksResponse {
-  tasks?: Array<ProcessUpdatePaymentMethodNotifyingTaskRequestBody>,
-}
-
-export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListUpdatePaymentMethodNotifyingTasksResponse> = {
-  name: 'ListUpdatePaymentMethodNotifyingTasksResponse',
-  fields: [{
-    name: 'tasks',
-    index: 1,
-    messageType: PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_REQUEST_BODY,
-    isArray: true,
-  }],
-};
-
-export interface ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody {
-  billingId?: string,
-}
-
-export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody> = {
-  name: 'ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody',
-  fields: [{
-    name: 'billingId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
-export interface ProcessBillingAccountSuspendingDueToPastDueTaskResponse {
-}
-
-export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_RESPONSE: MessageDescriptor<ProcessBillingAccountSuspendingDueToPastDueTaskResponse> = {
-  name: 'ProcessBillingAccountSuspendingDueToPastDueTaskResponse',
-  fields: [],
-};
-
-export interface ListBillingAccountSuspendingDueToPastDueTasksRequestBody {
-}
-
-export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingAccountSuspendingDueToPastDueTasksRequestBody> = {
-  name: 'ListBillingAccountSuspendingDueToPastDueTasksRequestBody',
-  fields: [],
-};
-
-export interface ListBillingAccountSuspendingDueToPastDueTasksResponse {
-  tasks?: Array<ProcessBillingAccountSuspendingDueToPastDueTaskRequestBody>,
-}
-
-export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS_RESPONSE: MessageDescriptor<ListBillingAccountSuspendingDueToPastDueTasksResponse> = {
-  name: 'ListBillingAccountSuspendingDueToPastDueTasksResponse',
-  fields: [{
-    name: 'tasks',
-    index: 1,
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY,
-    isArray: true,
-  }],
-};
-
-export interface ProcessBillingAccountSuspensionNotifyingTaskRequestBody {
+export interface ProcessStripePaymentCustomerCreatingTaskRequestBody {
   accountId?: string,
-  version?: number,
 }
 
-export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingAccountSuspensionNotifyingTaskRequestBody> = {
-  name: 'ProcessBillingAccountSuspensionNotifyingTaskRequestBody',
+export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripePaymentCustomerCreatingTaskRequestBody> = {
+  name: 'ProcessStripePaymentCustomerCreatingTaskRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'version',
-    index: 2,
-    primitiveType: PrimitiveType.NUMBER,
   }],
 };
 
-export interface ProcessBillingAccountSuspensionNotifyingTaskResponse {
+export interface ProcessStripePaymentCustomerCreatingTaskResponse {
 }
 
-export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessBillingAccountSuspensionNotifyingTaskResponse> = {
-  name: 'ProcessBillingAccountSuspensionNotifyingTaskResponse',
+export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripePaymentCustomerCreatingTaskResponse> = {
+  name: 'ProcessStripePaymentCustomerCreatingTaskResponse',
   fields: [],
 };
 
-export interface ListBillingAccountSuspensionNotifyingTasksRequestBody {
+export interface ListStripePaymentCustomerCreatingTasksRequestBody {
 }
 
-export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingAccountSuspensionNotifyingTasksRequestBody> = {
-  name: 'ListBillingAccountSuspensionNotifyingTasksRequestBody',
+export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripePaymentCustomerCreatingTasksRequestBody> = {
+  name: 'ListStripePaymentCustomerCreatingTasksRequestBody',
   fields: [],
 };
 
-export interface ListBillingAccountSuspensionNotifyingTasksResponse {
-  tasks?: Array<ProcessBillingAccountSuspensionNotifyingTaskRequestBody>,
+export interface ListStripePaymentCustomerCreatingTasksResponse {
+  tasks?: Array<ProcessStripePaymentCustomerCreatingTaskRequestBody>,
 }
 
-export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListBillingAccountSuspensionNotifyingTasksResponse> = {
-  name: 'ListBillingAccountSuspensionNotifyingTasksResponse',
+export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripePaymentCustomerCreatingTasksResponse> = {
+  name: 'ListStripePaymentCustomerCreatingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY,
-    isArray: true,
-  }],
-};
-
-export interface ProcessBillingAccountStateSyncingTaskRequestBody {
-  accountId?: string,
-  version?: number,
-}
-
-export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingAccountStateSyncingTaskRequestBody> = {
-  name: 'ProcessBillingAccountStateSyncingTaskRequestBody',
-  fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'version',
-    index: 2,
-    primitiveType: PrimitiveType.NUMBER,
-  }],
-};
-
-export interface ProcessBillingAccountStateSyncingTaskResponse {
-}
-
-export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_RESPONSE: MessageDescriptor<ProcessBillingAccountStateSyncingTaskResponse> = {
-  name: 'ProcessBillingAccountStateSyncingTaskResponse',
-  fields: [],
-};
-
-export interface ListBillingAccountStateSyncingTasksRequestBody {
-}
-
-export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingAccountStateSyncingTasksRequestBody> = {
-  name: 'ListBillingAccountStateSyncingTasksRequestBody',
-  fields: [],
-};
-
-export interface ListBillingAccountStateSyncingTasksResponse {
-  tasks?: Array<ProcessBillingAccountStateSyncingTaskRequestBody>,
-}
-
-export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS_RESPONSE: MessageDescriptor<ListBillingAccountStateSyncingTasksResponse> = {
-  name: 'ListBillingAccountStateSyncingTasksResponse',
-  fields: [{
-    name: 'tasks',
-    index: 1,
-    messageType: PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
@@ -411,12 +187,12 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_RESPONSE: MessageDescrip
   }],
 };
 
-export interface ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody {
+export interface ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody {
   accountId?: string,
 }
 
-export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody> = {
-  name: 'ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody',
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody> = {
+  name: 'ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody',
   fields: [{
     name: 'accountId',
     index: 1,
@@ -424,44 +200,269 @@ export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_REQUEST_BODY: M
   }],
 };
 
-export interface ProcessSetupStripeConnectedAccountNotifyingTaskResponse {
+export interface ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse {
 }
 
-export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessSetupStripeConnectedAccountNotifyingTaskResponse> = {
-  name: 'ProcessSetupStripeConnectedAccountNotifyingTaskResponse',
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse> = {
+  name: 'ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse',
   fields: [],
 };
 
-export interface ListSetupStripeConnectedAccountNotifyingTasksRequestBody {
+export interface ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody {
 }
 
-export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListSetupStripeConnectedAccountNotifyingTasksRequestBody> = {
-  name: 'ListSetupStripeConnectedAccountNotifyingTasksRequestBody',
+export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody> = {
+  name: 'ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody',
   fields: [],
 };
 
-export interface ListSetupStripeConnectedAccountNotifyingTasksResponse {
-  tasks?: Array<ProcessSetupStripeConnectedAccountNotifyingTaskRequestBody>,
+export interface ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse {
+  tasks?: Array<ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody>,
 }
 
-export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListSetupStripeConnectedAccountNotifyingTasksResponse> = {
-  name: 'ListSetupStripeConnectedAccountNotifyingTasksResponse',
+export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse> = {
+  name: 'ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessPaymentTaskRequestBody {
+  statementId?: string,
+}
+
+export let PROCESS_PAYMENT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentTaskRequestBody> = {
+  name: 'ProcessPaymentTaskRequestBody',
+  fields: [{
+    name: 'statementId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessPaymentTaskResponse {
+}
+
+export let PROCESS_PAYMENT_TASK_RESPONSE: MessageDescriptor<ProcessPaymentTaskResponse> = {
+  name: 'ProcessPaymentTaskResponse',
+  fields: [],
+};
+
+export interface ListPaymentTasksRequestBody {
+}
+
+export let LIST_PAYMENT_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentTasksRequestBody> = {
+  name: 'ListPaymentTasksRequestBody',
+  fields: [],
+};
+
+export interface ListPaymentTasksResponse {
+  tasks?: Array<ProcessPaymentTaskRequestBody>,
+}
+
+export let LIST_PAYMENT_TASKS_RESPONSE: MessageDescriptor<ListPaymentTasksResponse> = {
+  name: 'ListPaymentTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody {
+  statementId?: string,
+}
+
+export let PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody> = {
+  name: 'ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody',
+  fields: [{
+    name: 'statementId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse {
+}
+
+export let PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse> = {
+  name: 'ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse',
+  fields: [],
+};
+
+export interface ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody {
+}
+
+export let LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody> = {
+  name: 'ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListPaymentMethodNeedsUpdateNotifyingTasksResponse {
+  tasks?: Array<ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody>,
+}
+
+export let LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListPaymentMethodNeedsUpdateNotifyingTasksResponse> = {
+  name: 'ListPaymentMethodNeedsUpdateNotifyingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessBillingProfileSuspendingDueToPastDueTaskRequestBody {
+  statementId?: string,
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingProfileSuspendingDueToPastDueTaskRequestBody> = {
+  name: 'ProcessBillingProfileSuspendingDueToPastDueTaskRequestBody',
+  fields: [{
+    name: 'statementId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessBillingProfileSuspendingDueToPastDueTaskResponse {
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK_RESPONSE: MessageDescriptor<ProcessBillingProfileSuspendingDueToPastDueTaskResponse> = {
+  name: 'ProcessBillingProfileSuspendingDueToPastDueTaskResponse',
+  fields: [],
+};
+
+export interface ListBillingProfileSuspendingDueToPastDueTasksRequestBody {
+}
+
+export let LIST_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingProfileSuspendingDueToPastDueTasksRequestBody> = {
+  name: 'ListBillingProfileSuspendingDueToPastDueTasksRequestBody',
+  fields: [],
+};
+
+export interface ListBillingProfileSuspendingDueToPastDueTasksResponse {
+  tasks?: Array<ProcessBillingProfileSuspendingDueToPastDueTaskRequestBody>,
+}
+
+export let LIST_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS_RESPONSE: MessageDescriptor<ListBillingProfileSuspendingDueToPastDueTasksResponse> = {
+  name: 'ListBillingProfileSuspendingDueToPastDueTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessBillingProfileSuspensionNotifyingTaskRequestBody {
+  accountId?: string,
+  version?: number,
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingProfileSuspensionNotifyingTaskRequestBody> = {
+  name: 'ProcessBillingProfileSuspensionNotifyingTaskRequestBody',
+  fields: [{
+    name: 'accountId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'version',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface ProcessBillingProfileSuspensionNotifyingTaskResponse {
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessBillingProfileSuspensionNotifyingTaskResponse> = {
+  name: 'ProcessBillingProfileSuspensionNotifyingTaskResponse',
+  fields: [],
+};
+
+export interface ListBillingProfileSuspensionNotifyingTasksRequestBody {
+}
+
+export let LIST_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingProfileSuspensionNotifyingTasksRequestBody> = {
+  name: 'ListBillingProfileSuspensionNotifyingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListBillingProfileSuspensionNotifyingTasksResponse {
+  tasks?: Array<ProcessBillingProfileSuspensionNotifyingTaskRequestBody>,
+}
+
+export let LIST_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListBillingProfileSuspensionNotifyingTasksResponse> = {
+  name: 'ListBillingProfileSuspensionNotifyingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessBillingProfileStateSyncingTaskRequestBody {
+  accountId?: string,
+  version?: number,
+}
+
+export let PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK_REQUEST_BODY: MessageDescriptor<ProcessBillingProfileStateSyncingTaskRequestBody> = {
+  name: 'ProcessBillingProfileStateSyncingTaskRequestBody',
+  fields: [{
+    name: 'accountId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'version',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface ProcessBillingProfileStateSyncingTaskResponse {
+}
+
+export let PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK_RESPONSE: MessageDescriptor<ProcessBillingProfileStateSyncingTaskResponse> = {
+  name: 'ProcessBillingProfileStateSyncingTaskResponse',
+  fields: [],
+};
+
+export interface ListBillingProfileStateSyncingTasksRequestBody {
+}
+
+export let LIST_BILLING_PROFILE_STATE_SYNCING_TASKS_REQUEST_BODY: MessageDescriptor<ListBillingProfileStateSyncingTasksRequestBody> = {
+  name: 'ListBillingProfileStateSyncingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListBillingProfileStateSyncingTasksResponse {
+  tasks?: Array<ProcessBillingProfileStateSyncingTaskRequestBody>,
+}
+
+export let LIST_BILLING_PROFILE_STATE_SYNCING_TASKS_RESPONSE: MessageDescriptor<ListBillingProfileStateSyncingTasksResponse> = {
+  name: 'ListBillingProfileStateSyncingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
 
 export interface ProcessPayoutTaskRequestBody {
-  earningsId?: string,
+  statementId?: string,
 }
 
 export let PROCESS_PAYOUT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutTaskRequestBody> = {
   name: 'ProcessPayoutTaskRequestBody',
   fields: [{
-    name: 'earningsId',
+    name: 'statementId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
@@ -497,183 +498,63 @@ export let LIST_PAYOUT_TASKS_RESPONSE: MessageDescriptor<ListPayoutTasksResponse
   }],
 };
 
-export let REPORT_BILLING: RemoteCallDescriptor = {
-  name: "ReportBilling",
+export let GENERATE_TRANSACTION_STATEMENT: RemoteCallDescriptor = {
+  name: "GenerateTransactionStatement",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ReportBilling",
+  path: "/GenerateTransactionStatement",
   body: {
-    messageType: REPORT_BILLING_REQUEST_BODY,
+    messageType: GENERATE_TRANSACTION_STATEMENT_REQUEST_BODY,
   },
   response: {
-    messageType: REPORT_BILLING_RESPONSE,
+    messageType: GENERATE_TRANSACTION_STATEMENT_RESPONSE,
   },
 }
 
-export let REPORT_EARNINGS: RemoteCallDescriptor = {
-  name: "ReportEarnings",
+export let CREATE_BILLING_PROFILE: RemoteCallDescriptor = {
+  name: "CreateBillingProfile",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ReportEarnings",
+  path: "/CreateBillingProfile",
   body: {
-    messageType: REPORT_EARNINGS_REQUEST_BODY,
+    messageType: CREATE_BILLING_PROFILE_REQUEST_BODY,
   },
   response: {
-    messageType: REPORT_EARNINGS_RESPONSE,
+    messageType: CREATE_BILLING_PROFILE_RESPONSE,
   },
 }
 
-export let CREATE_BILLING_ACCOUNT: RemoteCallDescriptor = {
-  name: "CreateBillingAccount",
+export let CREATE_EARNINGS_PROFILE: RemoteCallDescriptor = {
+  name: "CreateEarningsProfile",
   service: COMMERCE_NODE_SERVICE,
-  path: "/CreateBillingAccount",
+  path: "/CreateEarningsProfile",
   body: {
-    messageType: CREATE_BILLING_ACCOUNT_REQUEST_BODY,
+    messageType: CREATE_EARNINGS_PROFILE_REQUEST_BODY,
   },
   response: {
-    messageType: CREATE_BILLING_ACCOUNT_RESPONSE,
+    messageType: CREATE_EARNINGS_PROFILE_RESPONSE,
   },
 }
 
-export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK: RemoteCallDescriptor = {
-  name: "ProcessStripeCustomerCreatingTask",
+export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK: RemoteCallDescriptor = {
+  name: "ProcessStripePaymentCustomerCreatingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessStripeCustomerCreatingTask",
+  path: "/ProcessStripePaymentCustomerCreatingTask",
   body: {
-    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_RESPONSE,
+    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_RESPONSE,
   },
 }
 
-export let LIST_STRIPE_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
-  name: "ListStripeCustomerCreatingTasks",
+export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
+  name: "ListStripePaymentCustomerCreatingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListStripeCustomerCreatingTasks",
+  path: "/ListStripePaymentCustomerCreatingTasks",
   body: {
-    messageType: LIST_STRIPE_CUSTOMER_CREATING_TASKS_REQUEST_BODY,
+    messageType: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE,
-  },
-}
-
-export let PROCESS_PAYMENT_TASK: RemoteCallDescriptor = {
-  name: "ProcessPaymentTask",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessPaymentTask",
-  body: {
-    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
-  },
-  response: {
-    messageType: PROCESS_PAYMENT_TASK_RESPONSE,
-  },
-}
-
-export let LIST_PAYMENT_TASKS: RemoteCallDescriptor = {
-  name: "ListPaymentTasks",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ListPaymentTasks",
-  body: {
-    messageType: LIST_PAYMENT_TASKS_REQUEST_BODY,
-  },
-  response: {
-    messageType: LIST_PAYMENT_TASKS_RESPONSE,
-  },
-}
-
-export let PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK: RemoteCallDescriptor = {
-  name: "ProcessUpdatePaymentMethodNotifyingTask",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessUpdatePaymentMethodNotifyingTask",
-  body: {
-    messageType: PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_REQUEST_BODY,
-  },
-  response: {
-    messageType: PROCESS_UPDATE_PAYMENT_METHOD_NOTIFYING_TASK_RESPONSE,
-  },
-}
-
-export let LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS: RemoteCallDescriptor = {
-  name: "ListUpdatePaymentMethodNotifyingTasks",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ListUpdatePaymentMethodNotifyingTasks",
-  body: {
-    messageType: LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_REQUEST_BODY,
-  },
-  response: {
-    messageType: LIST_UPDATE_PAYMENT_METHOD_NOTIFYING_TASKS_RESPONSE,
-  },
-}
-
-export let PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK: RemoteCallDescriptor = {
-  name: "ProcessBillingAccountSuspendingDueToPastDueTask",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessBillingAccountSuspendingDueToPastDueTask",
-  body: {
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY,
-  },
-  response: {
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASK_RESPONSE,
-  },
-}
-
-export let LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS: RemoteCallDescriptor = {
-  name: "ListBillingAccountSuspendingDueToPastDueTasks",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ListBillingAccountSuspendingDueToPastDueTasks",
-  body: {
-    messageType: LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS_REQUEST_BODY,
-  },
-  response: {
-    messageType: LIST_BILLING_ACCOUNT_SUSPENDING_DUE_TO_PAST_DUE_TASKS_RESPONSE,
-  },
-}
-
-export let PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK: RemoteCallDescriptor = {
-  name: "ProcessBillingAccountSuspensionNotifyingTask",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessBillingAccountSuspensionNotifyingTask",
-  body: {
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY,
-  },
-  response: {
-    messageType: PROCESS_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASK_RESPONSE,
-  },
-}
-
-export let LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS: RemoteCallDescriptor = {
-  name: "ListBillingAccountSuspensionNotifyingTasks",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ListBillingAccountSuspensionNotifyingTasks",
-  body: {
-    messageType: LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS_REQUEST_BODY,
-  },
-  response: {
-    messageType: LIST_BILLING_ACCOUNT_SUSPENSION_NOTIFYING_TASKS_RESPONSE,
-  },
-}
-
-export let PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK: RemoteCallDescriptor = {
-  name: "ProcessBillingAccountStateSyncingTask",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessBillingAccountStateSyncingTask",
-  body: {
-    messageType: PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_REQUEST_BODY,
-  },
-  response: {
-    messageType: PROCESS_BILLING_ACCOUNT_STATE_SYNCING_TASK_RESPONSE,
-  },
-}
-
-export let LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS: RemoteCallDescriptor = {
-  name: "ListBillingAccountStateSyncingTasks",
-  service: COMMERCE_NODE_SERVICE,
-  path: "/ListBillingAccountStateSyncingTasks",
-  body: {
-    messageType: LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS_REQUEST_BODY,
-  },
-  response: {
-    messageType: LIST_BILLING_ACCOUNT_STATE_SYNCING_TASKS_RESPONSE,
+    messageType: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE,
   },
 }
 
@@ -701,27 +582,147 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS: RemoteCallDescriptor = 
   },
 }
 
-export let PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK: RemoteCallDescriptor = {
-  name: "ProcessSetupStripeConnectedAccountNotifyingTask",
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessStripeConnectedAccountNeedsSetupNotifyingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessSetupStripeConnectedAccountNotifyingTask",
+  path: "/ProcessStripeConnectedAccountNeedsSetupNotifyingTask",
   body: {
-    messageType: PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASK_RESPONSE,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK_RESPONSE,
   },
 }
 
-export let LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS: RemoteCallDescriptor = {
-  name: "ListSetupStripeConnectedAccountNotifyingTasks",
+export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS: RemoteCallDescriptor = {
+  name: "ListStripeConnectedAccountNeedsSetupNotifyingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListSetupStripeConnectedAccountNotifyingTasks",
+  path: "/ListStripeConnectedAccountNeedsSetupNotifyingTasks",
   body: {
-    messageType: LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_REQUEST_BODY,
+    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_SETUP_STRIPE_CONNECTED_ACCOUNT_NOTIFYING_TASKS_RESPONSE,
+    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_PAYMENT_TASK: RemoteCallDescriptor = {
+  name: "ProcessPaymentTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessPaymentTask",
+  body: {
+    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_PAYMENT_TASK_RESPONSE,
+  },
+}
+
+export let LIST_PAYMENT_TASKS: RemoteCallDescriptor = {
+  name: "ListPaymentTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListPaymentTasks",
+  body: {
+    messageType: LIST_PAYMENT_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_PAYMENT_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPaymentMethodNeedsUpdateNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessPaymentMethodNeedsUpdateNotifyingTask",
+  body: {
+    messageType: PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS: RemoteCallDescriptor = {
+  name: "ListPaymentMethodNeedsUpdateNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListPaymentMethodNeedsUpdateNotifyingTasks",
+  body: {
+    messageType: LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK: RemoteCallDescriptor = {
+  name: "ProcessBillingProfileSuspendingDueToPastDueTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessBillingProfileSuspendingDueToPastDueTask",
+  body: {
+    messageType: PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK_RESPONSE,
+  },
+}
+
+export let LIST_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS: RemoteCallDescriptor = {
+  name: "ListBillingProfileSuspendingDueToPastDueTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListBillingProfileSuspendingDueToPastDueTasks",
+  body: {
+    messageType: LIST_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_BILLING_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessBillingProfileSuspensionNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessBillingProfileSuspensionNotifyingTask",
+  body: {
+    messageType: PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASKS: RemoteCallDescriptor = {
+  name: "ListBillingProfileSuspensionNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListBillingProfileSuspensionNotifyingTasks",
+  body: {
+    messageType: LIST_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_BILLING_PROFILE_SUSPENSION_NOTIFYING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK: RemoteCallDescriptor = {
+  name: "ProcessBillingProfileStateSyncingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessBillingProfileStateSyncingTask",
+  body: {
+    messageType: PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_BILLING_PROFILE_STATE_SYNCING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_BILLING_PROFILE_STATE_SYNCING_TASKS: RemoteCallDescriptor = {
+  name: "ListBillingProfileStateSyncingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListBillingProfileStateSyncingTasks",
+  body: {
+    messageType: LIST_BILLING_PROFILE_STATE_SYNCING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_BILLING_PROFILE_STATE_SYNCING_TASKS_RESPONSE,
   },
 }
 

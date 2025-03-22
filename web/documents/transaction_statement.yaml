@@ -1,0 +1,86 @@
+- kind: Message
+  name: LineItem
+  fields:
+    - name: productID
+      type: ProductID
+      import: "@phading/price/price"
+      index: 1
+    - name: amountType
+      type: AmountType
+      import: "@phading/price/amount_type"
+      index: 2
+    - name: unit
+      type: string
+      index: 3
+    - name: quantity # The number of units per price config.
+      type: number
+      index: 4
+    - name: amount # Amount under the smallest unit of the currency. E.g. cents for USD.
+      type: number
+      index: 5
+- kind: Enum
+  name: PaymentState
+  values:
+    - name: PROCESSING
+      value: 1
+    - name: PAID
+      value: 2
+    - name: FAILED
+      value: 3
+- kind: Message
+  name: Payment
+  fields:
+    - name: state
+      type: PaymentState
+      index: 1
+    - name: stripeInvoiceUrl
+      type: string
+      index: 2
+- kind: Enum
+  name: PayoutState
+  values:
+    - name: PROCESSING
+      value: 1
+    - name: PAID
+      value: 2
+    - name: FAILED
+      value: 3
+- kind: Message
+  name: Payout
+  fields:
+    - name: state
+      type: PayoutState
+      index: 1
+- kind: Message
+  name: TransactionStatement
+  fields:
+    - name: statementId
+      type: string
+      index: 1
+    - name: month # ISO string
+      type: string
+      index: 2
+    - name: currency
+      type: string
+      index: 3
+    - name: totalAmount # Amount under the smallest unit of the currency. E.g. cents for USD.
+      type: number
+      index: 4
+    - name: totalAmountType
+      type: AmountType
+      import: "@phading/price/amount_type"
+      index: 5
+    - name: positiveAmountType
+      type: AmountType
+      import: "@phading/price/amount_type"
+      index: 6
+    - name: items
+      type: LineItem
+      isArray: true
+      index: 7
+    - name: payment
+      type: Payment
+      index: 8
+    - name: payout
+      type: Payout
+      index: 9

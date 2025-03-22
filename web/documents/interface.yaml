@@ -1,0 +1,29 @@
+- kind: Message
+  name: ListTransactionStatementsRequestBody
+  fields:
+    - name: startMonth # ISO string. Inclusive.
+      type: string
+      index: 1
+    - name: endMonth # ISO string. Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListTransactionStatementsResponse
+  fields:
+    - name: statements
+      type: TransactionStatement
+      import: ./web/documents/transaction_statement
+      isArray: true
+      index: 1
+- kind: RemoteCallsGroup
+  name: CommerceWebDocumentsRemoteCalls
+  service: CommerceWebService
+  importService: ./service
+  calls:
+    - name: ListTransactionStatements
+      path: /ListTransactionStatements
+      body: ListTransactionStatementsRequestBody
+      authKey: a
+      response: ListTransactionStatementsResponse
+  outputClient: ./web/documents/client
+  outputHandler: ./web/documents/handler

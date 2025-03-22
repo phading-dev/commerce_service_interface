@@ -1,4 +1,4 @@
-import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, GetPrimaryPaymentMethodRequestBody, GET_PRIMARY_PAYMENT_METHOD, GetPrimaryPaymentMethodResponse, ListBillingsRequestBody, LIST_BILLINGS, ListBillingsResponse } from './interface';
+import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, GetPrimaryPaymentMethodRequestBody, GET_PRIMARY_PAYMENT_METHOD, GetPrimaryPaymentMethodResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
 export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface implements RemoteCallHandlerInterface {
@@ -26,13 +26,4 @@ export abstract class GetPrimaryPaymentMethodHandlerInterface implements RemoteC
     body: GetPrimaryPaymentMethodRequestBody,
     authStr: string,
   ): Promise<GetPrimaryPaymentMethodResponse>;
-}
-
-export abstract class ListBillingsHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_BILLINGS;
-  public abstract handle(
-    loggingPrefix: string,
-    body: ListBillingsRequestBody,
-    authStr: string,
-  ): Promise<ListBillingsResponse>;
 }

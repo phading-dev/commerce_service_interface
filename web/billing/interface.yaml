@@ -23,23 +23,6 @@
       type: PaymentMethodMasked
       import: ./web/billing/payment_method_masked
       index: 1
-- kind: Message
-  name: ListBillingsRequestBody
-  fields:
-    - name: startMonth # ISO string
-      type: string
-      index: 1
-    - name: endMonth # ISO string. Inclusive.
-      type: string
-      index: 2
-- kind: Message
-  name: ListBillingsResponse
-  fields:
-    - name: billings
-      type: Billing
-      import: ./web/billing/statement
-      isArray: true
-      index: 1
 - kind: RemoteCallsGroup
   name: CommerceWebBillingRemoteCalls
   service: CommerceWebService
@@ -60,10 +43,5 @@
       body: GetPrimaryPaymentMethodRequestBody
       authKey: a
       response: GetPrimaryPaymentMethodResponse
-    - name: ListBillings
-      path: /ListBillings
-      body: ListBillingsRequestBody
-      authKey: a
-      response: ListBillingsResponse
   outputClient: ./web/billing/client
   outputHandler: ./web/billing/handler
