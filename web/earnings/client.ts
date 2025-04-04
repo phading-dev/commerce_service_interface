@@ -1,11 +1,11 @@
-import { GetConnectedAccountLinkRequestBody, GetConnectedAccountLinkResponse, GET_CONNECTED_ACCOUNT_LINK, SetConnectedAccountOnboardedRequestBody, SetConnectedAccountOnboardedResponse, SET_CONNECTED_ACCOUNT_ONBOARDED } from './interface';
+import { GetEarningsProfileInfoRequestBody, GetEarningsProfileInfoResponse, GET_EARNINGS_PROFILE_INFO, SetConnectedAccountOnboardedRequestBody, SetConnectedAccountOnboardedResponse, SET_CONNECTED_ACCOUNT_ONBOARDED } from './interface';
 import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function newGetConnectedAccountLinkRequest(
-  body: GetConnectedAccountLinkRequestBody,
-): ClientRequestInterface<GetConnectedAccountLinkResponse> {
+export function newGetEarningsProfileInfoRequest(
+  body: GetEarningsProfileInfoRequestBody,
+): ClientRequestInterface<GetEarningsProfileInfoResponse> {
   return {
-    descriptor: GET_CONNECTED_ACCOUNT_LINK,
+    descriptor: GET_EARNINGS_PROFILE_INFO,
     body,
   };
 }

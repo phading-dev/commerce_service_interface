@@ -1,5 +1,5 @@
 - kind: Message
-  name: GetConnectedAccountLinkRequestBody
+  name: GetEarningsProfileInfoRequestBody
 - kind: Enum
   name: LinkType
   values:
@@ -8,12 +8,12 @@
     - name: LOGIN
       value: 2
 - kind: Message
-  name: GetConnectedAccountLinkResponse
+  name: GetEarningsProfileInfoResponse
   fields:
-    - name: type
+    - name: connectedAccountLinkType
       type: LinkType
       index: 1
-    - name: url
+    - name: connectedAccountUrl
       type: string
       index: 2
 - kind: Message
@@ -29,11 +29,11 @@
   service: CommerceWebService
   importService: ./service
   calls:
-    - name: GetConnectedAccountLink
-      path: /GetConnectedAccountLink
-      body: GetConnectedAccountLinkRequestBody
+    - name: GetEarningsProfileInfo
+      path: /GetEarningsProfileInfo
+      body: GetEarningsProfileInfoRequestBody
       authKey: a
-      response: GetConnectedAccountLinkResponse
+      response: GetEarningsProfileInfoResponse
     - name: SetConnectedAccountOnboarded
       path: /SetConnectedAccountOnboarded
       body: SetConnectedAccountOnboardedRequestBody

@@ -12,11 +12,11 @@
   fields:
     - name: statements
       type: TransactionStatement
-      import: ./web/documents/transaction_statement
+      import: ./web/statements/transaction_statement
       isArray: true
       index: 1
 - kind: RemoteCallsGroup
-  name: CommerceWebDocumentsRemoteCalls
+  name: CommerceWebStatementsRemoteCalls
   service: CommerceWebService
   importService: ./service
   calls:
@@ -25,5 +25,5 @@
       body: ListTransactionStatementsRequestBody
       authKey: a
       response: ListTransactionStatementsResponse
-  outputClient: ./web/documents/client
-  outputHandler: ./web/documents/handler
+  outputClient: ./web/statements/client
+  outputHandler: ./web/statements/handler

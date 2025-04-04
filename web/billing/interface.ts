@@ -1,5 +1,6 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
+import { BillingProfileState, BILLING_PROFILE_STATE } from './billing_profile_state';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
@@ -45,24 +46,45 @@ export let REPLACE_PRIMARY_PAYMENT_METHOD_RESPONSE: MessageDescriptor<ReplacePri
   fields: [],
 };
 
-export interface GetPrimaryPaymentMethodRequestBody {
+export interface RetryFailedPaymentsRequsetBody {
 }
 
-export let GET_PRIMARY_PAYMENT_METHOD_REQUEST_BODY: MessageDescriptor<GetPrimaryPaymentMethodRequestBody> = {
-  name: 'GetPrimaryPaymentMethodRequestBody',
+export let RETRY_FAILED_PAYMENTS_REQUSET_BODY: MessageDescriptor<RetryFailedPaymentsRequsetBody> = {
+  name: 'RetryFailedPaymentsRequsetBody',
   fields: [],
 };
 
-export interface GetPrimaryPaymentMethodResponse {
-  paymentMethod?: PaymentMethodMasked,
+export interface RetryFailedPaymentsResponse {
 }
 
-export let GET_PRIMARY_PAYMENT_METHOD_RESPONSE: MessageDescriptor<GetPrimaryPaymentMethodResponse> = {
-  name: 'GetPrimaryPaymentMethodResponse',
+export let RETRY_FAILED_PAYMENTS_RESPONSE: MessageDescriptor<RetryFailedPaymentsResponse> = {
+  name: 'RetryFailedPaymentsResponse',
+  fields: [],
+};
+
+export interface GetBillingProfileInfoRequestBody {
+}
+
+export let GET_BILLING_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetBillingProfileInfoRequestBody> = {
+  name: 'GetBillingProfileInfoRequestBody',
+  fields: [],
+};
+
+export interface GetBillingProfileInfoResponse {
+  primaryPaymentMethod?: PaymentMethodMasked,
+  state?: BillingProfileState,
+}
+
+export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfileInfoResponse> = {
+  name: 'GetBillingProfileInfoResponse',
   fields: [{
-    name: 'paymentMethod',
+    name: 'primaryPaymentMethod',
     index: 1,
     messageType: PAYMENT_METHOD_MASKED,
+  }, {
+    name: 'state',
+    index: 2,
+    enumType: BILLING_PROFILE_STATE,
   }],
 };
 
@@ -92,15 +114,28 @@ export let REPLACE_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
   },
 }
 
-export let GET_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
-  name: "GetPrimaryPaymentMethod",
+export let RETRY_FAILED_PAYMENTS: RemoteCallDescriptor = {
+  name: "RetryFailedPayments",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetPrimaryPaymentMethod",
+  path: "/RetryFailedPayments",
   body: {
-    messageType: GET_PRIMARY_PAYMENT_METHOD_REQUEST_BODY,
+    messageType: RETRY_FAILED_PAYMENTS_REQUSET_BODY,
   },
   authKey: "a",
   response: {
-    messageType: GET_PRIMARY_PAYMENT_METHOD_RESPONSE,
+    messageType: RETRY_FAILED_PAYMENTS_RESPONSE,
+  },
+}
+
+export let GET_BILLING_PROFILE_INFO: RemoteCallDescriptor = {
+  name: "GetBillingProfileInfo",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/GetBillingProfileInfo",
+  body: {
+    messageType: GET_BILLING_PROFILE_INFO_REQUEST_BODY,
+  },
+  authKey: "a",
+  response: {
+    messageType: GET_BILLING_PROFILE_INFO_RESPONSE,
   },
 }

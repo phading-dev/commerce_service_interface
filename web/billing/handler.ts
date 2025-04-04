@@ -1,4 +1,4 @@
-import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, GetPrimaryPaymentMethodRequestBody, GET_PRIMARY_PAYMENT_METHOD, GetPrimaryPaymentMethodResponse } from './interface';
+import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, RetryFailedPaymentsRequsetBody, RETRY_FAILED_PAYMENTS, RetryFailedPaymentsResponse, GetBillingProfileInfoRequestBody, GET_BILLING_PROFILE_INFO, GetBillingProfileInfoResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
 export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface implements RemoteCallHandlerInterface {
@@ -19,11 +19,20 @@ export abstract class ReplacePrimaryPaymentMethodHandlerInterface implements Rem
   ): Promise<ReplacePrimaryPaymentMethodResponse>;
 }
 
-export abstract class GetPrimaryPaymentMethodHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = GET_PRIMARY_PAYMENT_METHOD;
+export abstract class RetryFailedPaymentsHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = RETRY_FAILED_PAYMENTS;
   public abstract handle(
     loggingPrefix: string,
-    body: GetPrimaryPaymentMethodRequestBody,
+    body: RetryFailedPaymentsRequsetBody,
     authStr: string,
-  ): Promise<GetPrimaryPaymentMethodResponse>;
+  ): Promise<RetryFailedPaymentsResponse>;
+}
+
+export abstract class GetBillingProfileInfoHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = GET_BILLING_PROFILE_INFO;
+  public abstract handle(
+    loggingPrefix: string,
+    body: GetBillingProfileInfoRequestBody,
+    authStr: string,
+  ): Promise<GetBillingProfileInfoResponse>;
 }

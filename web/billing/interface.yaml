@@ -15,14 +15,22 @@
 - kind: Message
   name: ReplacePrimaryPaymentMethodResponse
 - kind: Message
-  name: GetPrimaryPaymentMethodRequestBody
+  name: RetryFailedPaymentsRequsetBody
 - kind: Message
-  name: GetPrimaryPaymentMethodResponse
+  name: RetryFailedPaymentsResponse
+- kind: Message
+  name: GetBillingProfileInfoRequestBody
+- kind: Message
+  name: GetBillingProfileInfoResponse
   fields:
-    - name: paymentMethod
+    - name: primaryPaymentMethod
       type: PaymentMethodMasked
       import: ./web/billing/payment_method_masked
       index: 1
+    - name: state
+      type: BillingProfileState
+      import: ./web/billing/billing_profile_state
+      index: 2
 - kind: RemoteCallsGroup
   name: CommerceWebBillingRemoteCalls
   service: CommerceWebService
@@ -38,10 +46,15 @@
       body: ReplacePrimaryPaymentMethodRequestBody
       authKey: a
       response: ReplacePrimaryPaymentMethodResponse
-    - name: GetPrimaryPaymentMethod
-      path: /GetPrimaryPaymentMethod
-      body: GetPrimaryPaymentMethodRequestBody
+    - name: RetryFailedPayments
+      path: /RetryFailedPayments
+      body: RetryFailedPaymentsRequsetBody
       authKey: a
-      response: GetPrimaryPaymentMethodResponse
+      response: RetryFailedPaymentsResponse
+    - name: GetBillingProfileInfo
+      path: /GetBillingProfileInfo
+      body: GetBillingProfileInfoRequestBody
+      authKey: a
+      response: GetBillingProfileInfoResponse
   outputClient: ./web/billing/client
   outputHandler: ./web/billing/handler

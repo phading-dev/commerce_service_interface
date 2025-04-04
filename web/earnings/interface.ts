@@ -2,11 +2,11 @@ import { MessageDescriptor, EnumDescriptor, PrimitiveType } from '@selfage/messa
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface GetConnectedAccountLinkRequestBody {
+export interface GetEarningsProfileInfoRequestBody {
 }
 
-export let GET_CONNECTED_ACCOUNT_LINK_REQUEST_BODY: MessageDescriptor<GetConnectedAccountLinkRequestBody> = {
-  name: 'GetConnectedAccountLinkRequestBody',
+export let GET_EARNINGS_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetEarningsProfileInfoRequestBody> = {
+  name: 'GetEarningsProfileInfoRequestBody',
   fields: [],
 };
 
@@ -26,19 +26,19 @@ export let LINK_TYPE: EnumDescriptor<LinkType> = {
   }]
 }
 
-export interface GetConnectedAccountLinkResponse {
-  type?: LinkType,
-  url?: string,
+export interface GetEarningsProfileInfoResponse {
+  connectedAccountLinkType?: LinkType,
+  connectedAccountUrl?: string,
 }
 
-export let GET_CONNECTED_ACCOUNT_LINK_RESPONSE: MessageDescriptor<GetConnectedAccountLinkResponse> = {
-  name: 'GetConnectedAccountLinkResponse',
+export let GET_EARNINGS_PROFILE_INFO_RESPONSE: MessageDescriptor<GetEarningsProfileInfoResponse> = {
+  name: 'GetEarningsProfileInfoResponse',
   fields: [{
-    name: 'type',
+    name: 'connectedAccountLinkType',
     index: 1,
     enumType: LINK_TYPE,
   }, {
-    name: 'url',
+    name: 'connectedAccountUrl',
     index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
@@ -65,16 +65,16 @@ export let SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE: MessageDescriptor<SetConnec
   fields: [],
 };
 
-export let GET_CONNECTED_ACCOUNT_LINK: RemoteCallDescriptor = {
-  name: "GetConnectedAccountLink",
+export let GET_EARNINGS_PROFILE_INFO: RemoteCallDescriptor = {
+  name: "GetEarningsProfileInfo",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetConnectedAccountLink",
+  path: "/GetEarningsProfileInfo",
   body: {
-    messageType: GET_CONNECTED_ACCOUNT_LINK_REQUEST_BODY,
+    messageType: GET_EARNINGS_PROFILE_INFO_REQUEST_BODY,
   },
   authKey: "a",
   response: {
-    messageType: GET_CONNECTED_ACCOUNT_LINK_RESPONSE,
+    messageType: GET_EARNINGS_PROFILE_INFO_RESPONSE,
   },
 }
 
