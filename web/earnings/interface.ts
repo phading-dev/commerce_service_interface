@@ -1,4 +1,5 @@
 import { MessageDescriptor, EnumDescriptor, PrimitiveType } from '@selfage/message/descriptor';
+import { Payout, PAYOUT } from './payout';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
@@ -65,6 +66,38 @@ export let SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE: MessageDescriptor<SetConnec
   fields: [],
 };
 
+export interface ListPayoutsRequestBody {
+  startMonth?: string,
+  endMonth?: string,
+}
+
+export let LIST_PAYOUTS_REQUEST_BODY: MessageDescriptor<ListPayoutsRequestBody> = {
+  name: 'ListPayoutsRequestBody',
+  fields: [{
+    name: 'startMonth',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'endMonth',
+    index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ListPayoutsResponse {
+  payouts?: Array<Payout>,
+}
+
+export let LIST_PAYOUTS_RESPONSE: MessageDescriptor<ListPayoutsResponse> = {
+  name: 'ListPayoutsResponse',
+  fields: [{
+    name: 'payouts',
+    index: 1,
+    messageType: PAYOUT,
+    isArray: true,
+  }],
+};
+
 export let GET_EARNINGS_PROFILE_INFO: RemoteCallDescriptor = {
   name: "GetEarningsProfileInfo",
   service: COMMERCE_WEB_SERVICE,
@@ -88,5 +121,18 @@ export let SET_CONNECTED_ACCOUNT_ONBOARDED: RemoteCallDescriptor = {
   authKey: "a",
   response: {
     messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE,
+  },
+}
+
+export let LIST_PAYOUTS: RemoteCallDescriptor = {
+  name: "ListPayouts",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/ListPayouts",
+  body: {
+    messageType: LIST_PAYOUTS_REQUEST_BODY,
+  },
+  authKey: "a",
+  response: {
+    messageType: LIST_PAYOUTS_RESPONSE,
   },
 }

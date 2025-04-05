@@ -1,4 +1,4 @@
-import { CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, ReplacePrimaryPaymentMethodRequestBody, ReplacePrimaryPaymentMethodResponse, REPLACE_PRIMARY_PAYMENT_METHOD, RetryFailedPaymentsRequsetBody, RetryFailedPaymentsResponse, RETRY_FAILED_PAYMENTS, GetBillingProfileInfoRequestBody, GetBillingProfileInfoResponse, GET_BILLING_PROFILE_INFO } from './interface';
+import { CreateStripeSessionToAddPaymentMethodRequestBody, CreateStripeSessionToAddPaymentMethodResponse, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, ReplacePrimaryPaymentMethodRequestBody, ReplacePrimaryPaymentMethodResponse, REPLACE_PRIMARY_PAYMENT_METHOD, RetryFailedPaymentsRequsetBody, RetryFailedPaymentsResponse, RETRY_FAILED_PAYMENTS, GetBillingProfileInfoRequestBody, GetBillingProfileInfoResponse, GET_BILLING_PROFILE_INFO, ListPaymentsRequestBody, ListPaymentsResponse, LIST_PAYMENTS } from './interface';
 import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
 export function newCreateStripeSessionToAddPaymentMethodRequest(
@@ -33,6 +33,15 @@ export function newGetBillingProfileInfoRequest(
 ): ClientRequestInterface<GetBillingProfileInfoResponse> {
   return {
     descriptor: GET_BILLING_PROFILE_INFO,
+    body,
+  };
+}
+
+export function newListPaymentsRequest(
+  body: ListPaymentsRequestBody,
+): ClientRequestInterface<ListPaymentsResponse> {
+  return {
+    descriptor: LIST_PAYMENTS,
     body,
   };
 }

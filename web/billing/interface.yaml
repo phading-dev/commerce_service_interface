@@ -31,6 +31,23 @@
       type: BillingProfileState
       import: ./web/billing/billing_profile_state
       index: 2
+- kind: Message
+  name: ListPaymentsRequestBody
+  fields:
+    - name: startMonth # ISO string. Inclusive.
+      type: string
+      index: 1
+    - name: endMonth # ISO string. Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListPaymentsResponse
+  fields:
+    - name: payments
+      type: Payment
+      import: ./web/billing/payment
+      isArray: true
+      index: 1
 - kind: RemoteCallsGroup
   name: CommerceWebBillingRemoteCalls
   service: CommerceWebService
@@ -56,5 +73,10 @@
       body: GetBillingProfileInfoRequestBody
       authKey: a
       response: GetBillingProfileInfoResponse
+    - name: ListPayments
+      path: /ListPayments
+      body: ListPaymentsRequestBody
+      authKey: a
+      response: ListPaymentsResponse
   outputClient: ./web/billing/client
   outputHandler: ./web/billing/handler

@@ -1,0 +1,30 @@
+- kind: Enum
+  name: PayoutState
+  values:
+    - name: PROCESSING
+      value: 1
+    - name: PAID
+      value: 2
+    - name: FAILED
+      value: 3
+- kind: Message
+  name: Payout
+  fields:
+    - name: payoutId
+      type: string
+      index: 1
+    - name: month
+      type: string
+      index: 2
+    - name: amount
+      type: number
+      index: 3
+    - name: currency
+      type: string
+      index: 4
+    - name: state
+      type: PayoutState
+      index: 5
+    - name: updatedTimeMs
+      type: number
+      index: 6

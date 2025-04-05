@@ -24,6 +24,23 @@
       index: 1
 - kind: Message
   name: SetConnectedAccountOnboardedResponse
+- kind: Message
+  name: ListPayoutsRequestBody
+  fields:
+    - name: startMonth # ISO string. Inclusive.
+      type: string
+      index: 1
+    - name: endMonth # ISO string. Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListPayoutsResponse
+  fields:
+    - name: payouts
+      type: Payout
+      import: ./web/earnings/payout
+      isArray: true
+      index: 1
 - kind: RemoteCallsGroup
   name: CommerceWebEarningsRemoteCalls
   service: CommerceWebService
@@ -39,5 +56,10 @@
       body: SetConnectedAccountOnboardedRequestBody
       authKey: a
       response: SetConnectedAccountOnboardedResponse
+    - name: ListPayouts
+      path: /ListPayouts
+      body: ListPayoutsRequestBody
+      authKey: a
+      response: ListPayoutsResponse
   outputClient: ./web/earnings/client
   outputHandler: ./web/earnings/handler

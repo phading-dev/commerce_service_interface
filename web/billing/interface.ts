@@ -1,6 +1,7 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
 import { BillingProfileState, BILLING_PROFILE_STATE } from './billing_profile_state';
+import { Payment, PAYMENT } from './payment';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
@@ -88,6 +89,38 @@ export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfil
   }],
 };
 
+export interface ListPaymentsRequestBody {
+  startMonth?: string,
+  endMonth?: string,
+}
+
+export let LIST_PAYMENTS_REQUEST_BODY: MessageDescriptor<ListPaymentsRequestBody> = {
+  name: 'ListPaymentsRequestBody',
+  fields: [{
+    name: 'startMonth',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'endMonth',
+    index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ListPaymentsResponse {
+  payments?: Array<Payment>,
+}
+
+export let LIST_PAYMENTS_RESPONSE: MessageDescriptor<ListPaymentsResponse> = {
+  name: 'ListPaymentsResponse',
+  fields: [{
+    name: 'payments',
+    index: 1,
+    messageType: PAYMENT,
+    isArray: true,
+  }],
+};
+
 export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "CreateStripeSessionToAddPaymentMethod",
   service: COMMERCE_WEB_SERVICE,
@@ -137,5 +170,18 @@ export let GET_BILLING_PROFILE_INFO: RemoteCallDescriptor = {
   authKey: "a",
   response: {
     messageType: GET_BILLING_PROFILE_INFO_RESPONSE,
+  },
+}
+
+export let LIST_PAYMENTS: RemoteCallDescriptor = {
+  name: "ListPayments",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/ListPayments",
+  body: {
+    messageType: LIST_PAYMENTS_REQUEST_BODY,
+  },
+  authKey: "a",
+  response: {
+    messageType: LIST_PAYMENTS_RESPONSE,
   },
 }

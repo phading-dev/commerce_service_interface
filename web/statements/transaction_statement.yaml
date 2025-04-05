@@ -18,39 +18,6 @@
     - name: amount # Amount under the smallest unit of the currency. E.g. cents for USD.
       type: number
       index: 5
-- kind: Enum
-  name: PaymentState
-  values:
-    - name: PROCESSING
-      value: 1
-    - name: PAID
-      value: 2
-    - name: FAILED
-      value: 3
-- kind: Message
-  name: Payment
-  fields:
-    - name: state
-      type: PaymentState
-      index: 1
-    - name: stripeInvoiceUrl
-      type: string
-      index: 2
-- kind: Enum
-  name: PayoutState
-  values:
-    - name: PROCESSING
-      value: 1
-    - name: PAID
-      value: 2
-    - name: FAILED
-      value: 3
-- kind: Message
-  name: Payout
-  fields:
-    - name: state
-      type: PayoutState
-      index: 1
 - kind: Message
   name: TransactionStatement
   fields:
@@ -78,9 +45,3 @@
       type: LineItem
       isArray: true
       index: 7
-    - name: payment
-      type: Payment
-      index: 8
-    - name: payout
-      type: Payout
-      index: 9
