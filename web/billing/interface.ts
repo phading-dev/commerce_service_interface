@@ -74,6 +74,7 @@ export let GET_BILLING_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetBillingPr
 export interface GetBillingProfileInfoResponse {
   primaryPaymentMethod?: PaymentMethodMasked,
   state?: BillingProfileState,
+  paymentAfterMs?: number,
 }
 
 export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfileInfoResponse> = {
@@ -86,6 +87,10 @@ export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfil
     name: 'state',
     index: 2,
     enumType: BILLING_PROFILE_STATE,
+  }, {
+    name: 'paymentAfterMs',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };
 

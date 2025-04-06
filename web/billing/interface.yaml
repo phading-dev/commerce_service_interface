@@ -31,6 +31,9 @@
       type: BillingProfileState
       import: ./web/billing/billing_profile_state
       index: 2
+    - name: paymentAfterMs
+      type: number
+      index: 3
 - kind: Message
   name: ListPaymentsRequestBody
   fields:
