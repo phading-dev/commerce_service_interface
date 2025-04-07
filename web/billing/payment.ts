@@ -21,11 +21,9 @@ export let PAYMENT_STATE: EnumDescriptor<PaymentState> = {
 }
 
 export interface Payment {
-  paymentId?: string,
   month?: string,
   amount?: number,
   currency?: string,
-  stripeInvoiceUrl?: string,
   state?: PaymentState,
   updatedTimeMs?: number,
 }
@@ -49,16 +47,12 @@ export let PAYMENT: MessageDescriptor<Payment> = {
     index: 4,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'stripeInvoiceUrl',
-    index: 5,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'state',
-    index: 6,
+    index: 5,
     enumType: PAYMENT_STATE,
   }, {
     name: 'updatedTimeMs',
-    index: 7,
+    index: 6,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };

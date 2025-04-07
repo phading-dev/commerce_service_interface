@@ -36,6 +36,7 @@
     - name: paymentMethodId
       type: string
       index: 1
+      deprecated: true
     - name: card
       type: CardMasked
       index: 2

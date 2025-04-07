@@ -1,6 +1,6 @@
 {
   "name": "@phading/commerce_service_interface",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "description": "The interface of CommerceService.",
   "repository": {
     "type": "git",

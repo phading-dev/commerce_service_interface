@@ -3,7 +3,7 @@ import { EnumDescriptor, PrimitiveType, MessageDescriptor } from '@selfage/messa
 export enum PayoutState {
   PROCESSING = 1,
   PAID = 2,
-  FAILED = 3,
+  DISABLED = 3,
 }
 
 export let PAYOUT_STATE: EnumDescriptor<PayoutState> = {
@@ -15,13 +15,12 @@ export let PAYOUT_STATE: EnumDescriptor<PayoutState> = {
     name: 'PAID',
     value: 2,
   }, {
-    name: 'FAILED',
+    name: 'DISABLED',
     value: 3,
   }]
 }
 
 export interface Payout {
-  payoutId?: string,
   month?: string,
   amount?: number,
   currency?: string,

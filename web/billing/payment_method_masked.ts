@@ -65,7 +65,6 @@ export let CARD_MASKED: MessageDescriptor<CardMasked> = {
 };
 
 export interface PaymentMethodMasked {
-  paymentMethodId?: string,
   card?: CardMasked,
 }
 

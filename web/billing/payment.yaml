@@ -13,6 +13,7 @@
     - name: paymentId
       type: string
       index: 1
+      deprecated: true
     - name: month
       type: string
       index: 2
@@ -22,12 +23,9 @@
     - name: currency
       type: string
       index: 4
-    - name: stripeInvoiceUrl
-      type: string
-      index: 5
     - name: state
       type: PaymentState
-      index: 6
+      index: 5
     - name: updatedTimeMs
       type: number
-      index: 7
+      index: 6
