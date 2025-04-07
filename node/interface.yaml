@@ -17,14 +17,10 @@
     - name: month # ISO string
       type: string
       index: 2
-    - name: positiveAmountType
-      type: AmountType
-      import: "@phading/price/amount_type"
-      index: 3
     - name: lineItems
       type: LineItem
       isArray: true
-      index: 4
+      index: 3
 - kind: Message
   name: GenerateTransactionStatementResponse
 - kind: Message

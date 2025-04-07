@@ -37,11 +37,7 @@
       type: AmountType
       import: "@phading/price/amount_type"
       index: 5
-    - name: positiveAmountType
-      type: AmountType
-      import: "@phading/price/amount_type"
-      index: 6
     - name: items
       type: LineItem
       isArray: true
-      index: 7
+      index: 6

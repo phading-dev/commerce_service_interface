@@ -1,6 +1,5 @@
 import { ProductID, PRODUCT_I_D } from '@phading/price/price';
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { AmountType, AMOUNT_TYPE } from '@phading/price/amount_type';
 import { COMMERCE_NODE_SERVICE } from '../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
@@ -25,7 +24,6 @@ export let LINE_ITEM: MessageDescriptor<LineItem> = {
 export interface GenerateTransactionStatementRequestBody {
   accountId?: string,
   month?: string,
-  positiveAmountType?: AmountType,
   lineItems?: Array<LineItem>,
 }
 
@@ -40,12 +38,8 @@ export let GENERATE_TRANSACTION_STATEMENT_REQUEST_BODY: MessageDescriptor<Genera
     index: 2,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'positiveAmountType',
-    index: 3,
-    enumType: AMOUNT_TYPE,
-  }, {
     name: 'lineItems',
-    index: 4,
+    index: 3,
     messageType: LINE_ITEM,
     isArray: true,
   }],
