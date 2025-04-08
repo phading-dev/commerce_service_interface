@@ -19,17 +19,17 @@
 - kind: Message
   name: RetryFailedPaymentsResponse
 - kind: Message
-  name: GetBillingProfileInfoRequestBody
+  name: GetPaymentProfileInfoRequestBody
 - kind: Message
-  name: GetBillingProfileInfoResponse
+  name: GetPaymentProfileInfoResponse
   fields:
     - name: primaryPaymentMethod
       type: PaymentMethodMasked
-      import: ./web/billing/payment_method_masked
+      import: ./web/payment/payment_method_masked
       index: 1
     - name: state
-      type: BillingProfileState
-      import: ./web/billing/billing_profile_state
+      type: PaymentProfileState
+      import: ./web/payment/payment_profile_state
       index: 2
     - name: paymentAfterMs
       type: number
@@ -48,11 +48,11 @@
   fields:
     - name: payments
       type: Payment
-      import: ./web/billing/payment
+      import: ./web/payment/payment
       isArray: true
       index: 1
 - kind: RemoteCallsGroup
-  name: CommerceWebBillingRemoteCalls
+  name: CommerceWebPaymentRemoteCalls
   service: CommerceWebService
   importService: ./service
   calls:
@@ -71,15 +71,15 @@
       body: RetryFailedPaymentsRequsetBody
       authKey: a
       response: RetryFailedPaymentsResponse
-    - name: GetBillingProfileInfo
-      path: /GetBillingProfileInfo
-      body: GetBillingProfileInfoRequestBody
+    - name: GetPaymentProfileInfo
+      path: /GetPaymentProfileInfo
+      body: GetPaymentProfileInfoRequestBody
       authKey: a
-      response: GetBillingProfileInfoResponse
+      response: GetPaymentProfileInfoResponse
     - name: ListPayments
       path: /ListPayments
       body: ListPaymentsRequestBody
       authKey: a
       response: ListPaymentsResponse
-  outputClient: ./web/billing/client
-  outputHandler: ./web/billing/handler
+  outputClient: ./web/payment/client
+  outputHandler: ./web/payment/handler

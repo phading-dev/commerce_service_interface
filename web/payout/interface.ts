@@ -3,11 +3,11 @@ import { Payout, PAYOUT } from './payout';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface GetEarningsProfileInfoRequestBody {
+export interface GetPayoutProfileInfoRequestBody {
 }
 
-export let GET_EARNINGS_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetEarningsProfileInfoRequestBody> = {
-  name: 'GetEarningsProfileInfoRequestBody',
+export let GET_PAYOUT_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetPayoutProfileInfoRequestBody> = {
+  name: 'GetPayoutProfileInfoRequestBody',
   fields: [],
 };
 
@@ -27,13 +27,13 @@ export let LINK_TYPE: EnumDescriptor<LinkType> = {
   }]
 }
 
-export interface GetEarningsProfileInfoResponse {
+export interface GetPayoutProfileInfoResponse {
   connectedAccountLinkType?: LinkType,
   connectedAccountUrl?: string,
 }
 
-export let GET_EARNINGS_PROFILE_INFO_RESPONSE: MessageDescriptor<GetEarningsProfileInfoResponse> = {
-  name: 'GetEarningsProfileInfoResponse',
+export let GET_PAYOUT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPayoutProfileInfoResponse> = {
+  name: 'GetPayoutProfileInfoResponse',
   fields: [{
     name: 'connectedAccountLinkType',
     index: 1,
@@ -98,16 +98,16 @@ export let LIST_PAYOUTS_RESPONSE: MessageDescriptor<ListPayoutsResponse> = {
   }],
 };
 
-export let GET_EARNINGS_PROFILE_INFO: RemoteCallDescriptor = {
-  name: "GetEarningsProfileInfo",
+export let GET_PAYOUT_PROFILE_INFO: RemoteCallDescriptor = {
+  name: "GetPayoutProfileInfo",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetEarningsProfileInfo",
+  path: "/GetPayoutProfileInfo",
   body: {
-    messageType: GET_EARNINGS_PROFILE_INFO_REQUEST_BODY,
+    messageType: GET_PAYOUT_PROFILE_INFO_REQUEST_BODY,
   },
   authKey: "a",
   response: {
-    messageType: GET_EARNINGS_PROFILE_INFO_RESPONSE,
+    messageType: GET_PAYOUT_PROFILE_INFO_RESPONSE,
   },
 }
 

@@ -1,4 +1,4 @@
-import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, RetryFailedPaymentsRequsetBody, RETRY_FAILED_PAYMENTS, RetryFailedPaymentsResponse, GetBillingProfileInfoRequestBody, GET_BILLING_PROFILE_INFO, GetBillingProfileInfoResponse, ListPaymentsRequestBody, LIST_PAYMENTS, ListPaymentsResponse } from './interface';
+import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, RetryFailedPaymentsRequsetBody, RETRY_FAILED_PAYMENTS, RetryFailedPaymentsResponse, GetPaymentProfileInfoRequestBody, GET_PAYMENT_PROFILE_INFO, GetPaymentProfileInfoResponse, ListPaymentsRequestBody, LIST_PAYMENTS, ListPaymentsResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
 export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface implements RemoteCallHandlerInterface {
@@ -28,13 +28,13 @@ export abstract class RetryFailedPaymentsHandlerInterface implements RemoteCallH
   ): Promise<RetryFailedPaymentsResponse>;
 }
 
-export abstract class GetBillingProfileInfoHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = GET_BILLING_PROFILE_INFO;
+export abstract class GetPaymentProfileInfoHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = GET_PAYMENT_PROFILE_INFO;
   public abstract handle(
     loggingPrefix: string,
-    body: GetBillingProfileInfoRequestBody,
+    body: GetPaymentProfileInfoRequestBody,
     authStr: string,
-  ): Promise<GetBillingProfileInfoResponse>;
+  ): Promise<GetPaymentProfileInfoResponse>;
 }
 
 export abstract class ListPaymentsHandlerInterface implements RemoteCallHandlerInterface {

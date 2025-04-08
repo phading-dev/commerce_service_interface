@@ -1,13 +1,13 @@
-import { GetEarningsProfileInfoRequestBody, GET_EARNINGS_PROFILE_INFO, GetEarningsProfileInfoResponse, SetConnectedAccountOnboardedRequestBody, SET_CONNECTED_ACCOUNT_ONBOARDED, SetConnectedAccountOnboardedResponse, ListPayoutsRequestBody, LIST_PAYOUTS, ListPayoutsResponse } from './interface';
+import { GetPayoutProfileInfoRequestBody, GET_PAYOUT_PROFILE_INFO, GetPayoutProfileInfoResponse, SetConnectedAccountOnboardedRequestBody, SET_CONNECTED_ACCOUNT_ONBOARDED, SetConnectedAccountOnboardedResponse, ListPayoutsRequestBody, LIST_PAYOUTS, ListPayoutsResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
-export abstract class GetEarningsProfileInfoHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = GET_EARNINGS_PROFILE_INFO;
+export abstract class GetPayoutProfileInfoHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = GET_PAYOUT_PROFILE_INFO;
   public abstract handle(
     loggingPrefix: string,
-    body: GetEarningsProfileInfoRequestBody,
+    body: GetPayoutProfileInfoRequestBody,
     authStr: string,
-  ): Promise<GetEarningsProfileInfoResponse>;
+  ): Promise<GetPayoutProfileInfoResponse>;
 }
 
 export abstract class SetConnectedAccountOnboardedHandlerInterface implements RemoteCallHandlerInterface {

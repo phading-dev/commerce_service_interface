@@ -1,6 +1,6 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
 import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
-import { BillingProfileState, BILLING_PROFILE_STATE } from './billing_profile_state';
+import { PaymentProfileState, PAYMENT_PROFILE_STATE } from './payment_profile_state';
 import { Payment, PAYMENT } from './payment';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
@@ -63,22 +63,22 @@ export let RETRY_FAILED_PAYMENTS_RESPONSE: MessageDescriptor<RetryFailedPayments
   fields: [],
 };
 
-export interface GetBillingProfileInfoRequestBody {
+export interface GetPaymentProfileInfoRequestBody {
 }
 
-export let GET_BILLING_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetBillingProfileInfoRequestBody> = {
-  name: 'GetBillingProfileInfoRequestBody',
+export let GET_PAYMENT_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetPaymentProfileInfoRequestBody> = {
+  name: 'GetPaymentProfileInfoRequestBody',
   fields: [],
 };
 
-export interface GetBillingProfileInfoResponse {
+export interface GetPaymentProfileInfoResponse {
   primaryPaymentMethod?: PaymentMethodMasked,
-  state?: BillingProfileState,
+  state?: PaymentProfileState,
   paymentAfterMs?: number,
 }
 
-export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfileInfoResponse> = {
-  name: 'GetBillingProfileInfoResponse',
+export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfileInfoResponse> = {
+  name: 'GetPaymentProfileInfoResponse',
   fields: [{
     name: 'primaryPaymentMethod',
     index: 1,
@@ -86,7 +86,7 @@ export let GET_BILLING_PROFILE_INFO_RESPONSE: MessageDescriptor<GetBillingProfil
   }, {
     name: 'state',
     index: 2,
-    enumType: BILLING_PROFILE_STATE,
+    enumType: PAYMENT_PROFILE_STATE,
   }, {
     name: 'paymentAfterMs',
     index: 3,
@@ -165,16 +165,16 @@ export let RETRY_FAILED_PAYMENTS: RemoteCallDescriptor = {
   },
 }
 
-export let GET_BILLING_PROFILE_INFO: RemoteCallDescriptor = {
-  name: "GetBillingProfileInfo",
+export let GET_PAYMENT_PROFILE_INFO: RemoteCallDescriptor = {
+  name: "GetPaymentProfileInfo",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetBillingProfileInfo",
+  path: "/GetPaymentProfileInfo",
   body: {
-    messageType: GET_BILLING_PROFILE_INFO_REQUEST_BODY,
+    messageType: GET_PAYMENT_PROFILE_INFO_REQUEST_BODY,
   },
   authKey: "a",
   response: {
-    messageType: GET_BILLING_PROFILE_INFO_RESPONSE,
+    messageType: GET_PAYMENT_PROFILE_INFO_RESPONSE,
   },
 }
 

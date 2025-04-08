@@ -1,5 +1,5 @@
 - kind: Message
-  name: GetEarningsProfileInfoRequestBody
+  name: GetPayoutProfileInfoRequestBody
 - kind: Enum
   name: LinkType
   values:
@@ -8,7 +8,7 @@
     - name: LOGIN
       value: 2
 - kind: Message
-  name: GetEarningsProfileInfoResponse
+  name: GetPayoutProfileInfoResponse
   fields:
     - name: connectedAccountLinkType
       type: LinkType
@@ -38,19 +38,19 @@
   fields:
     - name: payouts
       type: Payout
-      import: ./web/earnings/payout
+      import: ./web/payout/payout
       isArray: true
       index: 1
 - kind: RemoteCallsGroup
-  name: CommerceWebEarningsRemoteCalls
+  name: CommerceWebPayoutRemoteCalls
   service: CommerceWebService
   importService: ./service
   calls:
-    - name: GetEarningsProfileInfo
-      path: /GetEarningsProfileInfo
-      body: GetEarningsProfileInfoRequestBody
+    - name: GetPayoutProfileInfo
+      path: /GetPayoutProfileInfo
+      body: GetPayoutProfileInfoRequestBody
       authKey: a
-      response: GetEarningsProfileInfoResponse
+      response: GetPayoutProfileInfoResponse
     - name: SetConnectedAccountOnboarded
       path: /SetConnectedAccountOnboarded
       body: SetConnectedAccountOnboardedRequestBody
@@ -61,5 +61,5 @@
       body: ListPayoutsRequestBody
       authKey: a
       response: ListPayoutsResponse
-  outputClient: ./web/earnings/client
-  outputHandler: ./web/earnings/handler
+  outputClient: ./web/payout/client
+  outputHandler: ./web/payout/handler
