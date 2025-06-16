@@ -72,6 +72,7 @@ export let GET_PAYMENT_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetPaymentPr
 };
 
 export interface GetPaymentProfileInfoResponse {
+  notAvailable?: boolean,
   primaryPaymentMethod?: PaymentMethodMasked,
   state?: PaymentProfileState,
   paymentAfterMs?: number,
@@ -80,16 +81,20 @@ export interface GetPaymentProfileInfoResponse {
 export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfileInfoResponse> = {
   name: 'GetPaymentProfileInfoResponse',
   fields: [{
-    name: 'primaryPaymentMethod',
+    name: 'notAvailable',
     index: 1,
+    primitiveType: PrimitiveType.BOOLEAN,
+  }, {
+    name: 'primaryPaymentMethod',
+    index: 2,
     messageType: PAYMENT_METHOD_MASKED,
   }, {
     name: 'state',
-    index: 2,
+    index: 3,
     enumType: PAYMENT_PROFILE_STATE,
   }, {
     name: 'paymentAfterMs',
-    index: 3,
+    index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };

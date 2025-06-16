@@ -28,6 +28,7 @@ export let LINK_TYPE: EnumDescriptor<LinkType> = {
 }
 
 export interface GetPayoutProfileInfoResponse {
+  notAvailable?: boolean,
   connectedAccountLinkType?: LinkType,
   connectedAccountUrl?: string,
 }
@@ -35,12 +36,16 @@ export interface GetPayoutProfileInfoResponse {
 export let GET_PAYOUT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPayoutProfileInfoResponse> = {
   name: 'GetPayoutProfileInfoResponse',
   fields: [{
-    name: 'connectedAccountLinkType',
+    name: 'notAvailable',
     index: 1,
+    primitiveType: PrimitiveType.BOOLEAN,
+  }, {
+    name: 'connectedAccountLinkType',
+    index: 2,
     enumType: LINK_TYPE,
   }, {
     name: 'connectedAccountUrl',
-    index: 2,
+    index: 3,
     primitiveType: PrimitiveType.STRING,
   }],
 };
