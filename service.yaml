@@ -1,6 +1,6 @@
 - kind: Service
   name: CommerceWebService
-  path: /c/w
+  path: /cw
 - kind: Service
   name: CommerceNodeService
-  path: /c/n
+  path: /cn

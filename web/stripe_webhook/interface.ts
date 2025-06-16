@@ -18,7 +18,7 @@ export let EVENT_RECEIVED_RESPONSE: MessageDescriptor<EventReceivedResponse> = {
 export let MARK_PAYMENT_DONE: RemoteCallDescriptor = {
   name: "MarkPaymentDone",
   service: COMMERCE_WEB_SERVICE,
-  path: "/MarkPaymentDone",
+  path: "/sp/MarkPaymentDone",
   body: {
     primitiveType: PrimitveTypeForBody.BYTES,
   },
@@ -31,7 +31,7 @@ export let MARK_PAYMENT_DONE: RemoteCallDescriptor = {
 export let MARK_PAYMENT_FAILED: RemoteCallDescriptor = {
   name: "MarkPaymentFailed",
   service: COMMERCE_WEB_SERVICE,
-  path: "/MarkPaymentFailed",
+  path: "/sp/MarkPaymentFailed",
   body: {
     primitiveType: PrimitveTypeForBody.BYTES,
   },

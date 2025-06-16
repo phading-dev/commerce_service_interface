@@ -129,7 +129,7 @@ export let LIST_PAYMENTS_RESPONSE: MessageDescriptor<ListPaymentsResponse> = {
 export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "CreateStripeSessionToAddPaymentMethod",
   service: COMMERCE_WEB_SERVICE,
-  path: "/CreateStripeSessionToAddPaymentMethod",
+  path: "/pm/CreateStripeSessionToAddPaymentMethod",
   body: {
     messageType: CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD_REQUEST_BODY,
   },
@@ -142,7 +142,7 @@ export let CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD: RemoteCallDescriptor = {
 export let REPLACE_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
   name: "ReplacePrimaryPaymentMethod",
   service: COMMERCE_WEB_SERVICE,
-  path: "/ReplacePrimaryPaymentMethod",
+  path: "/pm/ReplacePrimaryPaymentMethod",
   body: {
     messageType: REPLACE_PRIMARY_PAYMENT_METHOD_REQUEST_BODY,
   },
@@ -155,7 +155,7 @@ export let REPLACE_PRIMARY_PAYMENT_METHOD: RemoteCallDescriptor = {
 export let RETRY_FAILED_PAYMENTS: RemoteCallDescriptor = {
   name: "RetryFailedPayments",
   service: COMMERCE_WEB_SERVICE,
-  path: "/RetryFailedPayments",
+  path: "/pm/RetryFailedPayments",
   body: {
     messageType: RETRY_FAILED_PAYMENTS_REQUSET_BODY,
   },
@@ -168,7 +168,7 @@ export let RETRY_FAILED_PAYMENTS: RemoteCallDescriptor = {
 export let GET_PAYMENT_PROFILE_INFO: RemoteCallDescriptor = {
   name: "GetPaymentProfileInfo",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetPaymentProfileInfo",
+  path: "/pm/GetPaymentProfileInfo",
   body: {
     messageType: GET_PAYMENT_PROFILE_INFO_REQUEST_BODY,
   },
@@ -181,7 +181,7 @@ export let GET_PAYMENT_PROFILE_INFO: RemoteCallDescriptor = {
 export let LIST_PAYMENTS: RemoteCallDescriptor = {
   name: "ListPayments",
   service: COMMERCE_WEB_SERVICE,
-  path: "/ListPayments",
+  path: "/pm/ListPayments",
   body: {
     messageType: LIST_PAYMENTS_REQUEST_BODY,
   },

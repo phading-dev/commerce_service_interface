@@ -8,6 +8,7 @@
   name: CommerceWebStripeWebhookRemoteCalls
   service: CommerceWebService
   importService: ./service
+  path: /sp
   calls:
     - name: MarkPaymentDone
       path: /MarkPaymentDone

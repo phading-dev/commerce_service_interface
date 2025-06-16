@@ -45,6 +45,7 @@
   name: CommerceWebPayoutRemoteCalls
   service: CommerceWebService
   importService: ./service
+  path: /po
   calls:
     - name: GetPayoutProfileInfo
       path: /GetPayoutProfileInfo

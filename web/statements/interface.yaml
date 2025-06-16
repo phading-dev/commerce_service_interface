@@ -19,6 +19,7 @@
   name: CommerceWebStatementsRemoteCalls
   service: CommerceWebService
   importService: ./service
+  path: /st
   calls:
     - name: ListTransactionStatements
       path: /ListTransactionStatements

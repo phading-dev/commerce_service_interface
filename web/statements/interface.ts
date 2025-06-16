@@ -38,7 +38,7 @@ export let LIST_TRANSACTION_STATEMENTS_RESPONSE: MessageDescriptor<ListTransacti
 export let LIST_TRANSACTION_STATEMENTS: RemoteCallDescriptor = {
   name: "ListTransactionStatements",
   service: COMMERCE_WEB_SERVICE,
-  path: "/ListTransactionStatements",
+  path: "/st/ListTransactionStatements",
   body: {
     messageType: LIST_TRANSACTION_STATEMENTS_REQUEST_BODY,
   },

@@ -55,6 +55,7 @@
   name: CommerceWebPaymentRemoteCalls
   service: CommerceWebService
   importService: ./service
+  path: /pm
   calls:
     - name: CreateStripeSessionToAddPaymentMethod
       path: /CreateStripeSessionToAddPaymentMethod

@@ -101,7 +101,7 @@ export let LIST_PAYOUTS_RESPONSE: MessageDescriptor<ListPayoutsResponse> = {
 export let GET_PAYOUT_PROFILE_INFO: RemoteCallDescriptor = {
   name: "GetPayoutProfileInfo",
   service: COMMERCE_WEB_SERVICE,
-  path: "/GetPayoutProfileInfo",
+  path: "/po/GetPayoutProfileInfo",
   body: {
     messageType: GET_PAYOUT_PROFILE_INFO_REQUEST_BODY,
   },
@@ -114,7 +114,7 @@ export let GET_PAYOUT_PROFILE_INFO: RemoteCallDescriptor = {
 export let SET_CONNECTED_ACCOUNT_ONBOARDED: RemoteCallDescriptor = {
   name: "SetConnectedAccountOnboarded",
   service: COMMERCE_WEB_SERVICE,
-  path: "/SetConnectedAccountOnboarded",
+  path: "/po/SetConnectedAccountOnboarded",
   body: {
     messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_REQUEST_BODY,
   },
@@ -127,7 +127,7 @@ export let SET_CONNECTED_ACCOUNT_ONBOARDED: RemoteCallDescriptor = {
 export let LIST_PAYOUTS: RemoteCallDescriptor = {
   name: "ListPayouts",
   service: COMMERCE_WEB_SERVICE,
-  path: "/ListPayouts",
+  path: "/po/ListPayouts",
   body: {
     messageType: LIST_PAYOUTS_REQUEST_BODY,
   },
