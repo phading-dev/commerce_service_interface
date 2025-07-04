@@ -75,7 +75,7 @@ export interface GetPaymentProfileInfoResponse {
   notAvailable?: boolean,
   primaryPaymentMethod?: PaymentMethodMasked,
   state?: PaymentProfileState,
-  paymentAfterMs?: number,
+  firstPaymentTimeMs?: number,
 }
 
 export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfileInfoResponse> = {
@@ -93,7 +93,7 @@ export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfil
     index: 3,
     enumType: PAYMENT_PROFILE_STATE,
   }, {
-    name: 'paymentAfterMs',
+    name: 'firstPaymentTimeMs',
     index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],

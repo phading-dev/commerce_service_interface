@@ -34,7 +34,7 @@
       type: PaymentProfileState
       import: ./web/payment/payment_profile_state
       index: 3
-    - name: paymentAfterMs
+    - name: firstPaymentTimeMs
       type: number
       index: 4
 - kind: Message
