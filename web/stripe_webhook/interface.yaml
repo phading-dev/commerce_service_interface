@@ -1,24 +1,25 @@
 - kind: Message
-  name: EventReceivedResponse
-  fields:
-    - name: received
-      type: boolean
-      index: 1
+  name: Empty
 - kind: RemoteCallsGroup
   name: CommerceWebStripeWebhookRemoteCalls
   service: CommerceWebService
   importService: ./service
   path: /sp
   calls:
+    - name: GrantInitPaymentCredit
+      path: /GrantInitPaymentCredit
+      body: bytes
+      authKey: stripe-signature
+      response: Empty
     - name: MarkPaymentDone
       path: /MarkPaymentDone
       body: bytes
       authKey: stripe-signature
-      response: EventReceivedResponse
+      response: Empty
     - name: MarkPaymentFailed
       path: /MarkPaymentFailed
       body: bytes
       authKey: stripe-signature
-      response: EventReceivedResponse
+      response: Empty
   outputClient: ./web/stripe_webhook/client
   outputHandler: ./web/stripe_webhook/handler

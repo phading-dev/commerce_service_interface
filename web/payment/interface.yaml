@@ -26,17 +26,10 @@
     - name: notAvailable
       type: boolean
       index: 1
-    - name: primaryPaymentMethod
-      type: PaymentMethodMasked
-      import: ./web/payment/payment_method_masked
+    - name: paymentProfile
+      type: PaymentProfile
+      import: ./web/payment/payment_profile
       index: 2
-    - name: state
-      type: PaymentProfileState
-      import: ./web/payment/payment_profile_state
-      index: 3
-    - name: firstPaymentTimeMs
-      type: number
-      index: 4
 - kind: Message
   name: ListPaymentsRequestBody
   fields:

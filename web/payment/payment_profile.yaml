@@ -1,0 +1,39 @@
+- kind: Enum
+  name: InitCreditGrantingState
+  values:
+    - name: NOT_GRANTED
+      value: 1
+    - name: GRANTING
+      value: 2
+    - name: GRANTED
+      value: 3
+- kind: Enum
+  name: PaymentProfileState
+  values:
+    - name: HEALTHY
+      value: 1
+    - name: WITH_FAILED_PAYMENTS
+      value: 2
+    - name: WITH_PROCESSING_PAYMENTS
+      value: 3
+    - name: SUSPENDED
+      value: 4
+- kind: Message
+  name: PaymentProfile
+  fields:
+    - name: primaryPaymentMethod
+      type: PaymentMethodMasked
+      import: ./web/payment/payment_method_masked
+      index: 1
+    - name: state
+      type: PaymentProfileState
+      index: 2
+    - name: creditBalanceAmount
+      type: number
+      index: 3
+    - name: creditBalanceCurrency
+      type: string
+      index: 4
+    - name: initCreditGrantingState
+      type: InitCreditGrantingState
+      index: 5

@@ -1,6 +1,15 @@
 import { Readable } from 'stream';
-import { MARK_PAYMENT_DONE, EventReceivedResponse, MARK_PAYMENT_FAILED } from './interface';
+import { GRANT_INIT_PAYMENT_CREDIT, Empty, MARK_PAYMENT_DONE, MARK_PAYMENT_FAILED } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
+
+export abstract class GrantInitPaymentCreditHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = GRANT_INIT_PAYMENT_CREDIT;
+  public abstract handle(
+    loggingPrefix: string,
+    body: Readable,
+    authStr: string,
+  ): Promise<Empty>;
+}
 
 export abstract class MarkPaymentDoneHandlerInterface implements RemoteCallHandlerInterface {
   public descriptor = MARK_PAYMENT_DONE;
@@ -8,7 +17,7 @@ export abstract class MarkPaymentDoneHandlerInterface implements RemoteCallHandl
     loggingPrefix: string,
     body: Readable,
     authStr: string,
-  ): Promise<EventReceivedResponse>;
+  ): Promise<Empty>;
 }
 
 export abstract class MarkPaymentFailedHandlerInterface implements RemoteCallHandlerInterface {
@@ -17,5 +26,5 @@ export abstract class MarkPaymentFailedHandlerInterface implements RemoteCallHan
     loggingPrefix: string,
     body: Readable,
     authStr: string,
-  ): Promise<EventReceivedResponse>;
+  ): Promise<Empty>;
 }

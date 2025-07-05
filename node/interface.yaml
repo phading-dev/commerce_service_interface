@@ -57,6 +57,23 @@
       isArray: true
       index: 1
 - kind: Message
+  name: ProcessInitPaymentCreditGrantingTaskRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessInitPaymentCreditGrantingTaskResponse
+- kind: Message
+  name: ListInitPaymentCreditGrantingTasksRequestBody
+- kind: Message
+  name: ListInitPaymentCreditGrantingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessInitPaymentCreditGrantingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
   name: ProcessStripeConnectedAccountCreatingTaskRequestBody
   fields:
     - name: accountId
@@ -223,6 +240,14 @@
       path: /ListStripePaymentCustomerCreatingTasks
       body: ListStripePaymentCustomerCreatingTasksRequestBody
       response: ListStripePaymentCustomerCreatingTasksResponse
+    - name: ProcessInitPaymentCreditGrantingTask
+      path: /ProcessInitPaymentCreditGrantingTask
+      body: ProcessInitPaymentCreditGrantingTaskRequestBody
+      response: ProcessInitPaymentCreditGrantingTaskResponse
+    - name: ListInitPaymentCreditGrantingTasks
+      path: /ListInitPaymentCreditGrantingTasks
+      body: ListInitPaymentCreditGrantingTasksRequestBody
+      response: ListInitPaymentCreditGrantingTasksResponse
     - name: ProcessStripeConnectedAccountCreatingTask
       path: /ProcessStripeConnectedAccountCreatingTask
       body: ProcessStripeConnectedAccountCreatingTaskRequestBody

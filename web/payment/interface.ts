@@ -1,6 +1,5 @@
 import { MessageDescriptor, PrimitiveType } from '@selfage/message/descriptor';
-import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_masked';
-import { PaymentProfileState, PAYMENT_PROFILE_STATE } from './payment_profile_state';
+import { PaymentProfile, PAYMENT_PROFILE } from './payment_profile';
 import { Payment, PAYMENT } from './payment';
 import { COMMERCE_WEB_SERVICE } from '../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
@@ -73,9 +72,7 @@ export let GET_PAYMENT_PROFILE_INFO_REQUEST_BODY: MessageDescriptor<GetPaymentPr
 
 export interface GetPaymentProfileInfoResponse {
   notAvailable?: boolean,
-  primaryPaymentMethod?: PaymentMethodMasked,
-  state?: PaymentProfileState,
-  firstPaymentTimeMs?: number,
+  paymentProfile?: PaymentProfile,
 }
 
 export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfileInfoResponse> = {
@@ -85,17 +82,9 @@ export let GET_PAYMENT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPaymentProfil
     index: 1,
     primitiveType: PrimitiveType.BOOLEAN,
   }, {
-    name: 'primaryPaymentMethod',
+    name: 'paymentProfile',
     index: 2,
-    messageType: PAYMENT_METHOD_MASKED,
-  }, {
-    name: 'state',
-    index: 3,
-    enumType: PAYMENT_PROFILE_STATE,
-  }, {
-    name: 'firstPaymentTimeMs',
-    index: 4,
-    primitiveType: PrimitiveType.NUMBER,
+    messageType: PAYMENT_PROFILE,
   }],
 };
 

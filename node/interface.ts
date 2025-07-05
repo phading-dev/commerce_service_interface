@@ -138,6 +138,49 @@ export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescript
   }],
 };
 
+export interface ProcessInitPaymentCreditGrantingTaskRequestBody {
+  accountId?: string,
+}
+
+export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY: MessageDescriptor<ProcessInitPaymentCreditGrantingTaskRequestBody> = {
+  name: 'ProcessInitPaymentCreditGrantingTaskRequestBody',
+  fields: [{
+    name: 'accountId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessInitPaymentCreditGrantingTaskResponse {
+}
+
+export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_RESPONSE: MessageDescriptor<ProcessInitPaymentCreditGrantingTaskResponse> = {
+  name: 'ProcessInitPaymentCreditGrantingTaskResponse',
+  fields: [],
+};
+
+export interface ListInitPaymentCreditGrantingTasksRequestBody {
+}
+
+export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_REQUEST_BODY: MessageDescriptor<ListInitPaymentCreditGrantingTasksRequestBody> = {
+  name: 'ListInitPaymentCreditGrantingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListInitPaymentCreditGrantingTasksResponse {
+  tasks?: Array<ProcessInitPaymentCreditGrantingTaskRequestBody>,
+}
+
+export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_RESPONSE: MessageDescriptor<ListInitPaymentCreditGrantingTasksResponse> = {
+  name: 'ListInitPaymentCreditGrantingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
 export interface ProcessStripeConnectedAccountCreatingTaskRequestBody {
   accountId?: string,
 }
@@ -549,6 +592,30 @@ export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
   },
   response: {
     messageType: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK: RemoteCallDescriptor = {
+  name: "ProcessInitPaymentCreditGrantingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessInitPaymentCreditGrantingTask",
+  body: {
+    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS: RemoteCallDescriptor = {
+  name: "ListInitPaymentCreditGrantingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListInitPaymentCreditGrantingTasks",
+  body: {
+    messageType: LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_RESPONSE,
   },
 }
 
