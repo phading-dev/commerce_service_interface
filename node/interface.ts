@@ -97,6 +97,7 @@ export let CREATE_PAYOUT_PROFILE_RESPONSE: MessageDescriptor<CreatePayoutProfile
 
 export interface ProcessStripeCustomerCreatingTaskRequestBody {
   taskid?: string,
+  accountId?: string,
 }
 
 export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeCustomerCreatingTaskRequestBody> = {
@@ -104,6 +105,10 @@ export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor
   fields: [{
     name: 'taskid',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'accountId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -140,6 +145,7 @@ export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListS
 
 export interface ProcessInitCreditGrantingTaskRequestBody {
   taskId?: string,
+  accountId?: string,
 }
 
 export let PROCESS_INIT_CREDIT_GRANTING_TASK_REQUEST_BODY: MessageDescriptor<ProcessInitCreditGrantingTaskRequestBody> = {
@@ -147,6 +153,10 @@ export let PROCESS_INIT_CREDIT_GRANTING_TASK_REQUEST_BODY: MessageDescriptor<Pro
   fields: [{
     name: 'taskId',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'accountId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -183,6 +193,7 @@ export let LIST_INIT_CREDIT_GRANTING_TASKS_RESPONSE: MessageDescriptor<ListInitC
 
 export interface ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody {
   taskId?: string,
+  accountId?: string,
 }
 
 export let PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody> = {
@@ -190,6 +201,10 @@ export let PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_REQUEST_BOD
   fields: [{
     name: 'taskId',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'accountId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -269,6 +284,7 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_RESPONSE: M
 
 export interface ProcessPaymentStripeInvoiceCreatingTaskRequestBody {
   taskId?: string,
+  statementId?: string,
 }
 
 export let PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentStripeInvoiceCreatingTaskRequestBody> = {
@@ -276,6 +292,10 @@ export let PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_REQUEST_BODY: MessageDes
   fields: [{
     name: 'taskId',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'statementId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -312,6 +332,7 @@ export let LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS_RESPONSE: MessageDescripto
 
 export interface ProcessPaymentStripeInvoicePayingTaskRequestBody {
   taskId?: string,
+  statementId?: string,
 }
 
 export let PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentStripeInvoicePayingTaskRequestBody> = {
@@ -319,6 +340,10 @@ export let PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_REQUEST_BODY: MessageDescr
   fields: [{
     name: 'taskId',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'statementId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
@@ -537,6 +562,7 @@ export let LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS_RESPONSE: MessageDescriptor<
 
 export interface ProcessPayoutStripeTransferCreatingTaskRequestBody {
   taskId?: string,
+  statementId?: string,
 }
 
 export let PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutStripeTransferCreatingTaskRequestBody> = {
@@ -544,6 +570,10 @@ export let PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_REQUEST_BODY: MessageDes
   fields: [{
     name: 'taskId',
     index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'statementId',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
