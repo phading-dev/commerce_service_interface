@@ -42,7 +42,7 @@
 - kind: Message
   name: ProcessStripeCustomerCreatingTaskRequestBody
   fields:
-    - name: taskid
+    - name: taskId
       type: string
       index: 1
     - name: accountId

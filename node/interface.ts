@@ -96,14 +96,14 @@ export let CREATE_PAYOUT_PROFILE_RESPONSE: MessageDescriptor<CreatePayoutProfile
 };
 
 export interface ProcessStripeCustomerCreatingTaskRequestBody {
-  taskid?: string,
+  taskId?: string,
   accountId?: string,
 }
 
 export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeCustomerCreatingTaskRequestBody> = {
   name: 'ProcessStripeCustomerCreatingTaskRequestBody',
   fields: [{
-    name: 'taskid',
+    name: 'taskId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
