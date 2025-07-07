@@ -95,131 +95,131 @@ export let CREATE_PAYOUT_PROFILE_RESPONSE: MessageDescriptor<CreatePayoutProfile
   fields: [],
 };
 
-export interface ProcessStripePaymentCustomerCreatingTaskRequestBody {
-  accountId?: string,
+export interface ProcessStripeCustomerCreatingTaskRequestBody {
+  taskid?: string,
 }
 
-export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripePaymentCustomerCreatingTaskRequestBody> = {
-  name: 'ProcessStripePaymentCustomerCreatingTaskRequestBody',
+export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeCustomerCreatingTaskRequestBody> = {
+  name: 'ProcessStripeCustomerCreatingTaskRequestBody',
   fields: [{
-    name: 'accountId',
+    name: 'taskid',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface ProcessStripePaymentCustomerCreatingTaskResponse {
+export interface ProcessStripeCustomerCreatingTaskResponse {
 }
 
-export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripePaymentCustomerCreatingTaskResponse> = {
-  name: 'ProcessStripePaymentCustomerCreatingTaskResponse',
+export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripeCustomerCreatingTaskResponse> = {
+  name: 'ProcessStripeCustomerCreatingTaskResponse',
   fields: [],
 };
 
-export interface ListStripePaymentCustomerCreatingTasksRequestBody {
+export interface ListStripeCustomerCreatingTasksRequestBody {
 }
 
-export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripePaymentCustomerCreatingTasksRequestBody> = {
-  name: 'ListStripePaymentCustomerCreatingTasksRequestBody',
+export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripeCustomerCreatingTasksRequestBody> = {
+  name: 'ListStripeCustomerCreatingTasksRequestBody',
   fields: [],
 };
 
-export interface ListStripePaymentCustomerCreatingTasksResponse {
-  tasks?: Array<ProcessStripePaymentCustomerCreatingTaskRequestBody>,
+export interface ListStripeCustomerCreatingTasksResponse {
+  tasks?: Array<ProcessStripeCustomerCreatingTaskRequestBody>,
 }
 
-export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripePaymentCustomerCreatingTasksResponse> = {
-  name: 'ListStripePaymentCustomerCreatingTasksResponse',
+export let LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripeCustomerCreatingTasksResponse> = {
+  name: 'ListStripeCustomerCreatingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
 
-export interface ProcessInitPaymentCreditGrantingTaskRequestBody {
-  accountId?: string,
+export interface ProcessInitCreditGrantingTaskRequestBody {
+  taskId?: string,
 }
 
-export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY: MessageDescriptor<ProcessInitPaymentCreditGrantingTaskRequestBody> = {
-  name: 'ProcessInitPaymentCreditGrantingTaskRequestBody',
+export let PROCESS_INIT_CREDIT_GRANTING_TASK_REQUEST_BODY: MessageDescriptor<ProcessInitCreditGrantingTaskRequestBody> = {
+  name: 'ProcessInitCreditGrantingTaskRequestBody',
   fields: [{
-    name: 'accountId',
+    name: 'taskId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface ProcessInitPaymentCreditGrantingTaskResponse {
+export interface ProcessInitCreditGrantingTaskResponse {
 }
 
-export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_RESPONSE: MessageDescriptor<ProcessInitPaymentCreditGrantingTaskResponse> = {
-  name: 'ProcessInitPaymentCreditGrantingTaskResponse',
+export let PROCESS_INIT_CREDIT_GRANTING_TASK_RESPONSE: MessageDescriptor<ProcessInitCreditGrantingTaskResponse> = {
+  name: 'ProcessInitCreditGrantingTaskResponse',
   fields: [],
 };
 
-export interface ListInitPaymentCreditGrantingTasksRequestBody {
+export interface ListInitCreditGrantingTasksRequestBody {
 }
 
-export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_REQUEST_BODY: MessageDescriptor<ListInitPaymentCreditGrantingTasksRequestBody> = {
-  name: 'ListInitPaymentCreditGrantingTasksRequestBody',
+export let LIST_INIT_CREDIT_GRANTING_TASKS_REQUEST_BODY: MessageDescriptor<ListInitCreditGrantingTasksRequestBody> = {
+  name: 'ListInitCreditGrantingTasksRequestBody',
   fields: [],
 };
 
-export interface ListInitPaymentCreditGrantingTasksResponse {
-  tasks?: Array<ProcessInitPaymentCreditGrantingTaskRequestBody>,
+export interface ListInitCreditGrantingTasksResponse {
+  tasks?: Array<ProcessInitCreditGrantingTaskRequestBody>,
 }
 
-export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_RESPONSE: MessageDescriptor<ListInitPaymentCreditGrantingTasksResponse> = {
-  name: 'ListInitPaymentCreditGrantingTasksResponse',
+export let LIST_INIT_CREDIT_GRANTING_TASKS_RESPONSE: MessageDescriptor<ListInitCreditGrantingTasksResponse> = {
+  name: 'ListInitCreditGrantingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY,
+    messageType: PROCESS_INIT_CREDIT_GRANTING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
 
-export interface ProcessStripeConnectedAccountCreatingTaskRequestBody {
-  accountId?: string,
+export interface ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody {
+  taskId?: string,
 }
 
-export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeConnectedAccountCreatingTaskRequestBody> = {
-  name: 'ProcessStripeConnectedAccountCreatingTaskRequestBody',
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody> = {
+  name: 'ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody',
   fields: [{
-    name: 'accountId',
+    name: 'taskId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface ProcessStripeConnectedAccountCreatingTaskResponse {
+export interface ProcessStripeConnectedAccountForPayoutCreatingTaskResponse {
 }
 
-export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripeConnectedAccountCreatingTaskResponse> = {
-  name: 'ProcessStripeConnectedAccountCreatingTaskResponse',
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessStripeConnectedAccountForPayoutCreatingTaskResponse> = {
+  name: 'ProcessStripeConnectedAccountForPayoutCreatingTaskResponse',
   fields: [],
 };
 
-export interface ListStripeConnectedAccountCreatingTasksRequestBody {
+export interface ListStripeConnectedAccountForPayoutCreatingTasksRequestBody {
 }
 
-export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripeConnectedAccountCreatingTasksRequestBody> = {
-  name: 'ListStripeConnectedAccountCreatingTasksRequestBody',
+export let LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListStripeConnectedAccountForPayoutCreatingTasksRequestBody> = {
+  name: 'ListStripeConnectedAccountForPayoutCreatingTasksRequestBody',
   fields: [],
 };
 
-export interface ListStripeConnectedAccountCreatingTasksResponse {
-  tasks?: Array<ProcessStripeConnectedAccountCreatingTaskRequestBody>,
+export interface ListStripeConnectedAccountForPayoutCreatingTasksResponse {
+  tasks?: Array<ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody>,
 }
 
-export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripeConnectedAccountCreatingTasksResponse> = {
-  name: 'ListStripeConnectedAccountCreatingTasksResponse',
+export let LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS_RESPONSE: MessageDescriptor<ListStripeConnectedAccountForPayoutCreatingTasksResponse> = {
+  name: 'ListStripeConnectedAccountForPayoutCreatingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
@@ -267,45 +267,88 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS_RESPONSE: M
   }],
 };
 
-export interface ProcessPaymentTaskRequestBody {
-  statementId?: string,
+export interface ProcessPaymentStripeInvoiceCreatingTaskRequestBody {
+  taskId?: string,
 }
 
-export let PROCESS_PAYMENT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentTaskRequestBody> = {
-  name: 'ProcessPaymentTaskRequestBody',
+export let PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentStripeInvoiceCreatingTaskRequestBody> = {
+  name: 'ProcessPaymentStripeInvoiceCreatingTaskRequestBody',
   fields: [{
-    name: 'statementId',
+    name: 'taskId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface ProcessPaymentTaskResponse {
+export interface ProcessPaymentStripeInvoiceCreatingTaskResponse {
 }
 
-export let PROCESS_PAYMENT_TASK_RESPONSE: MessageDescriptor<ProcessPaymentTaskResponse> = {
-  name: 'ProcessPaymentTaskResponse',
+export let PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessPaymentStripeInvoiceCreatingTaskResponse> = {
+  name: 'ProcessPaymentStripeInvoiceCreatingTaskResponse',
   fields: [],
 };
 
-export interface ListPaymentTasksRequestBody {
+export interface ListPaymentStripeInvoiceCreatingTasksRequestBody {
 }
 
-export let LIST_PAYMENT_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentTasksRequestBody> = {
-  name: 'ListPaymentTasksRequestBody',
+export let LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentStripeInvoiceCreatingTasksRequestBody> = {
+  name: 'ListPaymentStripeInvoiceCreatingTasksRequestBody',
   fields: [],
 };
 
-export interface ListPaymentTasksResponse {
-  tasks?: Array<ProcessPaymentTaskRequestBody>,
+export interface ListPaymentStripeInvoiceCreatingTasksResponse {
+  tasks?: Array<ProcessPaymentStripeInvoiceCreatingTaskRequestBody>,
 }
 
-export let LIST_PAYMENT_TASKS_RESPONSE: MessageDescriptor<ListPaymentTasksResponse> = {
-  name: 'ListPaymentTasksResponse',
+export let LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS_RESPONSE: MessageDescriptor<ListPaymentStripeInvoiceCreatingTasksResponse> = {
+  name: 'ListPaymentStripeInvoiceCreatingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessPaymentStripeInvoicePayingTaskRequestBody {
+  taskId?: string,
+}
+
+export let PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPaymentStripeInvoicePayingTaskRequestBody> = {
+  name: 'ProcessPaymentStripeInvoicePayingTaskRequestBody',
+  fields: [{
+    name: 'taskId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessPaymentStripeInvoicePayingTaskResponse {
+}
+
+export let PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_RESPONSE: MessageDescriptor<ProcessPaymentStripeInvoicePayingTaskResponse> = {
+  name: 'ProcessPaymentStripeInvoicePayingTaskResponse',
+  fields: [],
+};
+
+export interface ListPaymentStripeInvoicePayingTasksRequestBody {
+}
+
+export let LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS_REQUEST_BODY: MessageDescriptor<ListPaymentStripeInvoicePayingTasksRequestBody> = {
+  name: 'ListPaymentStripeInvoicePayingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListPaymentStripeInvoicePayingTasksResponse {
+  tasks?: Array<ProcessPaymentStripeInvoicePayingTaskRequestBody>,
+}
+
+export let LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS_RESPONSE: MessageDescriptor<ListPaymentStripeInvoicePayingTasksResponse> = {
+  name: 'ListPaymentStripeInvoicePayingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
@@ -492,45 +535,45 @@ export let LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS_RESPONSE: MessageDescriptor<
   }],
 };
 
-export interface ProcessPayoutTaskRequestBody {
-  statementId?: string,
+export interface ProcessPayoutStripeTransferCreatingTaskRequestBody {
+  taskId?: string,
 }
 
-export let PROCESS_PAYOUT_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutTaskRequestBody> = {
-  name: 'ProcessPayoutTaskRequestBody',
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutStripeTransferCreatingTaskRequestBody> = {
+  name: 'ProcessPayoutStripeTransferCreatingTaskRequestBody',
   fields: [{
-    name: 'statementId',
+    name: 'taskId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface ProcessPayoutTaskResponse {
+export interface ProcessPayoutStripeTransferCreatingTaskResponse {
 }
 
-export let PROCESS_PAYOUT_TASK_RESPONSE: MessageDescriptor<ProcessPayoutTaskResponse> = {
-  name: 'ProcessPayoutTaskResponse',
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_RESPONSE: MessageDescriptor<ProcessPayoutStripeTransferCreatingTaskResponse> = {
+  name: 'ProcessPayoutStripeTransferCreatingTaskResponse',
   fields: [],
 };
 
-export interface ListPayoutTasksRequestBody {
+export interface ListPayoutStripeTransferCreatingTasksRequestBody {
 }
 
-export let LIST_PAYOUT_TASKS_REQUEST_BODY: MessageDescriptor<ListPayoutTasksRequestBody> = {
-  name: 'ListPayoutTasksRequestBody',
+export let LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_REQUEST_BODY: MessageDescriptor<ListPayoutStripeTransferCreatingTasksRequestBody> = {
+  name: 'ListPayoutStripeTransferCreatingTasksRequestBody',
   fields: [],
 };
 
-export interface ListPayoutTasksResponse {
-  tasks?: Array<ProcessPayoutTaskRequestBody>,
+export interface ListPayoutStripeTransferCreatingTasksResponse {
+  tasks?: Array<ProcessPayoutStripeTransferCreatingTaskRequestBody>,
 }
 
-export let LIST_PAYOUT_TASKS_RESPONSE: MessageDescriptor<ListPayoutTasksResponse> = {
-  name: 'ListPayoutTasksResponse',
+export let LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_RESPONSE: MessageDescriptor<ListPayoutStripeTransferCreatingTasksResponse> = {
+  name: 'ListPayoutStripeTransferCreatingTasksResponse',
   fields: [{
     name: 'tasks',
     index: 1,
-    messageType: PROCESS_PAYOUT_TASK_REQUEST_BODY,
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_REQUEST_BODY,
     isArray: true,
   }],
 };
@@ -571,75 +614,75 @@ export let CREATE_PAYOUT_PROFILE: RemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK: RemoteCallDescriptor = {
-  name: "ProcessStripePaymentCustomerCreatingTask",
+export let PROCESS_STRIPE_CUSTOMER_CREATING_TASK: RemoteCallDescriptor = {
+  name: "ProcessStripeCustomerCreatingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessStripePaymentCustomerCreatingTask",
+  path: "/ProcessStripeCustomerCreatingTask",
   body: {
-    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK_RESPONSE,
+    messageType: PROCESS_STRIPE_CUSTOMER_CREATING_TASK_RESPONSE,
   },
 }
 
-export let LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
-  name: "ListStripePaymentCustomerCreatingTasks",
+export let LIST_STRIPE_CUSTOMER_CREATING_TASKS: RemoteCallDescriptor = {
+  name: "ListStripeCustomerCreatingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListStripePaymentCustomerCreatingTasks",
+  path: "/ListStripeCustomerCreatingTasks",
   body: {
-    messageType: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_REQUEST_BODY,
+    messageType: LIST_STRIPE_CUSTOMER_CREATING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS_RESPONSE,
+    messageType: LIST_STRIPE_CUSTOMER_CREATING_TASKS_RESPONSE,
   },
 }
 
-export let PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK: RemoteCallDescriptor = {
-  name: "ProcessInitPaymentCreditGrantingTask",
+export let PROCESS_INIT_CREDIT_GRANTING_TASK: RemoteCallDescriptor = {
+  name: "ProcessInitCreditGrantingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessInitPaymentCreditGrantingTask",
+  path: "/ProcessInitCreditGrantingTask",
   body: {
-    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_REQUEST_BODY,
+    messageType: PROCESS_INIT_CREDIT_GRANTING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK_RESPONSE,
+    messageType: PROCESS_INIT_CREDIT_GRANTING_TASK_RESPONSE,
   },
 }
 
-export let LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS: RemoteCallDescriptor = {
-  name: "ListInitPaymentCreditGrantingTasks",
+export let LIST_INIT_CREDIT_GRANTING_TASKS: RemoteCallDescriptor = {
+  name: "ListInitCreditGrantingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListInitPaymentCreditGrantingTasks",
+  path: "/ListInitCreditGrantingTasks",
   body: {
-    messageType: LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_REQUEST_BODY,
+    messageType: LIST_INIT_CREDIT_GRANTING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS_RESPONSE,
+    messageType: LIST_INIT_CREDIT_GRANTING_TASKS_RESPONSE,
   },
 }
 
-export let PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK: RemoteCallDescriptor = {
-  name: "ProcessStripeConnectedAccountCreatingTask",
+export let PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK: RemoteCallDescriptor = {
+  name: "ProcessStripeConnectedAccountForPayoutCreatingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessStripeConnectedAccountCreatingTask",
+  path: "/ProcessStripeConnectedAccountForPayoutCreatingTask",
   body: {
-    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_REQUEST_BODY,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK_RESPONSE,
+    messageType: PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK_RESPONSE,
   },
 }
 
-export let LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS: RemoteCallDescriptor = {
-  name: "ListStripeConnectedAccountCreatingTasks",
+export let LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS: RemoteCallDescriptor = {
+  name: "ListStripeConnectedAccountForPayoutCreatingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListStripeConnectedAccountCreatingTasks",
+  path: "/ListStripeConnectedAccountForPayoutCreatingTasks",
   body: {
-    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_REQUEST_BODY,
+    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS_RESPONSE,
+    messageType: LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS_RESPONSE,
   },
 }
 
@@ -667,27 +710,51 @@ export let LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS: RemoteCall
   },
 }
 
-export let PROCESS_PAYMENT_TASK: RemoteCallDescriptor = {
-  name: "ProcessPaymentTask",
+export let PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPaymentStripeInvoiceCreatingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessPaymentTask",
+  path: "/ProcessPaymentStripeInvoiceCreatingTask",
   body: {
-    messageType: PROCESS_PAYMENT_TASK_REQUEST_BODY,
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_PAYMENT_TASK_RESPONSE,
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK_RESPONSE,
   },
 }
 
-export let LIST_PAYMENT_TASKS: RemoteCallDescriptor = {
-  name: "ListPaymentTasks",
+export let LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS: RemoteCallDescriptor = {
+  name: "ListPaymentStripeInvoiceCreatingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListPaymentTasks",
+  path: "/ListPaymentStripeInvoiceCreatingTasks",
   body: {
-    messageType: LIST_PAYMENT_TASKS_REQUEST_BODY,
+    messageType: LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_PAYMENT_TASKS_RESPONSE,
+    messageType: LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPaymentStripeInvoicePayingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessPaymentStripeInvoicePayingTask",
+  body: {
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS: RemoteCallDescriptor = {
+  name: "ListPaymentStripeInvoicePayingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListPaymentStripeInvoicePayingTasks",
+  body: {
+    messageType: LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS_RESPONSE,
   },
 }
 
@@ -787,26 +854,26 @@ export let LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS: RemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_PAYOUT_TASK: RemoteCallDescriptor = {
-  name: "ProcessPayoutTask",
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPayoutStripeTransferCreatingTask",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ProcessPayoutTask",
+  path: "/ProcessPayoutStripeTransferCreatingTask",
   body: {
-    messageType: PROCESS_PAYOUT_TASK_REQUEST_BODY,
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_PAYOUT_TASK_RESPONSE,
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK_RESPONSE,
   },
 }
 
-export let LIST_PAYOUT_TASKS: RemoteCallDescriptor = {
-  name: "ListPayoutTasks",
+export let LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS: RemoteCallDescriptor = {
+  name: "ListPayoutStripeTransferCreatingTasks",
   service: COMMERCE_NODE_SERVICE,
-  path: "/ListPayoutTasks",
+  path: "/ListPayoutStripeTransferCreatingTasks",
   body: {
-    messageType: LIST_PAYOUT_TASKS_REQUEST_BODY,
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_REQUEST_BODY,
   },
   response: {
-    messageType: LIST_PAYOUT_TASKS_RESPONSE,
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_RESPONSE,
   },
 }

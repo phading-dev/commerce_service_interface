@@ -1,4 +1,4 @@
-import { GenerateTransactionStatementRequestBody, GenerateTransactionStatementResponse, GENERATE_TRANSACTION_STATEMENT, CreatePaymentProfileRequestBody, CreatePaymentProfileResponse, CREATE_PAYMENT_PROFILE, CreatePayoutProfileRequestBody, CreatePayoutProfileResponse, CREATE_PAYOUT_PROFILE, ProcessStripePaymentCustomerCreatingTaskRequestBody, ProcessStripePaymentCustomerCreatingTaskResponse, PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK, ListStripePaymentCustomerCreatingTasksRequestBody, ListStripePaymentCustomerCreatingTasksResponse, LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS, ProcessInitPaymentCreditGrantingTaskRequestBody, ProcessInitPaymentCreditGrantingTaskResponse, PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK, ListInitPaymentCreditGrantingTasksRequestBody, ListInitPaymentCreditGrantingTasksResponse, LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS, ProcessStripeConnectedAccountCreatingTaskRequestBody, ProcessStripeConnectedAccountCreatingTaskResponse, PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK, ListStripeConnectedAccountCreatingTasksRequestBody, ListStripeConnectedAccountCreatingTasksResponse, LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse, PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK, ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody, ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse, LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS, ProcessPaymentTaskRequestBody, ProcessPaymentTaskResponse, PROCESS_PAYMENT_TASK, ListPaymentTasksRequestBody, ListPaymentTasksResponse, LIST_PAYMENT_TASKS, ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody, ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse, PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK, ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody, ListPaymentMethodNeedsUpdateNotifyingTasksResponse, LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS, ProcessPaymentProfileSuspendingDueToPastDueTaskRequestBody, ProcessPaymentProfileSuspendingDueToPastDueTaskResponse, PROCESS_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK, ListPaymentProfileSuspendingDueToPastDueTasksRequestBody, ListPaymentProfileSuspendingDueToPastDueTasksResponse, LIST_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS, ProcessPaymentProfileSuspensionNotifyingTaskRequestBody, ProcessPaymentProfileSuspensionNotifyingTaskResponse, PROCESS_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASK, ListPaymentProfileSuspensionNotifyingTasksRequestBody, ListPaymentProfileSuspensionNotifyingTasksResponse, LIST_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASKS, ProcessPaymentProfileStateSyncingTaskRequestBody, ProcessPaymentProfileStateSyncingTaskResponse, PROCESS_PAYMENT_PROFILE_STATE_SYNCING_TASK, ListPaymentProfileStateSyncingTasksRequestBody, ListPaymentProfileStateSyncingTasksResponse, LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS, ProcessPayoutTaskRequestBody, ProcessPayoutTaskResponse, PROCESS_PAYOUT_TASK, ListPayoutTasksRequestBody, ListPayoutTasksResponse, LIST_PAYOUT_TASKS } from './interface';
+import { GenerateTransactionStatementRequestBody, GenerateTransactionStatementResponse, GENERATE_TRANSACTION_STATEMENT, CreatePaymentProfileRequestBody, CreatePaymentProfileResponse, CREATE_PAYMENT_PROFILE, CreatePayoutProfileRequestBody, CreatePayoutProfileResponse, CREATE_PAYOUT_PROFILE, ProcessStripeCustomerCreatingTaskRequestBody, ProcessStripeCustomerCreatingTaskResponse, PROCESS_STRIPE_CUSTOMER_CREATING_TASK, ListStripeCustomerCreatingTasksRequestBody, ListStripeCustomerCreatingTasksResponse, LIST_STRIPE_CUSTOMER_CREATING_TASKS, ProcessInitCreditGrantingTaskRequestBody, ProcessInitCreditGrantingTaskResponse, PROCESS_INIT_CREDIT_GRANTING_TASK, ListInitCreditGrantingTasksRequestBody, ListInitCreditGrantingTasksResponse, LIST_INIT_CREDIT_GRANTING_TASKS, ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody, ProcessStripeConnectedAccountForPayoutCreatingTaskResponse, PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK, ListStripeConnectedAccountForPayoutCreatingTasksRequestBody, ListStripeConnectedAccountForPayoutCreatingTasksResponse, LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse, PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK, ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody, ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse, LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS, ProcessPaymentStripeInvoiceCreatingTaskRequestBody, ProcessPaymentStripeInvoiceCreatingTaskResponse, PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK, ListPaymentStripeInvoiceCreatingTasksRequestBody, ListPaymentStripeInvoiceCreatingTasksResponse, LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS, ProcessPaymentStripeInvoicePayingTaskRequestBody, ProcessPaymentStripeInvoicePayingTaskResponse, PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK, ListPaymentStripeInvoicePayingTasksRequestBody, ListPaymentStripeInvoicePayingTasksResponse, LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS, ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody, ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse, PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK, ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody, ListPaymentMethodNeedsUpdateNotifyingTasksResponse, LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS, ProcessPaymentProfileSuspendingDueToPastDueTaskRequestBody, ProcessPaymentProfileSuspendingDueToPastDueTaskResponse, PROCESS_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK, ListPaymentProfileSuspendingDueToPastDueTasksRequestBody, ListPaymentProfileSuspendingDueToPastDueTasksResponse, LIST_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS, ProcessPaymentProfileSuspensionNotifyingTaskRequestBody, ProcessPaymentProfileSuspensionNotifyingTaskResponse, PROCESS_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASK, ListPaymentProfileSuspensionNotifyingTasksRequestBody, ListPaymentProfileSuspensionNotifyingTasksResponse, LIST_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASKS, ProcessPaymentProfileStateSyncingTaskRequestBody, ProcessPaymentProfileStateSyncingTaskResponse, PROCESS_PAYMENT_PROFILE_STATE_SYNCING_TASK, ListPaymentProfileStateSyncingTasksRequestBody, ListPaymentProfileStateSyncingTasksResponse, LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS, ProcessPayoutStripeTransferCreatingTaskRequestBody, ProcessPayoutStripeTransferCreatingTaskResponse, PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK, ListPayoutStripeTransferCreatingTasksRequestBody, ListPayoutStripeTransferCreatingTasksResponse, LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS } from './interface';
 import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
 export function newGenerateTransactionStatementRequest(
@@ -28,56 +28,56 @@ export function newCreatePayoutProfileRequest(
   };
 }
 
-export function newProcessStripePaymentCustomerCreatingTaskRequest(
-  body: ProcessStripePaymentCustomerCreatingTaskRequestBody,
-): ClientRequestInterface<ProcessStripePaymentCustomerCreatingTaskResponse> {
+export function newProcessStripeCustomerCreatingTaskRequest(
+  body: ProcessStripeCustomerCreatingTaskRequestBody,
+): ClientRequestInterface<ProcessStripeCustomerCreatingTaskResponse> {
   return {
-    descriptor: PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK,
+    descriptor: PROCESS_STRIPE_CUSTOMER_CREATING_TASK,
     body,
   };
 }
 
-export function newListStripePaymentCustomerCreatingTasksRequest(
-  body: ListStripePaymentCustomerCreatingTasksRequestBody,
-): ClientRequestInterface<ListStripePaymentCustomerCreatingTasksResponse> {
+export function newListStripeCustomerCreatingTasksRequest(
+  body: ListStripeCustomerCreatingTasksRequestBody,
+): ClientRequestInterface<ListStripeCustomerCreatingTasksResponse> {
   return {
-    descriptor: LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS,
+    descriptor: LIST_STRIPE_CUSTOMER_CREATING_TASKS,
     body,
   };
 }
 
-export function newProcessInitPaymentCreditGrantingTaskRequest(
-  body: ProcessInitPaymentCreditGrantingTaskRequestBody,
-): ClientRequestInterface<ProcessInitPaymentCreditGrantingTaskResponse> {
+export function newProcessInitCreditGrantingTaskRequest(
+  body: ProcessInitCreditGrantingTaskRequestBody,
+): ClientRequestInterface<ProcessInitCreditGrantingTaskResponse> {
   return {
-    descriptor: PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK,
+    descriptor: PROCESS_INIT_CREDIT_GRANTING_TASK,
     body,
   };
 }
 
-export function newListInitPaymentCreditGrantingTasksRequest(
-  body: ListInitPaymentCreditGrantingTasksRequestBody,
-): ClientRequestInterface<ListInitPaymentCreditGrantingTasksResponse> {
+export function newListInitCreditGrantingTasksRequest(
+  body: ListInitCreditGrantingTasksRequestBody,
+): ClientRequestInterface<ListInitCreditGrantingTasksResponse> {
   return {
-    descriptor: LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS,
+    descriptor: LIST_INIT_CREDIT_GRANTING_TASKS,
     body,
   };
 }
 
-export function newProcessStripeConnectedAccountCreatingTaskRequest(
-  body: ProcessStripeConnectedAccountCreatingTaskRequestBody,
-): ClientRequestInterface<ProcessStripeConnectedAccountCreatingTaskResponse> {
+export function newProcessStripeConnectedAccountForPayoutCreatingTaskRequest(
+  body: ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody,
+): ClientRequestInterface<ProcessStripeConnectedAccountForPayoutCreatingTaskResponse> {
   return {
-    descriptor: PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK,
+    descriptor: PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK,
     body,
   };
 }
 
-export function newListStripeConnectedAccountCreatingTasksRequest(
-  body: ListStripeConnectedAccountCreatingTasksRequestBody,
-): ClientRequestInterface<ListStripeConnectedAccountCreatingTasksResponse> {
+export function newListStripeConnectedAccountForPayoutCreatingTasksRequest(
+  body: ListStripeConnectedAccountForPayoutCreatingTasksRequestBody,
+): ClientRequestInterface<ListStripeConnectedAccountForPayoutCreatingTasksResponse> {
   return {
-    descriptor: LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS,
+    descriptor: LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS,
     body,
   };
 }
@@ -100,20 +100,38 @@ export function newListStripeConnectedAccountNeedsSetupNotifyingTasksRequest(
   };
 }
 
-export function newProcessPaymentTaskRequest(
-  body: ProcessPaymentTaskRequestBody,
-): ClientRequestInterface<ProcessPaymentTaskResponse> {
+export function newProcessPaymentStripeInvoiceCreatingTaskRequest(
+  body: ProcessPaymentStripeInvoiceCreatingTaskRequestBody,
+): ClientRequestInterface<ProcessPaymentStripeInvoiceCreatingTaskResponse> {
   return {
-    descriptor: PROCESS_PAYMENT_TASK,
+    descriptor: PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK,
     body,
   };
 }
 
-export function newListPaymentTasksRequest(
-  body: ListPaymentTasksRequestBody,
-): ClientRequestInterface<ListPaymentTasksResponse> {
+export function newListPaymentStripeInvoiceCreatingTasksRequest(
+  body: ListPaymentStripeInvoiceCreatingTasksRequestBody,
+): ClientRequestInterface<ListPaymentStripeInvoiceCreatingTasksResponse> {
   return {
-    descriptor: LIST_PAYMENT_TASKS,
+    descriptor: LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS,
+    body,
+  };
+}
+
+export function newProcessPaymentStripeInvoicePayingTaskRequest(
+  body: ProcessPaymentStripeInvoicePayingTaskRequestBody,
+): ClientRequestInterface<ProcessPaymentStripeInvoicePayingTaskResponse> {
+  return {
+    descriptor: PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK,
+    body,
+  };
+}
+
+export function newListPaymentStripeInvoicePayingTasksRequest(
+  body: ListPaymentStripeInvoicePayingTasksRequestBody,
+): ClientRequestInterface<ListPaymentStripeInvoicePayingTasksResponse> {
+  return {
+    descriptor: LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS,
     body,
   };
 }
@@ -190,20 +208,20 @@ export function newListPaymentProfileStateSyncingTasksRequest(
   };
 }
 
-export function newProcessPayoutTaskRequest(
-  body: ProcessPayoutTaskRequestBody,
-): ClientRequestInterface<ProcessPayoutTaskResponse> {
+export function newProcessPayoutStripeTransferCreatingTaskRequest(
+  body: ProcessPayoutStripeTransferCreatingTaskRequestBody,
+): ClientRequestInterface<ProcessPayoutStripeTransferCreatingTaskResponse> {
   return {
-    descriptor: PROCESS_PAYOUT_TASK,
+    descriptor: PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK,
     body,
   };
 }
 
-export function newListPayoutTasksRequest(
-  body: ListPayoutTasksRequestBody,
-): ClientRequestInterface<ListPayoutTasksResponse> {
+export function newListPayoutStripeTransferCreatingTasksRequest(
+  body: ListPayoutStripeTransferCreatingTasksRequestBody,
+): ClientRequestInterface<ListPayoutStripeTransferCreatingTasksResponse> {
   return {
-    descriptor: LIST_PAYOUT_TASKS,
+    descriptor: LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS,
     body,
   };
 }

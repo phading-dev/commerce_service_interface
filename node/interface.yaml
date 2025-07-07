@@ -40,54 +40,54 @@
 - kind: Message
   name: CreatePayoutProfileResponse
 - kind: Message
-  name: ProcessStripePaymentCustomerCreatingTaskRequestBody
+  name: ProcessStripeCustomerCreatingTaskRequestBody
   fields:
-    - name: accountId
+    - name: taskid
       type: string
       index: 1
 - kind: Message
-  name: ProcessStripePaymentCustomerCreatingTaskResponse
+  name: ProcessStripeCustomerCreatingTaskResponse
 - kind: Message
-  name: ListStripePaymentCustomerCreatingTasksRequestBody
+  name: ListStripeCustomerCreatingTasksRequestBody
 - kind: Message
-  name: ListStripePaymentCustomerCreatingTasksResponse
+  name: ListStripeCustomerCreatingTasksResponse
   fields:
     - name: tasks
-      type: ProcessStripePaymentCustomerCreatingTaskRequestBody
+      type: ProcessStripeCustomerCreatingTaskRequestBody
       isArray: true
       index: 1
 - kind: Message
-  name: ProcessInitPaymentCreditGrantingTaskRequestBody
+  name: ProcessInitCreditGrantingTaskRequestBody
   fields:
-    - name: accountId
+    - name: taskId
       type: string
       index: 1
 - kind: Message
-  name: ProcessInitPaymentCreditGrantingTaskResponse
+  name: ProcessInitCreditGrantingTaskResponse
 - kind: Message
-  name: ListInitPaymentCreditGrantingTasksRequestBody
+  name: ListInitCreditGrantingTasksRequestBody
 - kind: Message
-  name: ListInitPaymentCreditGrantingTasksResponse
+  name: ListInitCreditGrantingTasksResponse
   fields:
     - name: tasks
-      type: ProcessInitPaymentCreditGrantingTaskRequestBody
+      type: ProcessInitCreditGrantingTaskRequestBody
       isArray: true
       index: 1
 - kind: Message
-  name: ProcessStripeConnectedAccountCreatingTaskRequestBody
+  name: ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody
   fields:
-    - name: accountId
+    - name: taskId
       type: string
       index: 1
 - kind: Message
-  name: ProcessStripeConnectedAccountCreatingTaskResponse
+  name: ProcessStripeConnectedAccountForPayoutCreatingTaskResponse
 - kind: Message
-  name: ListStripeConnectedAccountCreatingTasksRequestBody
+  name: ListStripeConnectedAccountForPayoutCreatingTasksRequestBody
 - kind: Message
-  name: ListStripeConnectedAccountCreatingTasksResponse
+  name: ListStripeConnectedAccountForPayoutCreatingTasksResponse
   fields:
     - name: tasks
-      type: ProcessStripeConnectedAccountCreatingTaskRequestBody
+      type: ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody
       isArray: true
       index: 1
 - kind: Message
@@ -108,20 +108,37 @@
       isArray: true
       index: 1
 - kind: Message
-  name: ProcessPaymentTaskRequestBody
+  name: ProcessPaymentStripeInvoiceCreatingTaskRequestBody
   fields:
-    - name: statementId
+    - name: taskId
       type: string
       index: 1
 - kind: Message
-  name: ProcessPaymentTaskResponse
+  name: ProcessPaymentStripeInvoiceCreatingTaskResponse
 - kind: Message
-  name: ListPaymentTasksRequestBody
+  name: ListPaymentStripeInvoiceCreatingTasksRequestBody
 - kind: Message
-  name: ListPaymentTasksResponse
+  name: ListPaymentStripeInvoiceCreatingTasksResponse
   fields:
     - name: tasks
-      type: ProcessPaymentTaskRequestBody
+      type: ProcessPaymentStripeInvoiceCreatingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessPaymentStripeInvoicePayingTaskRequestBody
+  fields:
+    - name: taskId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessPaymentStripeInvoicePayingTaskResponse
+- kind: Message
+  name: ListPaymentStripeInvoicePayingTasksRequestBody
+- kind: Message
+  name: ListPaymentStripeInvoicePayingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessPaymentStripeInvoicePayingTaskRequestBody
       isArray: true
       index: 1
 - kind: Message
@@ -199,20 +216,20 @@
       isArray: true
       index: 1
 - kind: Message
-  name: ProcessPayoutTaskRequestBody
+  name: ProcessPayoutStripeTransferCreatingTaskRequestBody
   fields:
-    - name: statementId
+    - name: taskId
       type: string
       index: 1
 - kind: Message
-  name: ProcessPayoutTaskResponse
+  name: ProcessPayoutStripeTransferCreatingTaskResponse
 - kind: Message
-  name: ListPayoutTasksRequestBody
+  name: ListPayoutStripeTransferCreatingTasksRequestBody
 - kind: Message
-  name: ListPayoutTasksResponse
+  name: ListPayoutStripeTransferCreatingTasksResponse
   fields:
     - name: tasks
-      type: ProcessPayoutTaskRequestBody
+      type: ProcessPayoutStripeTransferCreatingTaskRequestBody
       isArray: true
       index: 1
 - kind: RemoteCallsGroup
@@ -232,30 +249,30 @@
       path: /CreatePayoutProfile
       body: CreatePayoutProfileRequestBody
       response: CreatePayoutProfileResponse
-    - name: ProcessStripePaymentCustomerCreatingTask
-      path: /ProcessStripePaymentCustomerCreatingTask
-      body: ProcessStripePaymentCustomerCreatingTaskRequestBody
-      response: ProcessStripePaymentCustomerCreatingTaskResponse
-    - name: ListStripePaymentCustomerCreatingTasks
-      path: /ListStripePaymentCustomerCreatingTasks
-      body: ListStripePaymentCustomerCreatingTasksRequestBody
-      response: ListStripePaymentCustomerCreatingTasksResponse
-    - name: ProcessInitPaymentCreditGrantingTask
-      path: /ProcessInitPaymentCreditGrantingTask
-      body: ProcessInitPaymentCreditGrantingTaskRequestBody
-      response: ProcessInitPaymentCreditGrantingTaskResponse
-    - name: ListInitPaymentCreditGrantingTasks
-      path: /ListInitPaymentCreditGrantingTasks
-      body: ListInitPaymentCreditGrantingTasksRequestBody
-      response: ListInitPaymentCreditGrantingTasksResponse
-    - name: ProcessStripeConnectedAccountCreatingTask
-      path: /ProcessStripeConnectedAccountCreatingTask
-      body: ProcessStripeConnectedAccountCreatingTaskRequestBody
-      response: ProcessStripeConnectedAccountCreatingTaskResponse
-    - name: ListStripeConnectedAccountCreatingTasks
-      path: /ListStripeConnectedAccountCreatingTasks
-      body: ListStripeConnectedAccountCreatingTasksRequestBody
-      response: ListStripeConnectedAccountCreatingTasksResponse
+    - name: ProcessStripeCustomerCreatingTask
+      path: /ProcessStripeCustomerCreatingTask
+      body: ProcessStripeCustomerCreatingTaskRequestBody
+      response: ProcessStripeCustomerCreatingTaskResponse
+    - name: ListStripeCustomerCreatingTasks
+      path: /ListStripeCustomerCreatingTasks
+      body: ListStripeCustomerCreatingTasksRequestBody
+      response: ListStripeCustomerCreatingTasksResponse
+    - name: ProcessInitCreditGrantingTask
+      path: /ProcessInitCreditGrantingTask
+      body: ProcessInitCreditGrantingTaskRequestBody
+      response: ProcessInitCreditGrantingTaskResponse
+    - name: ListInitCreditGrantingTasks
+      path: /ListInitCreditGrantingTasks
+      body: ListInitCreditGrantingTasksRequestBody
+      response: ListInitCreditGrantingTasksResponse
+    - name: ProcessStripeConnectedAccountForPayoutCreatingTask
+      path: /ProcessStripeConnectedAccountForPayoutCreatingTask
+      body: ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody
+      response: ProcessStripeConnectedAccountForPayoutCreatingTaskResponse
+    - name: ListStripeConnectedAccountForPayoutCreatingTasks
+      path: /ListStripeConnectedAccountForPayoutCreatingTasks
+      body: ListStripeConnectedAccountForPayoutCreatingTasksRequestBody
+      response: ListStripeConnectedAccountForPayoutCreatingTasksResponse
     - name: ProcessStripeConnectedAccountNeedsSetupNotifyingTask
       path: /ProcessStripeConnectedAccountNeedsSetupNotifyingTask
       body: ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody
@@ -264,14 +281,22 @@
       path: /ListStripeConnectedAccountNeedsSetupNotifyingTasks
       body: ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody
       response: ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse
-    - name: ProcessPaymentTask
-      path: /ProcessPaymentTask
-      body: ProcessPaymentTaskRequestBody
-      response: ProcessPaymentTaskResponse
-    - name: ListPaymentTasks
-      path: /ListPaymentTasks
-      body: ListPaymentTasksRequestBody
-      response: ListPaymentTasksResponse
+    - name: ProcessPaymentStripeInvoiceCreatingTask
+      path: /ProcessPaymentStripeInvoiceCreatingTask
+      body: ProcessPaymentStripeInvoiceCreatingTaskRequestBody
+      response: ProcessPaymentStripeInvoiceCreatingTaskResponse
+    - name: ListPaymentStripeInvoiceCreatingTasks
+      path: /ListPaymentStripeInvoiceCreatingTasks
+      body: ListPaymentStripeInvoiceCreatingTasksRequestBody
+      response: ListPaymentStripeInvoiceCreatingTasksResponse
+    - name: ProcessPaymentStripeInvoicePayingTask
+      path: /ProcessPaymentStripeInvoicePayingTask
+      body: ProcessPaymentStripeInvoicePayingTaskRequestBody
+      response: ProcessPaymentStripeInvoicePayingTaskResponse
+    - name: ListPaymentStripeInvoicePayingTasks
+      path: /ListPaymentStripeInvoicePayingTasks
+      body: ListPaymentStripeInvoicePayingTasksRequestBody
+      response: ListPaymentStripeInvoicePayingTasksResponse
     - name: ProcessPaymentMethodNeedsUpdateNotifyingTask
       path: /ProcessPaymentMethodNeedsUpdateNotifyingTask
       body: ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody
@@ -304,13 +329,13 @@
       path: /ListPaymentProfileStateSyncingTasks
       body: ListPaymentProfileStateSyncingTasksRequestBody
       response: ListPaymentProfileStateSyncingTasksResponse
-    - name: ProcessPayoutTask
-      path: /ProcessPayoutTask
-      body: ProcessPayoutTaskRequestBody
-      response: ProcessPayoutTaskResponse
-    - name: ListPayoutTasks
-      path: /ListPayoutTasks
-      body: ListPayoutTasksRequestBody
-      response: ListPayoutTasksResponse
+    - name: ProcessPayoutStripeTransferCreatingTask
+      path: /ProcessPayoutStripeTransferCreatingTask
+      body: ProcessPayoutStripeTransferCreatingTaskRequestBody
+      response: ProcessPayoutStripeTransferCreatingTaskResponse
+    - name: ListPayoutStripeTransferCreatingTasks
+      path: /ListPayoutStripeTransferCreatingTasks
+      body: ListPayoutStripeTransferCreatingTasksRequestBody
+      response: ListPayoutStripeTransferCreatingTasksResponse
   outputClient: ./node/client
   outputHandler: ./node/handler

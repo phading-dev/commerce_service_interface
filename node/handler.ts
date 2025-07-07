@@ -1,4 +1,4 @@
-import { GenerateTransactionStatementRequestBody, GENERATE_TRANSACTION_STATEMENT, GenerateTransactionStatementResponse, CreatePaymentProfileRequestBody, CREATE_PAYMENT_PROFILE, CreatePaymentProfileResponse, CreatePayoutProfileRequestBody, CREATE_PAYOUT_PROFILE, CreatePayoutProfileResponse, ProcessStripePaymentCustomerCreatingTaskRequestBody, PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK, ProcessStripePaymentCustomerCreatingTaskResponse, ListStripePaymentCustomerCreatingTasksRequestBody, LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS, ListStripePaymentCustomerCreatingTasksResponse, ProcessInitPaymentCreditGrantingTaskRequestBody, PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK, ProcessInitPaymentCreditGrantingTaskResponse, ListInitPaymentCreditGrantingTasksRequestBody, LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS, ListInitPaymentCreditGrantingTasksResponse, ProcessStripeConnectedAccountCreatingTaskRequestBody, PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK, ProcessStripeConnectedAccountCreatingTaskResponse, ListStripeConnectedAccountCreatingTasksRequestBody, LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS, ListStripeConnectedAccountCreatingTasksResponse, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody, PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse, ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody, LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS, ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse, ProcessPaymentTaskRequestBody, PROCESS_PAYMENT_TASK, ProcessPaymentTaskResponse, ListPaymentTasksRequestBody, LIST_PAYMENT_TASKS, ListPaymentTasksResponse, ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody, PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK, ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse, ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody, LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS, ListPaymentMethodNeedsUpdateNotifyingTasksResponse, ProcessPaymentProfileSuspendingDueToPastDueTaskRequestBody, PROCESS_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK, ProcessPaymentProfileSuspendingDueToPastDueTaskResponse, ListPaymentProfileSuspendingDueToPastDueTasksRequestBody, LIST_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS, ListPaymentProfileSuspendingDueToPastDueTasksResponse, ProcessPaymentProfileSuspensionNotifyingTaskRequestBody, PROCESS_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASK, ProcessPaymentProfileSuspensionNotifyingTaskResponse, ListPaymentProfileSuspensionNotifyingTasksRequestBody, LIST_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASKS, ListPaymentProfileSuspensionNotifyingTasksResponse, ProcessPaymentProfileStateSyncingTaskRequestBody, PROCESS_PAYMENT_PROFILE_STATE_SYNCING_TASK, ProcessPaymentProfileStateSyncingTaskResponse, ListPaymentProfileStateSyncingTasksRequestBody, LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS, ListPaymentProfileStateSyncingTasksResponse, ProcessPayoutTaskRequestBody, PROCESS_PAYOUT_TASK, ProcessPayoutTaskResponse, ListPayoutTasksRequestBody, LIST_PAYOUT_TASKS, ListPayoutTasksResponse } from './interface';
+import { GenerateTransactionStatementRequestBody, GENERATE_TRANSACTION_STATEMENT, GenerateTransactionStatementResponse, CreatePaymentProfileRequestBody, CREATE_PAYMENT_PROFILE, CreatePaymentProfileResponse, CreatePayoutProfileRequestBody, CREATE_PAYOUT_PROFILE, CreatePayoutProfileResponse, ProcessStripeCustomerCreatingTaskRequestBody, PROCESS_STRIPE_CUSTOMER_CREATING_TASK, ProcessStripeCustomerCreatingTaskResponse, ListStripeCustomerCreatingTasksRequestBody, LIST_STRIPE_CUSTOMER_CREATING_TASKS, ListStripeCustomerCreatingTasksResponse, ProcessInitCreditGrantingTaskRequestBody, PROCESS_INIT_CREDIT_GRANTING_TASK, ProcessInitCreditGrantingTaskResponse, ListInitCreditGrantingTasksRequestBody, LIST_INIT_CREDIT_GRANTING_TASKS, ListInitCreditGrantingTasksResponse, ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody, PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK, ProcessStripeConnectedAccountForPayoutCreatingTaskResponse, ListStripeConnectedAccountForPayoutCreatingTasksRequestBody, LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS, ListStripeConnectedAccountForPayoutCreatingTasksResponse, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskRequestBody, PROCESS_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASK, ProcessStripeConnectedAccountNeedsSetupNotifyingTaskResponse, ListStripeConnectedAccountNeedsSetupNotifyingTasksRequestBody, LIST_STRIPE_CONNECTED_ACCOUNT_NEEDS_SETUP_NOTIFYING_TASKS, ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse, ProcessPaymentStripeInvoiceCreatingTaskRequestBody, PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK, ProcessPaymentStripeInvoiceCreatingTaskResponse, ListPaymentStripeInvoiceCreatingTasksRequestBody, LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS, ListPaymentStripeInvoiceCreatingTasksResponse, ProcessPaymentStripeInvoicePayingTaskRequestBody, PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK, ProcessPaymentStripeInvoicePayingTaskResponse, ListPaymentStripeInvoicePayingTasksRequestBody, LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS, ListPaymentStripeInvoicePayingTasksResponse, ProcessPaymentMethodNeedsUpdateNotifyingTaskRequestBody, PROCESS_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASK, ProcessPaymentMethodNeedsUpdateNotifyingTaskResponse, ListPaymentMethodNeedsUpdateNotifyingTasksRequestBody, LIST_PAYMENT_METHOD_NEEDS_UPDATE_NOTIFYING_TASKS, ListPaymentMethodNeedsUpdateNotifyingTasksResponse, ProcessPaymentProfileSuspendingDueToPastDueTaskRequestBody, PROCESS_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASK, ProcessPaymentProfileSuspendingDueToPastDueTaskResponse, ListPaymentProfileSuspendingDueToPastDueTasksRequestBody, LIST_PAYMENT_PROFILE_SUSPENDING_DUE_TO_PAST_DUE_TASKS, ListPaymentProfileSuspendingDueToPastDueTasksResponse, ProcessPaymentProfileSuspensionNotifyingTaskRequestBody, PROCESS_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASK, ProcessPaymentProfileSuspensionNotifyingTaskResponse, ListPaymentProfileSuspensionNotifyingTasksRequestBody, LIST_PAYMENT_PROFILE_SUSPENSION_NOTIFYING_TASKS, ListPaymentProfileSuspensionNotifyingTasksResponse, ProcessPaymentProfileStateSyncingTaskRequestBody, PROCESS_PAYMENT_PROFILE_STATE_SYNCING_TASK, ProcessPaymentProfileStateSyncingTaskResponse, ListPaymentProfileStateSyncingTasksRequestBody, LIST_PAYMENT_PROFILE_STATE_SYNCING_TASKS, ListPaymentProfileStateSyncingTasksResponse, ProcessPayoutStripeTransferCreatingTaskRequestBody, PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK, ProcessPayoutStripeTransferCreatingTaskResponse, ListPayoutStripeTransferCreatingTasksRequestBody, LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS, ListPayoutStripeTransferCreatingTasksResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
 export abstract class GenerateTransactionStatementHandlerInterface implements RemoteCallHandlerInterface {
@@ -25,52 +25,52 @@ export abstract class CreatePayoutProfileHandlerInterface implements RemoteCallH
   ): Promise<CreatePayoutProfileResponse>;
 }
 
-export abstract class ProcessStripePaymentCustomerCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = PROCESS_STRIPE_PAYMENT_CUSTOMER_CREATING_TASK;
+export abstract class ProcessStripeCustomerCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_STRIPE_CUSTOMER_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessStripePaymentCustomerCreatingTaskRequestBody,
-  ): Promise<ProcessStripePaymentCustomerCreatingTaskResponse>;
+    body: ProcessStripeCustomerCreatingTaskRequestBody,
+  ): Promise<ProcessStripeCustomerCreatingTaskResponse>;
 }
 
-export abstract class ListStripePaymentCustomerCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_STRIPE_PAYMENT_CUSTOMER_CREATING_TASKS;
+export abstract class ListStripeCustomerCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_STRIPE_CUSTOMER_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
-    body: ListStripePaymentCustomerCreatingTasksRequestBody,
-  ): Promise<ListStripePaymentCustomerCreatingTasksResponse>;
+    body: ListStripeCustomerCreatingTasksRequestBody,
+  ): Promise<ListStripeCustomerCreatingTasksResponse>;
 }
 
-export abstract class ProcessInitPaymentCreditGrantingTaskHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = PROCESS_INIT_PAYMENT_CREDIT_GRANTING_TASK;
+export abstract class ProcessInitCreditGrantingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_INIT_CREDIT_GRANTING_TASK;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessInitPaymentCreditGrantingTaskRequestBody,
-  ): Promise<ProcessInitPaymentCreditGrantingTaskResponse>;
+    body: ProcessInitCreditGrantingTaskRequestBody,
+  ): Promise<ProcessInitCreditGrantingTaskResponse>;
 }
 
-export abstract class ListInitPaymentCreditGrantingTasksHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_INIT_PAYMENT_CREDIT_GRANTING_TASKS;
+export abstract class ListInitCreditGrantingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_INIT_CREDIT_GRANTING_TASKS;
   public abstract handle(
     loggingPrefix: string,
-    body: ListInitPaymentCreditGrantingTasksRequestBody,
-  ): Promise<ListInitPaymentCreditGrantingTasksResponse>;
+    body: ListInitCreditGrantingTasksRequestBody,
+  ): Promise<ListInitCreditGrantingTasksResponse>;
 }
 
-export abstract class ProcessStripeConnectedAccountCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = PROCESS_STRIPE_CONNECTED_ACCOUNT_CREATING_TASK;
+export abstract class ProcessStripeConnectedAccountForPayoutCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessStripeConnectedAccountCreatingTaskRequestBody,
-  ): Promise<ProcessStripeConnectedAccountCreatingTaskResponse>;
+    body: ProcessStripeConnectedAccountForPayoutCreatingTaskRequestBody,
+  ): Promise<ProcessStripeConnectedAccountForPayoutCreatingTaskResponse>;
 }
 
-export abstract class ListStripeConnectedAccountCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_STRIPE_CONNECTED_ACCOUNT_CREATING_TASKS;
+export abstract class ListStripeConnectedAccountForPayoutCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_STRIPE_CONNECTED_ACCOUNT_FOR_PAYOUT_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
-    body: ListStripeConnectedAccountCreatingTasksRequestBody,
-  ): Promise<ListStripeConnectedAccountCreatingTasksResponse>;
+    body: ListStripeConnectedAccountForPayoutCreatingTasksRequestBody,
+  ): Promise<ListStripeConnectedAccountForPayoutCreatingTasksResponse>;
 }
 
 export abstract class ProcessStripeConnectedAccountNeedsSetupNotifyingTaskHandlerInterface implements RemoteCallHandlerInterface {
@@ -89,20 +89,36 @@ export abstract class ListStripeConnectedAccountNeedsSetupNotifyingTasksHandlerI
   ): Promise<ListStripeConnectedAccountNeedsSetupNotifyingTasksResponse>;
 }
 
-export abstract class ProcessPaymentTaskHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = PROCESS_PAYMENT_TASK;
+export abstract class ProcessPaymentStripeInvoiceCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_PAYMENT_STRIPE_INVOICE_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessPaymentTaskRequestBody,
-  ): Promise<ProcessPaymentTaskResponse>;
+    body: ProcessPaymentStripeInvoiceCreatingTaskRequestBody,
+  ): Promise<ProcessPaymentStripeInvoiceCreatingTaskResponse>;
 }
 
-export abstract class ListPaymentTasksHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_PAYMENT_TASKS;
+export abstract class ListPaymentStripeInvoiceCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_PAYMENT_STRIPE_INVOICE_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
-    body: ListPaymentTasksRequestBody,
-  ): Promise<ListPaymentTasksResponse>;
+    body: ListPaymentStripeInvoiceCreatingTasksRequestBody,
+  ): Promise<ListPaymentStripeInvoiceCreatingTasksResponse>;
+}
+
+export abstract class ProcessPaymentStripeInvoicePayingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_PAYMENT_STRIPE_INVOICE_PAYING_TASK;
+  public abstract handle(
+    loggingPrefix: string,
+    body: ProcessPaymentStripeInvoicePayingTaskRequestBody,
+  ): Promise<ProcessPaymentStripeInvoicePayingTaskResponse>;
+}
+
+export abstract class ListPaymentStripeInvoicePayingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_PAYMENT_STRIPE_INVOICE_PAYING_TASKS;
+  public abstract handle(
+    loggingPrefix: string,
+    body: ListPaymentStripeInvoicePayingTasksRequestBody,
+  ): Promise<ListPaymentStripeInvoicePayingTasksResponse>;
 }
 
 export abstract class ProcessPaymentMethodNeedsUpdateNotifyingTaskHandlerInterface implements RemoteCallHandlerInterface {
@@ -169,18 +185,18 @@ export abstract class ListPaymentProfileStateSyncingTasksHandlerInterface implem
   ): Promise<ListPaymentProfileStateSyncingTasksResponse>;
 }
 
-export abstract class ProcessPayoutTaskHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = PROCESS_PAYOUT_TASK;
+export abstract class ProcessPayoutStripeTransferCreatingTaskHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = PROCESS_PAYOUT_STRIPE_TRANSFER_CREATING_TASK;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessPayoutTaskRequestBody,
-  ): Promise<ProcessPayoutTaskResponse>;
+    body: ProcessPayoutStripeTransferCreatingTaskRequestBody,
+  ): Promise<ProcessPayoutStripeTransferCreatingTaskResponse>;
 }
 
-export abstract class ListPayoutTasksHandlerInterface implements RemoteCallHandlerInterface {
-  public descriptor = LIST_PAYOUT_TASKS;
+export abstract class ListPayoutStripeTransferCreatingTasksHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS;
   public abstract handle(
     loggingPrefix: string,
-    body: ListPayoutTasksRequestBody,
-  ): Promise<ListPayoutTasksResponse>;
+    body: ListPayoutStripeTransferCreatingTasksRequestBody,
+  ): Promise<ListPayoutStripeTransferCreatingTasksResponse>;
 }
