@@ -28,8 +28,8 @@ export let PAYMENT_PROFILE_STATE: EnumDescriptor<PaymentProfileState> = {
 export interface PaymentProfile {
   primaryPaymentMethod?: PaymentMethodMasked,
   state?: PaymentProfileState,
-  creditBalanceAmount?: number,
-  creditBalanceCurrency?: string,
+  balanceAmount?: number,
+  balanceCurrency?: string,
   canClaimInitCredit?: boolean,
 }
 
@@ -44,11 +44,11 @@ export let PAYMENT_PROFILE: MessageDescriptor<PaymentProfile> = {
     index: 2,
     enumType: PAYMENT_PROFILE_STATE,
   }, {
-    name: 'creditBalanceAmount',
+    name: 'balanceAmount',
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'creditBalanceCurrency',
+    name: 'balanceCurrency',
     index: 4,
     primitiveType: PrimitiveType.STRING,
   }, {
