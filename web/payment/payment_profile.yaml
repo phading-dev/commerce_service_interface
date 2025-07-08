@@ -1,13 +1,4 @@
 - kind: Enum
-  name: InitCreditGrantingState
-  values:
-    - name: NOT_GRANTED
-      value: 1
-    - name: GRANTING
-      value: 2
-    - name: GRANTED
-      value: 3
-- kind: Enum
   name: PaymentProfileState
   values:
     - name: HEALTHY
@@ -34,6 +25,6 @@
     - name: creditBalanceCurrency
       type: string
       index: 4
-    - name: initCreditGrantingState
-      type: InitCreditGrantingState
+    - name: canClaimInitCredit
+      type: boolean
       index: 5
