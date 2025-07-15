@@ -3,9 +3,7 @@ import { PaymentMethodMasked, PAYMENT_METHOD_MASKED } from './payment_method_mas
 
 export enum PaymentProfileState {
   HEALTHY = 1,
-  WITH_FAILED_PAYMENTS = 2,
-  WITH_PROCESSING_PAYMENTS = 3,
-  SUSPENDED = 4,
+  SUSPENDED = 2,
 }
 
 export let PAYMENT_PROFILE_STATE: EnumDescriptor<PaymentProfileState> = {
@@ -14,20 +12,35 @@ export let PAYMENT_PROFILE_STATE: EnumDescriptor<PaymentProfileState> = {
     name: 'HEALTHY',
     value: 1,
   }, {
+    name: 'SUSPENDED',
+    value: 2,
+  }]
+}
+
+export enum PaymentsOverallState {
+  ALL_PAID = 1,
+  WITH_FAILED_PAYMENTS = 2,
+  WITH_PROCESSING_PAYMENTS = 3,
+}
+
+export let PAYMENTS_OVERALL_STATE: EnumDescriptor<PaymentsOverallState> = {
+  name: 'PaymentsOverallState',
+  values: [{
+    name: 'ALL_PAID',
+    value: 1,
+  }, {
     name: 'WITH_FAILED_PAYMENTS',
     value: 2,
   }, {
     name: 'WITH_PROCESSING_PAYMENTS',
     value: 3,
-  }, {
-    name: 'SUSPENDED',
-    value: 4,
   }]
 }
 
 export interface PaymentProfile {
   primaryPaymentMethod?: PaymentMethodMasked,
-  state?: PaymentProfileState,
+  profileState?: PaymentProfileState,
+  paymentsOverallState?: PaymentsOverallState,
   balanceAmount?: number,
   balanceCurrency?: string,
   canClaimInitCredit?: boolean,
@@ -40,20 +53,24 @@ export let PAYMENT_PROFILE: MessageDescriptor<PaymentProfile> = {
     index: 1,
     messageType: PAYMENT_METHOD_MASKED,
   }, {
-    name: 'state',
+    name: 'profileState',
     index: 2,
     enumType: PAYMENT_PROFILE_STATE,
   }, {
-    name: 'balanceAmount',
+    name: 'paymentsOverallState',
     index: 3,
+    enumType: PAYMENTS_OVERALL_STATE,
+  }, {
+    name: 'balanceAmount',
+    index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'balanceCurrency',
-    index: 4,
+    index: 5,
     primitiveType: PrimitiveType.STRING,
   }, {
     name: 'canClaimInitCredit',
-    index: 5,
+    index: 6,
     primitiveType: PrimitiveType.BOOLEAN,
   }],
 };

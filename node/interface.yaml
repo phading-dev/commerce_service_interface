@@ -250,6 +250,40 @@
       type: ProcessPayoutStripeTransferCreatingTaskRequestBody
       isArray: true
       index: 1
+- kind: Message
+  name: ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody
+  fields:
+    - name: statementId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessPayoutStripeTransferDisabledNotifyingTaskResponse
+- kind: Message
+  name: ListPayoutStripeTransferDisabledNotifyingTasksRequestBody
+- kind: Message
+  name: ListPayoutStripeTransferDisabledNotifyingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody
+      isArray: true
+      index: 1
+- kind: Message
+  name: ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody
+  fields:
+    - name: statementId
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessPayoutStripeTransferSuccessNotifyingTaskResponse
+- kind: Message
+  name: ListPayoutStripeTransferSuccessNotifyingTasksRequestBody
+- kind: Message
+  name: ListPayoutStripeTransferSuccessNotifyingTasksResponse
+  fields:
+    - name: tasks
+      type: ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody
+      isArray: true
+      index: 1
 - kind: RemoteCallsGroup
   name: CommerceNodeRemoteCalls
   service: CommerceNodeService
@@ -355,5 +389,21 @@
       path: /ListPayoutStripeTransferCreatingTasks
       body: ListPayoutStripeTransferCreatingTasksRequestBody
       response: ListPayoutStripeTransferCreatingTasksResponse
+    - name: ProcessPayoutStripeTransferDisabledNotifyingTask
+      path: /ProcessPayoutStripeTransferDisabledNotifyingTask
+      body: ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody
+      response: ProcessPayoutStripeTransferDisabledNotifyingTaskResponse
+    - name: ListPayoutStripeTransferDisabledNotifyingTasks
+      path: /ListPayoutStripeTransferDisabledNotifyingTasks
+      body: ListPayoutStripeTransferDisabledNotifyingTasksRequestBody
+      response: ListPayoutStripeTransferDisabledNotifyingTasksResponse
+    - name: ProcessPayoutStripeTransferSuccessNotifyingTask
+      path: /ProcessPayoutStripeTransferSuccessNotifyingTask
+      body: ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody
+      response: ProcessPayoutStripeTransferSuccessNotifyingTaskResponse
+    - name: ListPayoutStripeTransferSuccessNotifyingTasks
+      path: /ListPayoutStripeTransferSuccessNotifyingTasks
+      body: ListPayoutStripeTransferSuccessNotifyingTasksRequestBody
+      response: ListPayoutStripeTransferSuccessNotifyingTasksResponse
   outputClient: ./node/client
   outputHandler: ./node/handler

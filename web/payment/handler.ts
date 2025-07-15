@@ -1,4 +1,4 @@
-import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, RetryFailedPaymentsRequsetBody, RETRY_FAILED_PAYMENTS, RetryFailedPaymentsResponse, GetPaymentProfileInfoRequestBody, GET_PAYMENT_PROFILE_INFO, GetPaymentProfileInfoResponse, ListPaymentsRequestBody, LIST_PAYMENTS, ListPaymentsResponse } from './interface';
+import { CreateStripeSessionToAddPaymentMethodRequestBody, CREATE_STRIPE_SESSION_TO_ADD_PAYMENT_METHOD, CreateStripeSessionToAddPaymentMethodResponse, ReplacePrimaryPaymentMethodRequestBody, REPLACE_PRIMARY_PAYMENT_METHOD, ReplacePrimaryPaymentMethodResponse, RetryFailedPaymentsRequsetBody, RETRY_FAILED_PAYMENTS, RetryFailedPaymentsResponse, ReactivatePaymentProfileRequestBody, REACTIVATE_PAYMENT_PROFILE, ReactivatePaymentProfileResponse, GetPaymentProfileInfoRequestBody, GET_PAYMENT_PROFILE_INFO, GetPaymentProfileInfoResponse, ListPaymentsRequestBody, LIST_PAYMENTS, ListPaymentsResponse } from './interface';
 import { RemoteCallHandlerInterface } from '@selfage/service_descriptor/remote_call_handler_interface';
 
 export abstract class CreateStripeSessionToAddPaymentMethodHandlerInterface implements RemoteCallHandlerInterface {
@@ -26,6 +26,15 @@ export abstract class RetryFailedPaymentsHandlerInterface implements RemoteCallH
     body: RetryFailedPaymentsRequsetBody,
     authStr: string,
   ): Promise<RetryFailedPaymentsResponse>;
+}
+
+export abstract class ReactivatePaymentProfileHandlerInterface implements RemoteCallHandlerInterface {
+  public descriptor = REACTIVATE_PAYMENT_PROFILE;
+  public abstract handle(
+    loggingPrefix: string,
+    body: ReactivatePaymentProfileRequestBody,
+    authStr: string,
+  ): Promise<ReactivatePaymentProfileResponse>;
 }
 
 export abstract class GetPaymentProfileInfoHandlerInterface implements RemoteCallHandlerInterface {

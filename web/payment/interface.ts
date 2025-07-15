@@ -62,6 +62,27 @@ export let RETRY_FAILED_PAYMENTS_RESPONSE: MessageDescriptor<RetryFailedPayments
   fields: [],
 };
 
+export interface ReactivatePaymentProfileRequestBody {
+  accountId?: string,
+}
+
+export let REACTIVATE_PAYMENT_PROFILE_REQUEST_BODY: MessageDescriptor<ReactivatePaymentProfileRequestBody> = {
+  name: 'ReactivatePaymentProfileRequestBody',
+  fields: [{
+    name: 'accountId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ReactivatePaymentProfileResponse {
+}
+
+export let REACTIVATE_PAYMENT_PROFILE_RESPONSE: MessageDescriptor<ReactivatePaymentProfileResponse> = {
+  name: 'ReactivatePaymentProfileResponse',
+  fields: [],
+};
+
 export interface GetPaymentProfileInfoRequestBody {
 }
 
@@ -156,6 +177,19 @@ export let RETRY_FAILED_PAYMENTS: RemoteCallDescriptor = {
   authKey: "a",
   response: {
     messageType: RETRY_FAILED_PAYMENTS_RESPONSE,
+  },
+}
+
+export let REACTIVATE_PAYMENT_PROFILE: RemoteCallDescriptor = {
+  name: "ReactivatePaymentProfile",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/pm/ReactivatePaymentProfile",
+  body: {
+    messageType: REACTIVATE_PAYMENT_PROFILE_REQUEST_BODY,
+  },
+  authKey: "a",
+  response: {
+    messageType: REACTIVATE_PAYMENT_PROFILE_RESPONSE,
   },
 }
 

@@ -19,6 +19,14 @@
 - kind: Message
   name: RetryFailedPaymentsResponse
 - kind: Message
+  name: ReactivatePaymentProfileRequestBody
+  fields:
+    - name: accountId
+      type: string
+      index: 1
+- kind: Message
+  name: ReactivatePaymentProfileResponse
+- kind: Message
   name: GetPaymentProfileInfoRequestBody
 - kind: Message
   name: GetPaymentProfileInfoResponse
@@ -68,6 +76,11 @@
       body: RetryFailedPaymentsRequsetBody
       authKey: a
       response: RetryFailedPaymentsResponse
+    - name: ReactivatePaymentProfile
+      path: /ReactivatePaymentProfile
+      body: ReactivatePaymentProfileRequestBody
+      authKey: a
+      response: ReactivatePaymentProfileResponse
     - name: GetPaymentProfileInfo
       path: /GetPaymentProfileInfo
       body: GetPaymentProfileInfoRequestBody

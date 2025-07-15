@@ -608,6 +608,92 @@ export let LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_RESPONSE: MessageDescripto
   }],
 };
 
+export interface ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody {
+  statementId?: string,
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody> = {
+  name: 'ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody',
+  fields: [{
+    name: 'statementId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessPayoutStripeTransferDisabledNotifyingTaskResponse {
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessPayoutStripeTransferDisabledNotifyingTaskResponse> = {
+  name: 'ProcessPayoutStripeTransferDisabledNotifyingTaskResponse',
+  fields: [],
+};
+
+export interface ListPayoutStripeTransferDisabledNotifyingTasksRequestBody {
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListPayoutStripeTransferDisabledNotifyingTasksRequestBody> = {
+  name: 'ListPayoutStripeTransferDisabledNotifyingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListPayoutStripeTransferDisabledNotifyingTasksResponse {
+  tasks?: Array<ProcessPayoutStripeTransferDisabledNotifyingTaskRequestBody>,
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListPayoutStripeTransferDisabledNotifyingTasksResponse> = {
+  name: 'ListPayoutStripeTransferDisabledNotifyingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
+export interface ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody {
+  statementId?: string,
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK_REQUEST_BODY: MessageDescriptor<ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody> = {
+  name: 'ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody',
+  fields: [{
+    name: 'statementId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessPayoutStripeTransferSuccessNotifyingTaskResponse {
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK_RESPONSE: MessageDescriptor<ProcessPayoutStripeTransferSuccessNotifyingTaskResponse> = {
+  name: 'ProcessPayoutStripeTransferSuccessNotifyingTaskResponse',
+  fields: [],
+};
+
+export interface ListPayoutStripeTransferSuccessNotifyingTasksRequestBody {
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASKS_REQUEST_BODY: MessageDescriptor<ListPayoutStripeTransferSuccessNotifyingTasksRequestBody> = {
+  name: 'ListPayoutStripeTransferSuccessNotifyingTasksRequestBody',
+  fields: [],
+};
+
+export interface ListPayoutStripeTransferSuccessNotifyingTasksResponse {
+  tasks?: Array<ProcessPayoutStripeTransferSuccessNotifyingTaskRequestBody>,
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASKS_RESPONSE: MessageDescriptor<ListPayoutStripeTransferSuccessNotifyingTasksResponse> = {
+  name: 'ListPayoutStripeTransferSuccessNotifyingTasksResponse',
+  fields: [{
+    name: 'tasks',
+    index: 1,
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK_REQUEST_BODY,
+    isArray: true,
+  }],
+};
+
 export let GENERATE_TRANSACTION_STATEMENT: RemoteCallDescriptor = {
   name: "GenerateTransactionStatement",
   service: COMMERCE_NODE_SERVICE,
@@ -905,5 +991,53 @@ export let LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS: RemoteCallDescriptor = {
   },
   response: {
     messageType: LIST_PAYOUT_STRIPE_TRANSFER_CREATING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPayoutStripeTransferDisabledNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessPayoutStripeTransferDisabledNotifyingTask",
+  body: {
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASKS: RemoteCallDescriptor = {
+  name: "ListPayoutStripeTransferDisabledNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListPayoutStripeTransferDisabledNotifyingTasks",
+  body: {
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_DISABLED_NOTIFYING_TASKS_RESPONSE,
+  },
+}
+
+export let PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK: RemoteCallDescriptor = {
+  name: "ProcessPayoutStripeTransferSuccessNotifyingTask",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ProcessPayoutStripeTransferSuccessNotifyingTask",
+  body: {
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASK_RESPONSE,
+  },
+}
+
+export let LIST_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASKS: RemoteCallDescriptor = {
+  name: "ListPayoutStripeTransferSuccessNotifyingTasks",
+  service: COMMERCE_NODE_SERVICE,
+  path: "/ListPayoutStripeTransferSuccessNotifyingTasks",
+  body: {
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASKS_REQUEST_BODY,
+  },
+  response: {
+    messageType: LIST_PAYOUT_STRIPE_TRANSFER_SUCCESS_NOTIFYING_TASKS_RESPONSE,
   },
 }
