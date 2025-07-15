@@ -1,4 +1,4 @@
-import { Empty, GRANT_INIT_PAYMENT_CREDIT, MARK_PAYMENT_DONE, MARK_PAYMENT_FAILED } from './interface';
+import { Empty, GRANT_INIT_PAYMENT_CREDIT, MARK_PAYMENT_DONE, MARK_PAYMENT_FAILED, MARK_PAYOUT_ENABLED } from './interface';
 import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
 export function newGrantInitPaymentCreditRequest(
@@ -24,6 +24,15 @@ export function newMarkPaymentFailedRequest(
 ): ClientRequestInterface<Empty> {
   return {
     descriptor: MARK_PAYMENT_FAILED,
+    body,
+  };
+}
+
+export function newMarkPayoutEnabledRequest(
+  body: Blob,
+): ClientRequestInterface<Empty> {
+  return {
+    descriptor: MARK_PAYOUT_ENABLED,
     body,
   };
 }

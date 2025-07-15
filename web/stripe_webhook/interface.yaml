@@ -21,5 +21,10 @@
       body: bytes
       authKey: stripe-signature
       response: Empty
+    - name: MarkPayoutEnabled
+      path: /MarkPayoutEnabled
+      body: bytes
+      authKey: stripe-signature
+      response: Empty
   outputClient: ./web/stripe_webhook/client
   outputHandler: ./web/stripe_webhook/handler

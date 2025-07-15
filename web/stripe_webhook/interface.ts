@@ -48,3 +48,16 @@ export let MARK_PAYMENT_FAILED: RemoteCallDescriptor = {
     messageType: EMPTY,
   },
 }
+
+export let MARK_PAYOUT_ENABLED: RemoteCallDescriptor = {
+  name: "MarkPayoutEnabled",
+  service: COMMERCE_WEB_SERVICE,
+  path: "/sp/MarkPayoutEnabled",
+  body: {
+    primitiveType: PrimitveTypeForBody.BYTES,
+  },
+  authKey: "stripe-signature",
+  response: {
+    messageType: EMPTY,
+  },
+}
