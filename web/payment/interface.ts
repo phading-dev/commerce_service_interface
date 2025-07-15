@@ -63,16 +63,11 @@ export let RETRY_FAILED_PAYMENTS_RESPONSE: MessageDescriptor<RetryFailedPayments
 };
 
 export interface ReactivatePaymentProfileRequestBody {
-  accountId?: string,
 }
 
 export let REACTIVATE_PAYMENT_PROFILE_REQUEST_BODY: MessageDescriptor<ReactivatePaymentProfileRequestBody> = {
   name: 'ReactivatePaymentProfileRequestBody',
-  fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
+  fields: [],
 };
 
 export interface ReactivatePaymentProfileResponse {

@@ -20,10 +20,6 @@
   name: RetryFailedPaymentsResponse
 - kind: Message
   name: ReactivatePaymentProfileRequestBody
-  fields:
-    - name: accountId
-      type: string
-      index: 1
 - kind: Message
   name: ReactivatePaymentProfileResponse
 - kind: Message
