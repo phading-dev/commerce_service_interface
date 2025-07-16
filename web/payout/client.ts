@@ -1,4 +1,4 @@
-import { GetPayoutProfileInfoRequestBody, GetPayoutProfileInfoResponse, GET_PAYOUT_PROFILE_INFO, SetConnectedAccountOnboardedRequestBody, SetConnectedAccountOnboardedResponse, SET_CONNECTED_ACCOUNT_ONBOARDED, ListPayoutsRequestBody, ListPayoutsResponse, LIST_PAYOUTS } from './interface';
+import { GetPayoutProfileInfoRequestBody, GetPayoutProfileInfoResponse, GET_PAYOUT_PROFILE_INFO, ListPayoutsRequestBody, ListPayoutsResponse, LIST_PAYOUTS } from './interface';
 import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
 export function newGetPayoutProfileInfoRequest(
@@ -6,15 +6,6 @@ export function newGetPayoutProfileInfoRequest(
 ): ClientRequestInterface<GetPayoutProfileInfoResponse> {
   return {
     descriptor: GET_PAYOUT_PROFILE_INFO,
-    body,
-  };
-}
-
-export function newSetConnectedAccountOnboardedRequest(
-  body: SetConnectedAccountOnboardedRequestBody,
-): ClientRequestInterface<SetConnectedAccountOnboardedResponse> {
-  return {
-    descriptor: SET_CONNECTED_ACCOUNT_ONBOARDED,
     body,
   };
 }

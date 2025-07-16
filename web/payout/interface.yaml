@@ -20,14 +20,6 @@
       type: string
       index: 3
 - kind: Message
-  name: SetConnectedAccountOnboardedRequestBody
-  fields:
-    - name: accountId
-      type: string
-      index: 1
-- kind: Message
-  name: SetConnectedAccountOnboardedResponse
-- kind: Message
   name: ListPayoutsRequestBody
   fields:
     - name: startMonth # ISO string. Inclusive.
@@ -55,11 +47,6 @@
       body: GetPayoutProfileInfoRequestBody
       authKey: a
       response: GetPayoutProfileInfoResponse
-    - name: SetConnectedAccountOnboarded
-      path: /SetConnectedAccountOnboarded
-      body: SetConnectedAccountOnboardedRequestBody
-      authKey: a
-      response: SetConnectedAccountOnboardedResponse
     - name: ListPayouts
       path: /ListPayouts
       body: ListPayoutsRequestBody

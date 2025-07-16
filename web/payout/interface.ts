@@ -50,27 +50,6 @@ export let GET_PAYOUT_PROFILE_INFO_RESPONSE: MessageDescriptor<GetPayoutProfileI
   }],
 };
 
-export interface SetConnectedAccountOnboardedRequestBody {
-  accountId?: string,
-}
-
-export let SET_CONNECTED_ACCOUNT_ONBOARDED_REQUEST_BODY: MessageDescriptor<SetConnectedAccountOnboardedRequestBody> = {
-  name: 'SetConnectedAccountOnboardedRequestBody',
-  fields: [{
-    name: 'accountId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
-export interface SetConnectedAccountOnboardedResponse {
-}
-
-export let SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE: MessageDescriptor<SetConnectedAccountOnboardedResponse> = {
-  name: 'SetConnectedAccountOnboardedResponse',
-  fields: [],
-};
-
 export interface ListPayoutsRequestBody {
   startMonth?: string,
   endMonth?: string,
@@ -113,19 +92,6 @@ export let GET_PAYOUT_PROFILE_INFO: RemoteCallDescriptor = {
   authKey: "a",
   response: {
     messageType: GET_PAYOUT_PROFILE_INFO_RESPONSE,
-  },
-}
-
-export let SET_CONNECTED_ACCOUNT_ONBOARDED: RemoteCallDescriptor = {
-  name: "SetConnectedAccountOnboarded",
-  service: COMMERCE_WEB_SERVICE,
-  path: "/po/SetConnectedAccountOnboarded",
-  body: {
-    messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_REQUEST_BODY,
-  },
-  authKey: "a",
-  response: {
-    messageType: SET_CONNECTED_ACCOUNT_ONBOARDED_RESPONSE,
   },
 }
 
